@@ -1,0 +1,1 @@
+model,dataset,group_type,group_rule,num_samples,miou,dice,boundary_f1,recall,script,weight_path,date,verified

@@ -1,0 +1,1 @@
+model,dataset,input_size,backbone,params_m,flops_g,model_size_mb,fps,batch_size,device,script,weight_path,date,verified
