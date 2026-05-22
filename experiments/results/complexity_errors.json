@@ -1,0 +1,14 @@
+[
+  {
+    "model": "PP-LiteSeg-T",
+    "error": "实例化失败: PP-LiteSeg-T: model_dsmo_rs50_ppliteseg.py 的 backbone_out_chs 硬编码为 [512,1024,2048]，仅支持 ResNet-50。PP-LiteSeg-T (ResNet-18) 需要单独的模型文件或修改 backbone_out_chs，但约束不允许修改模型结构。需人工确认 PP-LiteSeg-T 的正确代码入口。"
+  },
+  {
+    "model": "BiSeNetV2-L",
+    "error": "服务器上未找到 BiSeNetV2 代码文件，需从外部引入"
+  },
+  {
+    "model": "Sub-region UNet",
+    "error": "Forward 失败 (200x200): Sizes of tensors must match except in dimension 1. Expected size 192 but got size 200 for tensor number 1 in the list."
+  }
+]

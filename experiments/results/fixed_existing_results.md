@@ -1,6 +1,8 @@
 # 固定实验结果记录
 
 > 本文件由当前项目 `fixed_existing_results.md` 整理而来，实验数值未新增；仅按第四版论文命名规则统一为 A2MS-DefectNet、Base-S、Base-B。新结果写入论文前必须先进入 `new_results_pending.md` 并完成核验。
+>
+> **状态更新（2026-05-22）**：11 个新训练结果已写入 `new_results_pending.md`，均标注 verified=false。待人工核验后同步到本文件。详见 `paper_result_update_summary.md`。
 
 # 固定已有实验结果
 

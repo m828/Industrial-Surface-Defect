@@ -1,0 +1,37 @@
+[
+  {
+    "model": "Base-S",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  },
+  {
+    "model": "A2MS-DefectNet-S",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  },
+  {
+    "model": "PP-LiteSeg-B",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  },
+  {
+    "model": "DDRNet23slim",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  },
+  {
+    "model": "BiSeNetV2-L",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  },
+  {
+    "model": "Sub-region UNet",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  },
+  {
+    "model": "PIDNet-S",
+    "dataset": "Leather",
+    "error": "缺少权重，未评估"
+  }
+]
