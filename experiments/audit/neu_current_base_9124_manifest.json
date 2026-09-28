@@ -1,0 +1,35 @@
+{
+ "purpose": "verify current Base-B 240k endpoint == reported 0.912408 on locked unified-840; verify new/ vs subregion model identity",
+ "date": "2026-09-28",
+ "identity_check": {
+  "file_new": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50.py",
+  "sha256_new": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+  "file_subregion": "/workspace/Industrial Surface Defect/subregion unet/model_dsmo_rs50.py",
+  "sha256_subregion": "e3fdf72a1848fb6f796b5761866bba71cbc27409d71816fafbb66e6838347ed1",
+  "state_dict_keys_equal": true,
+  "shape_mismatches": [],
+  "param_count_new": 29370629,
+  "param_count_subregion": 29370629,
+  "same_weight_forward_max_abs_diff": 0.0,
+  "conclusion": "IDENTICAL compute graph (diff only in dead-store lines/comments)"
+ },
+ "endpoint_rerun": {
+  "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/checkpoints/base_b_s1337_long240k_codex1_iter240000.pkl",
+  "checkpoint_sha256": "46c5b83c73130ade56bffacb52f16df79f3975a9c1b192925d767324c571013f",
+  "checkpoint_epoch_field": 240000,
+  "model_file_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+  "test_list": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+  "test_list_sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06",
+  "test_samples": 840,
+  "protocol": "batch1, TestRescale(200,200)+ToTensor, no Normalize, pred=outputs[0], 4 classes incl background",
+  "mIoU": 0.9124083744680408,
+  "class_IoU": {
+   "background": 0.9862010649641224,
+   "crazing": 0.841464114387049,
+   "inclusion": 0.9348626150989389,
+   "patches": 0.8871057034220532
+  },
+  "reference_value": 0.912408,
+  "bit_consistent_with_frozen_endpoint": true
+ }
+}

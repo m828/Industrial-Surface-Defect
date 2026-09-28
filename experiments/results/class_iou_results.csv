@@ -1,121 +1,136 @@
 model,dataset,class_id,class_name,iou,dice,recall,precision,script,weight_path,date,verified
-Base-B,Leather,0,background,0.9915,0.9957,0.9946,0.9969,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,1,open_wound,0.7467,0.8550,0.8768,0.8343,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,2,scratch,0.6583,0.7940,0.7699,0.8195,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,3,brand_mark,0.8839,0.9384,0.9477,0.9292,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,4,hole,0.9872,0.9936,0.9973,0.9899,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,5,skin_disease,0.9572,0.9781,0.9830,0.9733,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,6,rotten_surface,0.8728,0.9321,0.9598,0.9059,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,7,wart,0.9472,0.9729,0.9888,0.9575,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-Base-B,Leather,-1,mIoU,0.8806,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,0,background,0.9902,0.9951,0.9933,0.9969,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,1,open_wound,0.7326,0.8457,0.8784,0.8153,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,2,scratch,0.5445,0.7051,0.6706,0.7434,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,3,brand_mark,0.8841,0.9385,0.9475,0.9297,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,4,hole,0.9884,0.9942,0.9982,0.9902,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,5,skin_disease,0.9660,0.9827,0.9893,0.9762,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,6,rotten_surface,0.8524,0.9203,0.9777,0.8694,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,7,wart,0.9276,0.9625,0.9905,0.9359,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-A2MS-DefectNet-B,Leather,-1,mIoU,0.8607,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-18,no
-Base-S,Leather,0,background,0.9898,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,1,open_wound,0.6585,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,2,scratch,0.5975,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,3,brand_mark,0.8689,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,4,hole,0.9844,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,5,skin_disease,0.9508,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,6,rotten_surface,0.7441,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,7,wart,0.9233,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-Base-S,Leather,-1,mIoU,0.8397,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,0,background,0.9909,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,1,open_wound,0.6483,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,2,scratch,0.6280,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,3,brand_mark,0.8787,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,4,hole,0.9874,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,5,skin_disease,0.9592,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,6,rotten_surface,0.7535,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,7,wart,0.9315,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,Leather,-1,mIoU,0.8472,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-22,no
-PP-LiteSeg-B,Leather,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,1,open_wound,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,2,scratch,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,3,brand_mark,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,4,hole,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,5,skin_disease,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,6,rotten_surface,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,7,wart,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PP-LiteSeg-B,Leather,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-STDC1-Seg,Leather,0,background,0.9925,0.9963,0.9969,0.9956,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,1,open_wound,0.7469,0.8551,0.8274,0.8847,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,2,scratch,0.6300,0.7730,0.7164,0.8393,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,3,brand_mark,0.8843,0.9386,0.9304,0.9470,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,4,hole,0.9873,0.9936,0.9934,0.9939,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,5,skin_disease,0.9525,0.9757,0.9681,0.9835,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,6,rotten_surface,0.8955,0.9449,0.9382,0.9516,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,7,wart,0.9701,0.9848,0.9843,0.9854,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-STDC1-Seg,Leather,-1,mIoU,0.8824,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-18,no
-DDRNet23slim,Leather,0,background,0.9889,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,1,open_wound,0.6814,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,2,scratch,0.5286,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,3,brand_mark,0.8495,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,4,hole,0.9847,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,5,skin_disease,0.9501,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,6,rotten_surface,0.7599,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,7,wart,0.9104,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-DDRNet23slim,Leather,-1,mIoU,0.8317,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_pige_ddr23s.pkl,2026-05-22,no
-BiSeNetV2-L,Leather,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,1,open_wound,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,2,scratch,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,3,brand_mark,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,4,hole,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,5,skin_disease,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,6,rotten_surface,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,7,wart,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-BiSeNetV2-L,Leather,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,1,open_wound,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,2,scratch,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,3,brand_mark,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,4,hole,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,5,skin_disease,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,6,rotten_surface,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,7,wart,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-Sub-region UNet,Leather,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-18,no
-PIDNet-S,Leather,0,background,0.9889,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,1,open_wound,0.6341,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,2,scratch,0.5665,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,3,brand_mark,0.8360,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,4,hole,0.9863,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,5,skin_disease,0.9511,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,6,rotten_surface,0.8476,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,7,wart,0.9143,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,Leather,-1,mIoU,0.8406,N/A,N/A,N/A,training_log,new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-22,no
-PIDNet-S,NEU-Seg,0,background,0.9786,N/A,N/A,N/A,tools/evaluate_pidnet_neu.py,/workspace/Industrial Surface Defect/new (copy)/model_savePaths/pid_neu_0119_neu_pid.pkl,2026-05-18,no
-PIDNet-S,NEU-Seg,1,inclusion,0.7768,N/A,N/A,N/A,tools/evaluate_pidnet_neu.py,/workspace/Industrial Surface Defect/new (copy)/model_savePaths/pid_neu_0119_neu_pid.pkl,2026-05-18,no
-PIDNet-S,NEU-Seg,2,patch,0.9111,N/A,N/A,N/A,tools/evaluate_pidnet_neu.py,/workspace/Industrial Surface Defect/new (copy)/model_savePaths/pid_neu_0119_neu_pid.pkl,2026-05-18,no
-PIDNet-S,NEU-Seg,3,scratch,0.8004,N/A,N/A,N/A,tools/evaluate_pidnet_neu.py,/workspace/Industrial Surface Defect/new (copy)/model_savePaths/pid_neu_0119_neu_pid.pkl,2026-05-18,no
-PIDNet-S,NEU-Seg,-1,mIoU,0.8667,N/A,N/A,N/A,tools/evaluate_pidnet_neu.py,/workspace/Industrial Surface Defect/new (copy)/model_savePaths/pid_neu_0119_neu_pid.pkl,2026-05-18,no
-Base-B,NEU-Seg,0,background,0.9846,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0110_neu_120000.pkl,2026-05-22,no
-Base-B,NEU-Seg,1,crazing,0.8330,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0110_neu_120000.pkl,2026-05-22,no
-Base-B,NEU-Seg,2,inclusion,0.9268,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0110_neu_120000.pkl,2026-05-22,no
-Base-B,NEU-Seg,3,patches,0.8744,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0110_neu_120000.pkl,2026-05-22,no
-Base-B,NEU-Seg,-1,mIoU,0.9047,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0110_neu_120000.pkl,2026-05-22,no
-A2MS-DefectNet-B,NEU-Seg,0,background,0.9505,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,2026-05-22,no
-A2MS-DefectNet-B,NEU-Seg,1,crazing,0.5391,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,2026-05-22,no
-A2MS-DefectNet-B,NEU-Seg,2,inclusion,0.8302,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,2026-05-22,no
-A2MS-DefectNet-B,NEU-Seg,3,patches,0.5324,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,2026-05-22,no
-A2MS-DefectNet-B,NEU-Seg,-1,mIoU,0.7131,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,2026-05-22,no
-DDRNet23slim,NEU-Seg,0,background,0.9819,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_0119_neu_ddr_nolabels_23.pkl,2026-05-22,no
-DDRNet23slim,NEU-Seg,1,crazing,0.8055,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_0119_neu_ddr_nolabels_23.pkl,2026-05-22,no
-DDRNet23slim,NEU-Seg,2,inclusion,0.9255,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_0119_neu_ddr_nolabels_23.pkl,2026-05-22,no
-DDRNet23slim,NEU-Seg,3,patches,0.8245,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_0119_neu_ddr_nolabels_23.pkl,2026-05-22,no
-DDRNet23slim,NEU-Seg,-1,mIoU,0.8843,N/A,N/A,N/A,training_log,new/model_savePath/ddr_pascal_0119_neu_ddr_nolabels_23.pkl,2026-05-22,no
-Base-S,NEU-Seg,0,background,0.9819,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_base_s.pkl,2026-05-22,no
-Base-S,NEU-Seg,1,crazing,0.8048,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_base_s.pkl,2026-05-22,no
-Base-S,NEU-Seg,2,inclusion,0.9256,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_base_s.pkl,2026-05-22,no
-Base-S,NEU-Seg,3,patches,0.8225,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_base_s.pkl,2026-05-22,no
-Base-S,NEU-Seg,-1,mIoU,0.8837,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_base_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,NEU-Seg,0,background,0.9819,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,NEU-Seg,1,crazing,0.8059,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,NEU-Seg,2,inclusion,0.9257,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,NEU-Seg,3,patches,0.8297,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_s.pkl,2026-05-22,no
-A2MS-DefectNet-S,NEU-Seg,-1,mIoU,0.8858,N/A,N/A,N/A,training_log,new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_s.pkl,2026-05-22,no
+Base-B (0126),Leather,0,background,0.9915,0.9957,0.9946,0.9969,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,1,open_wound,0.7467,0.8550,0.8768,0.8343,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,2,scratch,0.6583,0.7940,0.7699,0.8195,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,3,brand_mark,0.8839,0.9384,0.9477,0.9292,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,4,hole,0.9872,0.9936,0.9973,0.9899,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,5,skin_disease,0.9572,0.9781,0.9830,0.9733,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,6,rotten_surface,0.8728,0.9321,0.9598,0.9059,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,7,wart,0.9472,0.9729,0.9888,0.9575,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0126),Leather,-1,mIoU,0.8806,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0126.pkl,2026-05-26,no
+Base-B (0127),Leather,0,background,0.9933,0.9966,0.9957,0.9975,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,1,open_wound,0.7648,0.8667,0.8980,0.8375,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,2,scratch,0.7005,0.8239,0.8084,0.8399,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,3,brand_mark,0.8825,0.9376,0.9542,0.9215,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,4,hole,0.9907,0.9953,0.9976,0.9930,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,5,skin_disease,0.9712,0.9854,0.9903,0.9805,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,6,rotten_surface,0.9159,0.9561,0.9640,0.9484,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,7,wart,0.9741,0.9869,0.9929,0.9809,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+Base-B (0127),Leather,-1,mIoU,0.8991,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,0,background,0.9902,0.9951,0.9933,0.9969,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,1,open_wound,0.7326,0.8457,0.8784,0.8153,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,2,scratch,0.5445,0.7051,0.6706,0.7434,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,3,brand_mark,0.8841,0.9385,0.9475,0.9297,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,4,hole,0.9884,0.9942,0.9982,0.9902,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,5,skin_disease,0.9660,0.9827,0.9893,0.9762,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,6,rotten_surface,0.8524,0.9203,0.9777,0.8694,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,7,wart,0.9276,0.9625,0.9905,0.9359,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+A2MS-DefectNet-B,Leather,-1,mIoU,0.8607,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl,2026-05-26,no
+Base-S,Leather,0,background,0.9907,0.9953,0.9952,0.9954,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,1,open_wound,0.6953,0.8203,0.8169,0.8236,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,2,scratch,0.5916,0.7434,0.7070,0.7837,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,3,brand_mark,0.8555,0.9221,0.9295,0.9148,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,4,hole,0.9865,0.9932,0.9946,0.9918,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,5,skin_disease,0.9429,0.9706,0.9740,0.9673,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,6,rotten_surface,0.8474,0.9174,0.9247,0.9102,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,7,wart,0.9590,0.9791,0.9772,0.9809,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+Base-S,Leather,-1,mIoU,0.8586,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_dsmor18_0228_80000.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,0,background,0.9918,0.9959,0.9946,0.9972,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,1,open_wound,0.7097,0.8302,0.8625,0.8002,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,2,scratch,0.6084,0.7565,0.8525,0.6799,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,3,brand_mark,0.8751,0.9334,0.9494,0.9179,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,4,hole,0.9884,0.9942,0.9957,0.9926,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,5,skin_disease,0.9499,0.9743,0.9821,0.9666,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,6,rotten_surface,0.8602,0.9249,0.9548,0.8967,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,7,wart,0.9685,0.9840,0.9889,0.9791,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+A2MS-DefectNet-S,Leather,-1,mIoU,0.8690,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/dsmonet_resnet_pascal_pige_a2ms_s.pkl,2026-05-26,no
+PP-LiteSeg-B,Leather,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,1,open_wound,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,2,scratch,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,3,brand_mark,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,4,hole,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,5,skin_disease,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,6,rotten_surface,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,7,wart,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,Leather,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+STDC1-Seg,Leather,0,background,0.9925,0.9963,0.9969,0.9956,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,1,open_wound,0.7469,0.8551,0.8274,0.8847,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,2,scratch,0.6300,0.7730,0.7164,0.8393,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,3,brand_mark,0.8843,0.9386,0.9304,0.9470,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,4,hole,0.9873,0.9936,0.9934,0.9939,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,5,skin_disease,0.9525,0.9757,0.9681,0.9835,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,6,rotten_surface,0.8955,0.9449,0.9382,0.9516,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,7,wart,0.9701,0.9848,0.9843,0.9854,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+STDC1-Seg,Leather,-1,mIoU,0.8824,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new (copy)/model_savePath/sdtdcnet_pige_stdc2_pige.pkl,2026-05-26,no
+BiSeNetV2-L,Leather,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,1,open_wound,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,2,scratch,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,3,brand_mark,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,4,hole,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,5,skin_disease,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,6,rotten_surface,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,7,wart,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,Leather,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,1,open_wound,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,2,scratch,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,3,brand_mark,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,4,hole,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,5,skin_disease,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,6,rotten_surface,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,7,wart,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Sub-region UNet,Leather,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PIDNet-S,Leather,0,background,0.9894,0.9947,0.9950,0.9944,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,1,open_wound,0.7100,0.8304,0.7971,0.8666,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,2,scratch,0.5971,0.7477,0.6838,0.8248,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,3,brand_mark,0.8643,0.9272,0.9145,0.9404,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,4,hole,0.9852,0.9925,0.9903,0.9948,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,5,skin_disease,0.9436,0.9710,0.9644,0.9776,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,6,rotten_surface,0.8817,0.9371,0.9331,0.9412,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,7,wart,0.9248,0.9609,0.9736,0.9486,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+PIDNet-S,Leather,-1,mIoU,0.8620,N/A,N/A,N/A,tools/evaluate_class_iou.py,/workspace/Industrial Surface Defect/new/model_savePath/fcn_pascal_pige_pid_s.pkl,2026-05-26,no
+Base-B,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-B,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-B,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-B,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-B,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-B,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-B,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-B,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-B,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-B,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-S,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-S,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-S,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-S,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+Base-S,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-S,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-S,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-S,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-S,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+A2MS-DefectNet-S,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+STDC1-Seg,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+STDC1-Seg,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+STDC1-Seg,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+STDC1-Seg,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+STDC1-Seg,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PP-LiteSeg-B,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+DDRNet23slim,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+DDRNet23slim,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+DDRNet23slim,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+DDRNet23slim,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+DDRNet23slim,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+BiSeNetV2-L,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PIDNet-S,NEU-Seg,0,background,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PIDNet-S,NEU-Seg,1,crazing,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PIDNet-S,NEU-Seg,2,inclusion,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PIDNet-S,NEU-Seg,3,patches,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no
+PIDNet-S,NEU-Seg,-1,mIoU,N/A,N/A,N/A,N/A,tools/evaluate_class_iou.py,N/A,2026-05-26,no

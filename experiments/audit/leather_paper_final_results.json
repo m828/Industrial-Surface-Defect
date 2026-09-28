@@ -1,0 +1,79 @@
+{
+ "doc": "Leather paper-final results after historical forensic audit (2026-09-28). Replaces provisional 60k fixed-endpoint values (0.872137/0.849932) which remain archived only.",
+ "dataset": "Leather/Pige: 2341 imgs 768x768; train1638/val235/test468; 7 defect classes + background = 8 eval classes",
+ "protocol": "historical training (RTX3090-era): constant LR 1e-4 Adam, batch 12, val235 monitoring every 1000 iters, val-best checkpoint saving; current audit: unified test468 evaluation of those checkpoints",
+ "base_b": {
+  "model": "Base-B",
+  "checkpoint": "/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl",
+  "checkpoint_sha256": "a96c78ea8ba95f792cb1619ad593722e2961801bf158fe330b45b6ef6bf9abe3",
+  "real_model_structure": "Base-B",
+  "model_source_file_for_eval": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50.py",
+  "model_file_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+  "checkpoint_actual_iter": 78000,
+  "checkpoint_filename_iter_mismatch_note": "filename denotes chain target; actual saved iter is the val-best intercept",
+  "historical_val235_best_miou": 0.8929607161637454,
+  "selection_set": "val235 (new (copy)/dataset/pige/val.txt)",
+  "selection_metric": "val mIoU (8 classes incl background), monitored every 1000 iters during historical training",
+  "test_set": "experiments/protocol/leather_valid_test_list.txt",
+  "test_set_sha256": "f9ac23b3b330759f096d71e8432fcbc5376a0766cc778be9adcce569218bf95c",
+  "test_count": 468,
+  "test_eval": "single final evaluation, TestRescale+ToTensor, no ImageNet Normalize, batch=1, pred=outputs[0], strict load",
+  "mIoU": 0.89912,
+  "class_IoU": {
+   "background": 0.99325,
+   "open_wound": 0.764801,
+   "scratch": 0.700504,
+   "brand_mark": 0.882528,
+   "hole": 0.990708,
+   "skin_disease": 0.971181,
+   "rotten_surface": 0.915895,
+   "wart": 0.974096
+  },
+  "eval_manifest": "repro_runs/leather_historical_audit/manifests/hist_0127_baseb_78k_reverify.json"
+ },
+ "a2ms_dsmonet_b": {
+  "model": "A2MS-DSMONet-B",
+  "checkpoint": "/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl",
+  "checkpoint_sha256": "336c5a4c2e5c1def67e34dc5061c5ed384829c8fdf318ce67b64f04e1a54f01f",
+  "real_model_structure": "A2MS-DSMONet-B (r50 struct, correct fwd)",
+  "model_source_file_for_eval": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+  "model_file_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+  "checkpoint_actual_iter": 130000,
+  "checkpoint_filename_iter_mismatch_note": "filename denotes chain target; actual saved iter is the val-best intercept",
+  "historical_val235_best_miou": 0.9090842792341525,
+  "selection_set": "val235 (new (copy)/dataset/pige/val.txt)",
+  "selection_metric": "val mIoU (8 classes incl background), monitored every 1000 iters during historical training",
+  "test_set": "experiments/protocol/leather_valid_test_list.txt",
+  "test_set_sha256": "f9ac23b3b330759f096d71e8432fcbc5376a0766cc778be9adcce569218bf95c",
+  "test_count": 468,
+  "test_eval": "single final evaluation, TestRescale+ToTensor, no ImageNet Normalize, batch=1, pred=outputs[0], strict load",
+  "mIoU": 0.909713,
+  "class_IoU": {
+   "background": 0.992442,
+   "open_wound": 0.79212,
+   "scratch": 0.747213,
+   "brand_mark": 0.89543,
+   "hole": 0.993314,
+   "skin_disease": 0.978667,
+   "rotten_surface": 0.941891,
+   "wart": 0.936625
+  },
+  "eval_manifest": "repro_runs/leather_historical_audit/manifests/hist_a2_160k_fixedfwd.json"
+ },
+ "delta_a2_minus_base_miou": 0.010593,
+ "per_class_delta_pt": {
+  "background": -0.0808,
+  "open_wound": 2.7319,
+  "scratch": 4.6709,
+  "brand_mark": 1.2902,
+  "hole": 0.2606,
+  "skin_disease": 0.7486,
+  "rotten_surface": 2.5996,
+  "wart": -3.7471
+ },
+ "environment": {
+  "python": "3.11.13",
+  "torch": "2.7.1+cu126",
+  "gpu": "NVIDIA A100-PCIE-40GB"
+ }
+}

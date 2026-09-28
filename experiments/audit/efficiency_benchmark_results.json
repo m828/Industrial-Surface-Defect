@@ -1,0 +1,69 @@
+{
+  "device": "NVIDIA A100-PCIE-40GB",
+  "input": "1x3x200x200 FP32",
+  "gpu_state_at_benchmark": "18530 MiB, 89 %",
+  "gpu_compute_apps": "1296435, 8824 MiB\n1296441, 1868 MiB\n1351301, 7816 MiB",
+  "protocol_amendment": "interleaved 10x100 segments per model (persistent GPU sharing)",
+  "models": {
+    "base_b": {
+      "params_total": 29370629,
+      "params_trainable": 29370629,
+      "macs_thop": 6648159494.0,
+      "flops_derived_2x_macs": 13296318988.0,
+      "peak_mem_b1_mb_median3": 270.347264,
+      "peak_mem_b1_mb_all": [
+        270.347264,
+        270.347264,
+        270.347264
+      ],
+      "latency_b1_ms": {
+        "mean": 26.205226689577103,
+        "median": 22.78146892786026,
+        "p95": 42.42381155490871,
+        "sd": 10.11557578231061
+      },
+      "fps_b1": 38.16032625269146,
+      "latency_b8_ms": {
+        "mean": 35.712176002562046,
+        "p95": 55.07291238754987
+      },
+      "throughput_b8_img_s": 224.01323289362338
+    },
+    "a2_full": {
+      "params_total": 29460804,
+      "params_trainable": 29460804,
+      "macs_thop": 6648175622.0,
+      "flops_derived_2x_macs": 13296351244.0,
+      "peak_mem_b1_mb_median3": 270.347264,
+      "peak_mem_b1_mb_all": [
+        270.347264,
+        270.347264,
+        270.347264
+      ],
+      "latency_b1_ms": {
+        "mean": 26.758766811341047,
+        "median": 22.902801632881165,
+        "p95": 45.42801361531019,
+        "sd": 10.56877787200715
+      },
+      "fps_b1": 37.370929947944184,
+      "latency_b8_ms": {
+        "mean": 37.27231826633215,
+        "p95": 61.002993956208215
+      },
+      "throughput_b8_img_s": 214.63650162126754
+    }
+  },
+  "delta_a2_minus_base": {
+    "params_abs": 90175,
+    "params_rel_pct": 0.3070244086362604,
+    "macs_abs": 16128.0,
+    "macs_rel_pct": 0.00024259345785184017,
+    "latency_b1_mean_abs_ms": 0.5535401217639446,
+    "latency_b1_rel_pct": 2.1123271640466683,
+    "latency_b1_p95_abs_ms": 3.0042020604014823,
+    "fps_rel_pct": -2.0686309113816908,
+    "peak_mem_abs_mb": 0.0,
+    "peak_mem_rel_pct": 0.0
+  }
+}

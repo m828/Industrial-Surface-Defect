@@ -1,0 +1,135 @@
+{
+  "experiment": "multiseed_10k_2x2/detail_only",
+  "matched_seed": 1337,
+  "factorial_cell": "D-only = Base-B architecture (SELayer, no eSE/ACW) + 4th detail head + detail supervision; loss_weights [10,1,3,3]",
+  "requested_seed": 1337,
+  "effective_seed": 1337,
+  "seed_config_key": "top-level seed",
+  "seed_verification": "iter-1 GradAudit fingerprint differs across seeds; this run: {'arm2': 31.02907, 'SELayer': 6.8e-05, 'edge_fusion': 28.314681, 'seg_heads': 56.078334, 'detail_head': 4.400672}",
+  "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only",
+  "model_file": {
+    "path_used": "code/model_dsmo_rs50_detailloss_only.py",
+    "origin": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50_detailloss_only.py",
+    "sha256": "473518197a704af468b5dd388f007f0b46e9a73cdcece0f9cd65b642683fda42"
+  },
+  "train_script": {
+    "path_used": "code/train_detail_only_10k.py",
+    "origin": "derived from train_fixed_a2ms_b_10k.py (2 changes: import detail-only model; GradAudit groups arm2/SELayer/edge_fusion/seg_heads/detail_head)",
+    "sha256": "1294e8921d86a255c8773e4ad5b17f2e64c7dbb2d8acf9b8714136294542b5dd"
+  },
+  "config": {
+    "path": "config/config.yml",
+    "sha256": "6d101b37c9aec09155468db65982e82952e8ed7fee77e615f0a71ad56abf9b37",
+    "seed_top_level": 1337,
+    "loss_weights": [
+      10,
+      1,
+      3,
+      3
+    ],
+    "loss_list_len": 4,
+    "train_iters": 10000,
+    "batch_size": 16,
+    "val_interval": 10000,
+    "optimizer": "adam lr=1e-4 wd=2e-6",
+    "lr_schedule": "cosine_annealing T_max=48000 eta_min=1e-6",
+    "resume": null
+  },
+  "dataset_lists": {
+    "train_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+      "lines": 3630,
+      "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+    },
+    "monitor_test_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+      "lines": 840,
+      "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+    }
+  },
+  "command": "cd code && python3 train_detail_only_10k.py --config ../config/config.yml --run-id detail_only_s1337_10k_codex1",
+  "environment": {
+    "python": "3.11.13",
+    "torch": "2.7.1+cu126",
+    "cuda": "12.6",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "concurrency": "3 detail-only runs (seeds 1337/2026/3407) ran concurrently on one A100 (shared with an unrelated nnUNet job)"
+  },
+  "endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+  "checkpoints": {
+    "best_equals_last_by_design": {
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/checkpoints/detail_only_s1337_10k_codex1_iter010000_best_miou_0.854903.pkl",
+      "iter": 10000,
+      "sha256": "622e14102b19a20f3377f5a82842ef29744e5643158138568c9b56f0fc902ce0"
+    },
+    "last": {
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/checkpoints/detail_only_s1337_10k_codex1_iter010000_last.pkl",
+      "iter": 10000,
+      "sha256": "4d7d1a9a2efa1bc5edbfbae7926dc0b9ea52471708f49bee75ca49bc2b800116"
+    }
+  },
+  "monitor_eval_832": {
+    "miou": 0.854903433371081,
+    "note": "832/840 images (batch16 drop_last), identical to all current 10k controls"
+  },
+  "unified_eval_840": {
+    "script": "multiseed_10k/unified_eval_840_ms.py (batch1, all 840, TestRescale+ToTensor, no Normalize, pred=outputs[0])",
+    "miou": 0.8550203909614161,
+    "per_class_iou": {
+      "background": 0.975329229487789,
+      "crazing": 0.7444030562555849,
+      "inclusion": 0.8841033837435519,
+      "patches": 0.8162458943587391
+    },
+    "per_class_dice": {
+      "background": 0.9875105525985619,
+      "crazing": 0.8534759826131801,
+      "inclusion": 0.9384871248274225,
+      "patches": 0.8988275176769834
+    },
+    "per_class_precision": {
+      "background": 0.988696642037547,
+      "crazing": 0.8239259440357389,
+      "inclusion": 0.9362121842905824,
+      "patches": 0.9005519090669237
+    },
+    "per_class_recall": {
+      "background": 0.9863273055329459,
+      "crazing": 0.8852244886263235,
+      "inclusion": 0.9407731482383652,
+      "patches": 0.8971097174513334
+    },
+    "confusion_matrix": [
+      [
+        29016186,
+        157266,
+        154598,
+        90365
+      ],
+      [
+        94148,
+        741418,
+        0,
+        1982
+      ],
+      [
+        142846,
+        2,
+        2269031,
+        0
+      ],
+      [
+        94736,
+        1174,
+        0,
+        836248
+      ]
+    ],
+    "result_json_sha256": "21135ee8ef37e2ffdfdc1e3628de9e737bfcfe7f1e40b703f86ecac4c07b4f76"
+  },
+  "logs": {
+    "train_log_dir": "logs/detail_only_s1337_10k_codex1/",
+    "stdout": "analysis/stdout.log",
+    "stderr": "analysis/stderr.log"
+  }
+}

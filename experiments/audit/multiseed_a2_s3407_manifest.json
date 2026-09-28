@@ -1,0 +1,127 @@
+{
+  "experiment": "multiseed_10k/a2",
+  "matched_seed": 3407,
+  "triplet": "seed_3407: base_b/a1/a2 with identical top-level seed and locked protocol",
+  "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2",
+  "model_file": {
+    "path_used": "code/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+    "origin": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+    "sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a"
+  },
+  "train_script": {
+    "path_used": "code/train_fixed_a2ms_b_10k.py",
+    "origin": "/workspace/Industrial Surface Defect/new/train_neu_resnet_detailloss_retrain_a2ms_b_originalsplit.py",
+    "sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+    "changes": "import fixed model + read-only GradAudit logging (same script as the seed-1337 A1/A2 runs, copied byte-identical)"
+  },
+  "config": {
+    "path": "config/config.yml",
+    "sha256": "3d76f2d6bf6437bf6a96bd96f31fa66bef101eb9f53c44b7de1d687a7751ab47",
+    "seed_top_level": 3407,
+    "loss_weights": [
+      10,
+      1,
+      3,
+      3
+    ],
+    "loss_list_len": 4,
+    "train_iters": 10000,
+    "batch_size": 16,
+    "val_interval": 10000,
+    "optimizer": "adam lr=1e-4 wd=2e-6",
+    "lr_schedule": "cosine_annealing T_max=48000 eta_min=1e-6",
+    "resume": null
+  },
+  "dataset_lists": {
+    "train_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+      "lines": 3630,
+      "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+    },
+    "monitor_test_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+      "lines": 840,
+      "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+    }
+  },
+  "command": "cd code && python3 train_fixed_a2ms_b_10k.py --config ../config/config.yml --run-id a2_s3407_10k_codex1",
+  "environment": {
+    "python": "3.11.13",
+    "torch": "2.7.1+cu126",
+    "cuda": "12.6",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "concurrency": "triplet (3 runs) ran concurrently on one A100"
+  },
+  "endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+  "checkpoints": {
+    "best_equals_last_by_design": {
+      "path": "checkpoints/a2_s3407_10k_codex1_iter010000_best_miou_0.851640.pkl",
+      "iter": 10000,
+      "sha256": "71444d33cf421ff38d62e24ebcbf4a21980e00d4d5779ea3ee82a03abb8efc13"
+    }
+  },
+  "monitor_eval_832": {
+    "miou": 0.8516400362923755,
+    "note": "832/840 images (batch16 drop_last), identical to all current 10k controls"
+  },
+  "unified_eval_840": {
+    "script": "multiseed_10k/unified_eval_840_ms.py (batch1, all 840, TestRescale+ToTensor, no Normalize, pred=outputs[0])",
+    "miou": 0.8518702689212362,
+    "per_class_iou": {
+      "background": 0.9738992320750752,
+      "crazing": 0.7437225909296363,
+      "inclusion": 0.8758045065561182,
+      "patches": 0.814054746124115
+    },
+    "per_class_dice": {
+      "background": 0.9867770514822652,
+      "crazing": 0.8530285663537033,
+      "inclusion": 0.9337908118837509,
+      "patches": 0.8974974408720723
+    },
+    "per_class_precision": {
+      "background": 0.9918402348274983,
+      "crazing": 0.7970627988054524,
+      "inclusion": 0.9060743530263344,
+      "patches": 0.8880184568920887
+    },
+    "per_class_recall": {
+      "background": 0.9817652990482322,
+      "crazing": 0.9174471194486764,
+      "inclusion": 0.9632564486029357,
+      "patches": 0.9071809714662107
+    },
+    "confusion_matrix": [
+      [
+        28881979,
+        189504,
+        240834,
+        106098
+      ],
+      [
+        68603,
+        768406,
+        0,
+        539
+      ],
+      [
+        83797,
+        4824,
+        2323258,
+        0
+      ],
+      [
+        85209,
+        1313,
+        0,
+        845636
+      ]
+    ],
+    "result_json_sha256": "deea3f00891ebccb77403b2e4a8c116c9d688a34e7061d05b040d1f042b0f812"
+  },
+  "logs": {
+    "train_log_dir": "logs/a2_s3407_10k_codex1/",
+    "stdout": "analysis/stdout.log",
+    "stderr": "analysis/stderr.log"
+  }
+}

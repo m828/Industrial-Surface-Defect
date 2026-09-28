@@ -1,0 +1,126 @@
+{
+  "experiment": "multiseed_10k/base_b",
+  "matched_seed": 3407,
+  "triplet": "seed_3407: base_b/a1/a2 with identical top-level seed and locked protocol",
+  "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b",
+  "model_file": {
+    "path_used": "code/model_dsmo_rs50.py",
+    "origin": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50.py",
+    "sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf"
+  },
+  "train_script": {
+    "path_used": "code/train_base_b_10k.py",
+    "origin": "/workspace/Industrial Surface Defect/new/train_neu_base_b_control_originalsplit.py",
+    "sha256": "6fb632ebe434deedc5ba5b526815e987e1ade6f539f3da2a0cf2ac8e407629b3",
+    "changes": "none (byte-identical copy)"
+  },
+  "config": {
+    "path": "config/config.yml",
+    "sha256": "bb82b4dc86de82020741ac352a2979cc232a083f36aeea7ceeb7e81c5609af70",
+    "seed_top_level": 3407,
+    "loss_weights": [
+      10,
+      1,
+      3
+    ],
+    "loss_list_len": 3,
+    "train_iters": 10000,
+    "batch_size": 16,
+    "val_interval": 10000,
+    "optimizer": "adam lr=1e-4 wd=2e-6",
+    "lr_schedule": "cosine_annealing T_max=48000 eta_min=1e-6",
+    "resume": null
+  },
+  "dataset_lists": {
+    "train_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+      "lines": 3630,
+      "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+    },
+    "monitor_test_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+      "lines": 840,
+      "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+    }
+  },
+  "command": "cd code && python3 train_base_b_10k.py --config ../config/config.yml --run-id base_b_s3407_10k_codex1",
+  "environment": {
+    "python": "3.11.13",
+    "torch": "2.7.1+cu126",
+    "cuda": "12.6",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "concurrency": "triplet (3 runs) ran concurrently on one A100"
+  },
+  "endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+  "checkpoints": {
+    "best_equals_last_by_design": {
+      "path": "checkpoints/base_b_s3407_10k_codex1_iter010000_best_miou_0.854363.pkl",
+      "iter": 10000,
+      "sha256": "c0fe92a0452a72691b135a46559dddc5c497ad0046c430b6908a1f61c7f03e19"
+    }
+  },
+  "monitor_eval_832": {
+    "miou": 0.8543634851481761,
+    "note": "832/840 images (batch16 drop_last), identical to all current 10k controls"
+  },
+  "unified_eval_840": {
+    "script": "multiseed_10k/unified_eval_840_ms.py (batch1, all 840, TestRescale+ToTensor, no Normalize, pred=outputs[0])",
+    "miou": 0.8544933640708361,
+    "per_class_iou": {
+      "background": 0.9760601167271689,
+      "crazing": 0.7421722495510268,
+      "inclusion": 0.8890880526518767,
+      "patches": 0.8106530373532719
+    },
+    "per_class_dice": {
+      "background": 0.9878850430357952,
+      "crazing": 0.8520078881319469,
+      "inclusion": 0.9412881007889354,
+      "patches": 0.8954261480578816
+    },
+    "per_class_precision": {
+      "background": 0.9871953572676894,
+      "crazing": 0.8769469735651417,
+      "inclusion": 0.9354098290850251,
+      "patches": 0.9079263242979184
+    },
+    "per_class_recall": {
+      "background": 0.9885756931500218,
+      "crazing": 0.8284480411868932,
+      "inclusion": 0.9472407197873525,
+      "patches": 0.8832654979091528
+    },
+    "confusion_matrix": [
+      [
+        29082330,
+        96135,
+        157754,
+        82196
+      ],
+      [
+        142383,
+        693865,
+        0,
+        1300
+      ],
+      [
+        127215,
+        34,
+        2284630,
+        0
+      ],
+      [
+        107621,
+        1194,
+        0,
+        823343
+      ]
+    ],
+    "result_json_sha256": "30179d092f0aa406e4443106be704b1be663da8885d64b7448f3eebbc69cf3d7"
+  },
+  "logs": {
+    "train_log_dir": "logs/base_b_s3407_10k_codex1/",
+    "stdout": "analysis/stdout.log",
+    "stderr": "analysis/stderr.log"
+  }
+}

@@ -1,0 +1,2 @@
+weight_path,file_size_mb,model_file,loadable,epoch,best_iou_in_ckpt,mIoU_eval,bg_iou,crazing_iou,inclusion_iou,patches_iou,close_to_91_3,notes
+new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,336,model_dsmo_rs50_eSE_adapt_detailloss.py,true,42000,0.7131,0.7131,0.9505,0.5391,0.8302,0.5324,false,"唯一候选权重;crazing IoU异常低(0.5391);训练日志提取per-class IoU;best_iou与训练日志一致"

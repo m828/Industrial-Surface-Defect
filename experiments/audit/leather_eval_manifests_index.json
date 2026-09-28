@@ -1,0 +1,12 @@
+{
+ "manifests_dir": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/manifests",
+ "entries": [
+  "hist_0120_ese_adapt_43k.json",
+  "hist_0126_baseb_55k.json",
+  "hist_0127_baseb_78k_reverify.json",
+  "hist_0220ksh_baseb_56k.json",
+  "hist_a2_160k_fixedfwd.json",
+  "hist_pige_4_0228_822fix.json",
+  "hist_pige_4_0229_160000_822fix.json"
+ ]
+}

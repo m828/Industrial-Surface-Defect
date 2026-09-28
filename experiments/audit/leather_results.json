@@ -1,0 +1,185 @@
+{
+  "dataset": "leather (pige) real industrial defect dataset: 2341 imgs 768x768, 8 classes (background + open_wound/scratch/brand_mark/hole/skin_disease/rotten_surface/wart); train1638/val235/test468",
+  "environment": {
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "torch": "2.7.1+cu126",
+    "python": "3.11.13",
+    "cuda": "12.6",
+    "training_recipe": "60k iters, batch 8, Adam lr=1e-4 (cosine_annealing T_max=48000 eta_min=1e-6), wd=2e-6, 768x768, 8 classes incl background, seed 1337, from scratch, no test/val loader during training, fixed-endpoint eval",
+    "eval_protocol": "tools/evaluate_class_iou.py --dataset leather; locked 468-image test list (experiments/protocol/leather_valid_test_list.txt); batch=1; PIL resize+ToTensor; no ImageNet Normalize; pred=outputs[0]; no TTA/post-processing",
+    "efficiency_protocol": "768x768 FP32 batch1, interleaved 5x50 segments, warmup 50; thop tool-reported MACs"
+  },
+  "models": {
+    "base_b": {
+      "model": "Base-B (new/model_dsmo_rs50.py)",
+      "ckpt": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/checkpoints/base_b_s1337_leather60k_codex1_iter060000.pkl",
+      "checkpoint_sha256": "3467f3dee32844823a6668478493101543b81d12bae318431984ddab12d96c8f",
+      "model_file_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+      "eval_csv": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/analysis/unified468_iter60000.csv",
+      "eval_csv_sha256": "4cad1bc4341faf23ca795e0a06c88a4025e4afba98fba97b5acce29084b5251c",
+      "mIoU": 0.872137,
+      "class_IoU": {
+        "background": 0.992338,
+        "open_wound": 0.671901,
+        "scratch": 0.64429,
+        "brand_mark": 0.877337,
+        "hole": 0.986585,
+        "skin_disease": 0.95017,
+        "rotten_surface": 0.881025,
+        "wart": 0.973453
+      },
+      "class_metrics_full": {
+        "background": {
+          "iou": 0.992338,
+          "dice": 0.996154,
+          "precision": 0.997019,
+          "recall": 0.995291
+        },
+        "open_wound": {
+          "iou": 0.671901,
+          "dice": 0.803757,
+          "precision": 0.770708,
+          "recall": 0.839767
+        },
+        "scratch": {
+          "iou": 0.64429,
+          "dice": 0.783669,
+          "precision": 0.760324,
+          "recall": 0.808493
+        },
+        "brand_mark": {
+          "iou": 0.877337,
+          "dice": 0.934661,
+          "precision": 0.925856,
+          "recall": 0.943636
+        },
+        "hole": {
+          "iou": 0.986585,
+          "dice": 0.993247,
+          "precision": 0.989716,
+          "recall": 0.996803
+        },
+        "skin_disease": {
+          "iou": 0.95017,
+          "dice": 0.974449,
+          "precision": 0.961072,
+          "recall": 0.988202
+        },
+        "rotten_surface": {
+          "iou": 0.881025,
+          "dice": 0.93675,
+          "precision": 0.918421,
+          "recall": 0.955825
+        },
+        "wart": {
+          "iou": 0.973453,
+          "dice": 0.986548,
+          "precision": 0.985209,
+          "recall": 0.987891
+        }
+      },
+      "FPS": 35.843004044741306,
+      "latency_b1_ms": {
+        "mean": 27.899447232484818,
+        "median": 27.841366827487946,
+        "p95": 51.841534301638596
+      },
+      "Params": 29370885,
+      "MACs": 86832017152.0,
+      "peak_mem_b1_mb": 546.84416
+    },
+    "a2_full": {
+      "model": "A2MS-DSMONet-B (new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py)",
+      "ckpt": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/checkpoints/a2_full_s1337_leather60k_codex1_iter060000.pkl",
+      "checkpoint_sha256": "b90f9785987c3cc008de21a86feef8e48aa8e7f2cf03873d2134fdcb521b4259",
+      "model_file_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "eval_csv": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/analysis/unified468_iter60000.csv",
+      "eval_csv_sha256": "f26c81f3bd5ba221bd5c2e5f0a3e49cbc09571c97d949c0642ca95fdd818c026",
+      "mIoU": 0.849932,
+      "class_IoU": {
+        "background": 0.991773,
+        "open_wound": 0.648333,
+        "scratch": 0.633737,
+        "brand_mark": 0.866133,
+        "hole": 0.987282,
+        "skin_disease": 0.949464,
+        "rotten_surface": 0.756474,
+        "wart": 0.966256
+      },
+      "class_metrics_full": {
+        "background": {
+          "iou": 0.991773,
+          "dice": 0.995869,
+          "precision": 0.997193,
+          "recall": 0.994549
+        },
+        "open_wound": {
+          "iou": 0.648333,
+          "dice": 0.786653,
+          "precision": 0.836182,
+          "recall": 0.742663
+        },
+        "scratch": {
+          "iou": 0.633737,
+          "dice": 0.775813,
+          "precision": 0.756634,
+          "recall": 0.79599
+        },
+        "brand_mark": {
+          "iou": 0.866133,
+          "dice": 0.928265,
+          "precision": 0.905616,
+          "recall": 0.952076
+        },
+        "hole": {
+          "iou": 0.987282,
+          "dice": 0.993601,
+          "precision": 0.992109,
+          "recall": 0.995096
+        },
+        "skin_disease": {
+          "iou": 0.949464,
+          "dice": 0.974077,
+          "precision": 0.964494,
+          "recall": 0.983853
+        },
+        "rotten_surface": {
+          "iou": 0.756474,
+          "dice": 0.861355,
+          "precision": 0.801856,
+          "recall": 0.930391
+        },
+        "wart": {
+          "iou": 0.966256,
+          "dice": 0.982839,
+          "precision": 0.974348,
+          "recall": 0.991478
+        }
+      },
+      "FPS": 37.11268952756861,
+      "latency_b1_ms": {
+        "mean": 26.94496175646782,
+        "median": 26.969246566295624,
+        "p95": 50.80041028559207
+      },
+      "Params": 29461060,
+      "MACs": 86832033280.0,
+      "peak_mem_b1_mb": 546.84416
+    }
+  },
+  "delta_a2_minus_base": {
+    "mIoU": -0.02220500000000003,
+    "per_class_dIoU": {
+      "background": -0.0005650000000000377,
+      "open_wound": -0.023567999999999922,
+      "scratch": -0.010553000000000035,
+      "brand_mark": -0.011203999999999992,
+      "hole": 0.0006969999999999477,
+      "skin_disease": -0.0007059999999999844,
+      "rotten_surface": -0.12455099999999997,
+      "wart": -0.007197000000000009
+    },
+    "fps_rel_pct": 3.5423523129992436,
+    "params_rel_pct": 0.30702173257632515
+  }
+}

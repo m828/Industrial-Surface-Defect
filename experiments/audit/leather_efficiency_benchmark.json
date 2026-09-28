@@ -1,0 +1,39 @@
+{
+  "device": "NVIDIA A100-PCIE-40GB",
+  "input": "1x3x768x768 FP32, num_classes=8",
+  "gpu_state_at_benchmark": "10708 MiB, 94 %",
+  "protocol": "interleaved 5x50 segments per model; warmup 50",
+  "models": {
+    "base_b": {
+      "params_total": 29370885,
+      "macs_thop": 86832017152.0,
+      "flops_derived_2x_macs": 173664034304.0,
+      "peak_mem_b1_mb_median3": 546.84416,
+      "latency_b1_ms": {
+        "mean": 27.899447232484818,
+        "median": 27.841366827487946,
+        "p95": 51.841534301638596
+      },
+      "fps_b1": 35.843004044741306
+    },
+    "a2_full": {
+      "params_total": 29461060,
+      "macs_thop": 86832033280.0,
+      "flops_derived_2x_macs": 173664066560.0,
+      "peak_mem_b1_mb_median3": 546.84416,
+      "latency_b1_ms": {
+        "mean": 26.94496175646782,
+        "median": 26.969246566295624,
+        "p95": 50.80041028559207
+      },
+      "fps_b1": 37.11268952756861
+    }
+  },
+  "delta_a2_minus_base": {
+    "params_abs": 90175,
+    "params_rel_pct": 0.30702173257632515,
+    "latency_b1_mean_abs_ms": -0.9544854760169983,
+    "fps_rel_pct": 3.5423523129992436,
+    "peak_mem_abs_mb": 0.0
+  }
+}

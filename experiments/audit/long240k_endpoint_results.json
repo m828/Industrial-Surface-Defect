@@ -1,0 +1,148 @@
+{
+  "protocol": "long240k Protocol L1 endpoint results - unified840 fixed endpoint (iter240000, best=last by design)",
+  "frozen_at": "2026-09-24T12:02:09+08:00",
+  "definition_of_91": "raw mIoU >= 0.910000 on unified 840-image endpoint eval",
+  "eval_protocol": "all 840, batch=1, TestRescale+ToTensor, no Normalize, pred=outputs[0], 4-class IoU incl. background",
+  "seed": 1337,
+  "results": {
+    "base_b": {
+      "model": "Base-B (new/model_dsmo_rs50.py)",
+      "run_id": "base_b_s1337_long240k_codex1",
+      "iter": 240000,
+      "checkpoint_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/checkpoints/base_b_s1337_long240k_codex1_iter240000.pkl",
+      "checkpoint_sha256": "46c5b83c73130ade56bffacb52f16df79f3975a9c1b192925d767324c571013f",
+      "eval_json_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/analysis/unified840_iter240000.json",
+      "eval_json_sha256": "9b59f8fcacb535d9cccbddf761b30277e6f8197354e09431f15b2ca29d2c1f71",
+      "metrics": {
+        "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/checkpoints/base_b_s1337_long240k_codex1_iter240000.pkl",
+        "ckpt_iter": 240000,
+        "ckpt_best_iou_field": NaN,
+        "test_samples": 840,
+        "miou_includes_background": true,
+        "miou": 0.9124083744680408,
+        "per_class_iou": {
+          "0": 0.9862010649641224,
+          "1": 0.841464114387049,
+          "2": 0.9348626150989389,
+          "3": 0.8871057034220532
+        },
+        "per_class_dice": {
+          "0": 0.9930525991153233,
+          "1": 0.9139076974814025,
+          "2": 0.9663348785630806,
+          "3": 0.9401759549699703
+        },
+        "per_class_precision": {
+          "0": 0.9939044600540111,
+          "1": 0.9002465949854,
+          "2": 0.9608425277636475,
+          "3": 0.9417739504843918
+        },
+        "per_class_recall": {
+          "0": 0.9922021971611998,
+          "1": 0.9279897987936214,
+          "2": 0.9718903809021928,
+          "3": 0.9385833732049716
+        },
+        "confusion_matrix": [
+          [
+            29189016,
+            85485,
+            91477,
+            52437
+          ],
+          [
+            59100,
+            777236,
+            537,
+            675
+          ],
+          [
+            66815,
+            2,
+            2344082,
+            980
+          ],
+          [
+            53099,
+            636,
+            3515,
+            874908
+          ]
+        ],
+        "eval_seconds": 12.368915796279907
+      },
+      "reaches_91": true
+    },
+    "a2_full": {
+      "model": "A2 Full (new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py)",
+      "run_id": "a2_full_s1337_long240k_codex1",
+      "iter": 240000,
+      "checkpoint_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/checkpoints/a2_full_s1337_long240k_codex1_iter240000.pkl",
+      "checkpoint_sha256": "5beaaa1c0b42440336063c47eacbae38eb105112f980c7f05a35cbbf9639fb1b",
+      "eval_json_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/analysis/unified840_iter240000.json",
+      "eval_json_sha256": "0b93491bad77c36de1f50778e9950aaae74ba33b3b2453d346447ab9cdde815d",
+      "metrics": {
+        "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/checkpoints/a2_full_s1337_long240k_codex1_iter240000.pkl",
+        "ckpt_iter": 240000,
+        "ckpt_best_iou_field": NaN,
+        "test_samples": 840,
+        "miou_includes_background": true,
+        "miou": 0.9145442177671137,
+        "per_class_iou": {
+          "0": 0.9863690577151079,
+          "1": 0.8446813615201512,
+          "2": 0.9354935026366694,
+          "3": 0.891632949196526
+        },
+        "per_class_dice": {
+          "0": 0.9931377594551479,
+          "1": 0.9158019147806346,
+          "2": 0.9666718088820989,
+          "3": 0.9427124322139223
+        },
+        "per_class_precision": {
+          "0": 0.9929422365332413,
+          "1": 0.9194400117456489,
+          "2": 0.9668590531928352,
+          "3": 0.9447703171835976
+        },
+        "per_class_recall": {
+          "0": 0.9933333593941074,
+          "1": 0.9121924952360939,
+          "2": 0.966484637081711,
+          "3": 0.9406634926696976
+        },
+        "confusion_matrix": [
+          [
+            29222293,
+            65696,
+            79555,
+            50871
+          ],
+          [
+            73155,
+            764005,
+            0,
+            388
+          ],
+          [
+            80834,
+            1,
+            2331044,
+            0
+          ],
+          [
+            53721,
+            1244,
+            346,
+            876847
+          ]
+        ],
+        "eval_seconds": 12.239278078079224
+      },
+      "reaches_91": true
+    }
+  },
+  "delta_long_a2_minus_base": 0.0021358432990729037
+}

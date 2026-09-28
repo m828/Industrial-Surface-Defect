@@ -1,0 +1,49 @@
+{
+  "rule": "first test-list image whose GT contains >200px of the class; deterministic; no predictions shown",
+  "neu": {
+    "2": "NEUSeg/images/test/000837.jpg",
+    "3": "NEUSeg/images/test/000837.jpg",
+    "1": "NEUSeg/images/test/000753.jpg"
+  },
+  "leather": {
+    "1": "images/1.jpg",
+    "2": "images/2.jpg",
+    "3": "images/2.jpg",
+    "5": "images/34.jpg",
+    "4": "images/38.jpg",
+    "6": "images/72.jpg",
+    "7": "images/101.jpg"
+  },
+  "panels": [
+    {
+      "dataset": "NEU-Seg",
+      "class": "裂纹 crazing",
+      "image": "NEUSeg/images/test/000753.jpg"
+    },
+    {
+      "dataset": "NEU-Seg",
+      "class": "夹杂物 inclusion",
+      "image": "NEUSeg/images/test/000837.jpg"
+    },
+    {
+      "dataset": "NEU-Seg",
+      "class": "斑块 patches",
+      "image": "NEUSeg/images/test/000837.jpg"
+    },
+    {
+      "dataset": "Leather",
+      "class": "开创伤 open wound",
+      "image": "images/1.jpg"
+    },
+    {
+      "dataset": "Leather",
+      "class": "烂面 rotten surface",
+      "image": "images/72.jpg"
+    },
+    {
+      "dataset": "Leather",
+      "class": "刺猴 wart",
+      "image": "images/101.jpg"
+    }
+  ]
+}

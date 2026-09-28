@@ -1,0 +1,126 @@
+{
+  "experiment": "multiseed_10k/base_b",
+  "matched_seed": 2026,
+  "triplet": "seed_2026: base_b/a1/a2 with identical top-level seed and locked protocol",
+  "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b",
+  "model_file": {
+    "path_used": "code/model_dsmo_rs50.py",
+    "origin": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50.py",
+    "sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf"
+  },
+  "train_script": {
+    "path_used": "code/train_base_b_10k.py",
+    "origin": "/workspace/Industrial Surface Defect/new/train_neu_base_b_control_originalsplit.py",
+    "sha256": "6fb632ebe434deedc5ba5b526815e987e1ade6f539f3da2a0cf2ac8e407629b3",
+    "changes": "none (byte-identical copy)"
+  },
+  "config": {
+    "path": "config/config.yml",
+    "sha256": "ede418ee43a5ea59486bf8725bcd54f0de752eb0f4d0dbf4ad1b2757fefa0304",
+    "seed_top_level": 2026,
+    "loss_weights": [
+      10,
+      1,
+      3
+    ],
+    "loss_list_len": 3,
+    "train_iters": 10000,
+    "batch_size": 16,
+    "val_interval": 10000,
+    "optimizer": "adam lr=1e-4 wd=2e-6",
+    "lr_schedule": "cosine_annealing T_max=48000 eta_min=1e-6",
+    "resume": null
+  },
+  "dataset_lists": {
+    "train_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+      "lines": 3630,
+      "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+    },
+    "monitor_test_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+      "lines": 840,
+      "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+    }
+  },
+  "command": "cd code && python3 train_base_b_10k.py --config ../config/config.yml --run-id base_b_s2026_10k_codex1",
+  "environment": {
+    "python": "3.11.13",
+    "torch": "2.7.1+cu126",
+    "cuda": "12.6",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "concurrency": "triplet (3 runs) ran concurrently on one A100"
+  },
+  "endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+  "checkpoints": {
+    "best_equals_last_by_design": {
+      "path": "checkpoints/base_b_s2026_10k_codex1_iter010000_best_miou_0.847977.pkl",
+      "iter": 10000,
+      "sha256": "7abdb50d7eb49d3a2ab958b22d983f6f3940d546a82a4bb5804d6ac39d169550"
+    }
+  },
+  "monitor_eval_832": {
+    "miou": 0.8479771325497136,
+    "note": "832/840 images (batch16 drop_last), identical to all current 10k controls"
+  },
+  "unified_eval_840": {
+    "script": "multiseed_10k/unified_eval_840_ms.py (batch1, all 840, TestRescale+ToTensor, no Normalize, pred=outputs[0])",
+    "miou": 0.8474726575362161,
+    "per_class_iou": {
+      "background": 0.974027202482588,
+      "crazing": 0.7379877110436768,
+      "inclusion": 0.8789286467529872,
+      "patches": 0.7989470698656126
+    },
+    "per_class_dice": {
+      "background": 0.9868427357613168,
+      "crazing": 0.8492438771048717,
+      "inclusion": 0.9355636237404552,
+      "patches": 0.8882385515937349
+    },
+    "per_class_precision": {
+      "background": 0.988012838813912,
+      "crazing": 0.8235304014644389,
+      "inclusion": 0.9196464009093097,
+      "patches": 0.9239355685158227
+    },
+    "per_class_recall": {
+      "background": 0.9856754009350945,
+      "crazing": 0.8766148328215219,
+      "inclusion": 0.9520415410557495,
+      "patches": 0.8551972948791943
+    },
+    "confusion_matrix": [
+      [
+        28997008,
+        156026,
+        200623,
+        64758
+      ],
+      [
+        102463,
+        734207,
+        7,
+        871
+      ],
+      [
+        115639,
+        31,
+        2296209,
+        0
+      ],
+      [
+        133707,
+        1272,
+        0,
+        797179
+      ]
+    ],
+    "result_json_sha256": "724d4d65704750e1d05dd334cc7b54c5cae32a92eb9553398ea3128c0aa09f97"
+  },
+  "logs": {
+    "train_log_dir": "logs/base_b_s2026_10k_codex1/",
+    "stdout": "analysis/stdout.log",
+    "stderr": "analysis/stderr.log"
+  }
+}

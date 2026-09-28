@@ -1,0 +1,44 @@
+{
+  "device": "NVIDIA A100-PCIE-40GB",
+  "input": "1x3x768x768 FP32, num_classes=8",
+  "gpu_state_at_benchmark": "1876 MiB, 21 %",
+  "protocol": "interleaved 5x50 segments per model; warmup 50",
+  "checkpoints": {
+    "base_b": "/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl",
+    "a2_full": "/workspace/Industrial Surface Defect/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl"
+  },
+  "checkpoint_actual_iters": {
+    "base_b": 78000,
+    "a2_full": 130000
+  },
+  "models": {
+    "base_b": {
+      "params_total": 29370885,
+      "macs_thop": 86832017152.0,
+      "peak_mem_b1_mb_median3": 546.84416,
+      "latency_b1_ms": {
+        "mean": 15.461005955934525,
+        "median": 10.574698448181152,
+        "p95": 25.181637145578847
+      },
+      "fps_b1": 64.67884449757693
+    },
+    "a2_full": {
+      "params_total": 29461060,
+      "macs_thop": 86832033280.0,
+      "peak_mem_b1_mb_median3": 546.84416,
+      "latency_b1_ms": {
+        "mean": 15.915947705507278,
+        "median": 11.118577793240547,
+        "p95": 27.737407945096493
+      },
+      "fps_b1": 62.83006318586843
+    }
+  },
+  "delta_a2_minus_base": {
+    "params_rel_pct": 0.30702173257632515,
+    "latency_b1_mean_abs_ms": 0.4549417495727539,
+    "fps_rel_pct": -2.858401887154556,
+    "peak_mem_abs_mb": 0.0
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "experiment": "A1",
+  "run_id": "a1_fixed_aam_no_detail_10k_20260908_codex1",
+  "purpose": "fixed-forward A2MS-B controlled 10k experiment (AAM only)",
+  "model_file": {
+    "path_used": "code/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+    "origin": "copy of /workspace/Industrial Surface Defect/new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+    "sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+    "single_change_vs_broken": "head_seg1 = high_feats -> head_seg1 = out (arm2 56x56 fused feature)"
+  },
+  "train_script": {
+    "path_used": "code/train_fixed_a2ms_b_10k.py",
+    "origin": "copy of /workspace/Industrial Surface Defect/new/train_neu_resnet_detailloss_retrain_a2ms_b_originalsplit.py",
+    "sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+    "changes": [
+      "import fixed model",
+      "read-only GradAudit logging at iters 1/100/1000 (no training-behavior change)"
+    ]
+  },
+  "config": {
+    "path": "config/config_neu_fixed_10k.yml",
+    "sha256": "7874b632b06cfdba79108c39c909428c9d22e28b89fa86d6d5d0a9841c0b2b55",
+    "loss_weights": [
+      10,
+      1,
+      3,
+      0
+    ],
+    "train_iters": 10000,
+    "batch_size": 16,
+    "val_interval": 10000,
+    "seed": 1337,
+    "optimizer": "adam lr=1e-4 weight_decay=2e-6",
+    "lr_schedule": "cosine_annealing T_max=48000 eta_min=1e-6",
+    "resume": null,
+    "protocol_alignment": "identical to Base-B 10k control (config_base_b_10k_control.yml) and A2MS-B 10k diagnostics except model file and loss_weights"
+  },
+  "dataset_lists": {
+    "train_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+      "lines": 3630,
+      "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+    },
+    "monitor_test_list": {
+      "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+      "lines": 840,
+      "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+    }
+  },
+  "command": "cd code && python3 train_fixed_a2ms_b_10k.py --config ../config/config_neu_fixed_10k.yml --run-id a1_fixed_aam_no_detail_10k_20260908_codex1",
+  "environment": {
+    "python": "3.11.13",
+    "torch": "2.7.1+cu126",
+    "cuda": "12.6",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "concurrency": "A1 and A2 ran concurrently on the same A100 (independent processes, fixed seeds)"
+  },
+  "start_time": "2026-09-08T14:13:54+08:00",
+  "end_time": "2026-09-08T14:39:07+08:00",
+  "checkpoints": {
+    "best": {
+      "path": "checkpoints/a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_best_miou_0.857491.pkl",
+      "iter": 10000,
+      "sha256": "65784a7b285f21baa5ccc2989faa997a0f91473d825eb6bd5b214af07aa6bcf8"
+    },
+    "last": {
+      "path": "checkpoints/a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_last.pkl"
+    }
+  },
+  "monitor_eval_during_training": {
+    "coverage": "832/840 (batch16 drop_last=True, identical to current 10k controls)",
+    "best_miou": 0.8574912547782803,
+    "best_iter": 10000,
+    "final_miou": 0.8574912547782803,
+    "per_class_iou": {
+      "background": 0.9756527635726376,
+      "crazing": 0.7461871264631945,
+      "inclusion": 0.889813730449259,
+      "patches": 0.8183113986280299
+    }
+  },
+  "unified_eval_840": {
+    "script": "repro_runs/unified_eval_840_fixed.py (batch1, all 840, TestRescale+ToTensor, no Normalize, pred=outputs[0])",
+    "miou": 0.8577030329146066,
+    "per_class_iou": {
+      "background": 0.9756279087929111,
+      "crazing": 0.7470541159318609,
+      "inclusion": 0.8896424779753305,
+      "patches": 0.8184876289583244
+    },
+    "per_class_dice": {
+      "background": 0.9876636227405898,
+      "crazing": 0.8552157705010641,
+      "inclusion": 0.9415987292247405,
+      "patches": 0.9001849844061626
+    },
+    "per_class_precision": {
+      "background": 0.9901297253182069,
+      "crazing": 0.8044619491617272,
+      "inclusion": 0.9358199988451383,
+      "patches": 0.8985449465404401
+    },
+    "per_class_recall": {
+      "background": 0.9852097742179515,
+      "crazing": 0.9128049974449226,
+      "inclusion": 0.9474492708796751,
+      "patches": 0.9018310200631223
+    },
+    "confusion_matrix": [
+      [
+        28983310,
+        184830,
+        156668,
+        93607
+      ],
+      [
+        71669,
+        764518,
+        50,
+        1311
+      ],
+      [
+        126653,
+        93,
+        2285133,
+        0
+      ],
+      [
+        90603,
+        906,
+        0,
+        840649
+      ]
+    ],
+    "result_json_sha256": "ff4193aafbd07a7a80679f23063061e8ae229f79a7f9154356f26535278856d2"
+  },
+  "logs": {
+    "train_log": "logs/a1_fixed_aam_no_detail_10k_20260908_codex1/",
+    "stdout": "analysis/stdout.log",
+    "stderr": "analysis/stderr.log",
+    "tensorboard": "logs/a1_fixed_aam_no_detail_10k_20260908_codex1/events.out.tfevents.*"
+  },
+  "run_dir": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000"
+}

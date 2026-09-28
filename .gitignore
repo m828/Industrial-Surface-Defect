@@ -17,3 +17,6 @@ trainedfile/
 runs/
 wandb/
 .DS_Store
+
+# training run artifacts (checkpoints are already covered by *.pkl etc.; exclude whole heavy run dir)
+experiments/retrain_a2ms_b_neu/

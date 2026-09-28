@@ -1,0 +1,13 @@
+checkpoint_path,size,mtime,model_structure,iteration,historical_score,current_unified840,can_load
+new/model_savePath/dsmonet_resnet_pascal_0110_neu_120000.pkl,352.8MB,2026-05-19(copy),Base-B/DSMONet rs50 (506 keys),iter=50500 (name says 120000),best_iou=0.90472 (hist 832-monitor),unified840=0.903864 (this audit),YES
+new/model_savePath/dsmonet_resnet_pascal_0109_neu_eSE_adapt_datailloss.pkl,351.5MB,2026-05-26,A2 struct (512 keys: eSE+ACW+detail head),iter=78000,best_iou=0.71395 (low; likely bug-era forward),not re-evaluated,YES
+new/model_savePath/dsmonet_resnet_pascal_neu_base_s.pkl,168.0MB,2026-05-19,Base-S rs18 (307 keys),iter=52500,best_iou=0.88368,not re-evaluated,YES
+new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_s.pkl,168.4MB,2026-05-19,A2MS-S rs18 (292 keys),iter=55000,best_iou=0.88578,not re-evaluated,YES
+new/model_savePath/dsmonet_resnet_pascal_neu_a2ms_b_lightbag.pkl,355.1MB,2026-06-02,A2MS-B lightbag variant (490 keys),iter=56500,best_iou=0.88647,not re-evaluated,YES
+new (copy)/tests/fcn_pascal_neu_unet.pkl,372.4MB,2026-05-18(copy),UNet (46 keys),iter=58000,best_iou=0.89266,not re-evaluated,YES
+new (copy)/tests/fcn_pascal_neu_psp0121.pkl,589.3MB,2026-05-18(copy),PSPNet-like (370 keys),iter=56000,best_iou=0.86973,not re-evaluated,YES
+new (copy)/trainedfile/finalModel_best_newmodel_neu.pkl,71.2MB,2026-05-18(copy),old small 'newmodel' (101 keys),iter=58000,best_iou=0.93516 (old metric/split unknown),not applicable (different arch),YES
+(missing) dsmonet_resnet50_neu_128_detailloss_9028.pkl,-,-,Base-B/DSMONet rs50,~60k,monitor 0.90283 (log FACT),checkpoint lost,NO
+(missing) dsmonet_resnet50_neu_128_9034.pkl,-,-,Base-B/DSMONet rs50,~52k,monitor 0.9034 (name/log),checkpoint lost,NO
+(missing) dsmonet_resnet50_neu_128_detailloss_9130.pkl,-,-,same arch,~177k,monitor 0.9130,checkpoint lost,NO
+(missing) dsmonet_resnet50_neu_128_180000_9145.pkl,-,-,same arch,~164k+,monitor 0.9145,checkpoint lost,NO
