@@ -1,0 +1,39 @@
+{
+  "model": "DSMONet-B",
+  "definition": "细节—语义相互优化网络，ResNet-50 主干",
+  "model_source_file": "new/model_dsmo_rs50.py",
+  "model_file_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+  "param_count": 29370629,
+  "identity_note": "与 2023 年历史版 subregion unet/model_dsmo_rs50.py 计算图同一（state_dict keys/shapes 一致，同权重前向 max_abs_diff=0.0）；曾用整理期别名 Base-B，见 docs/paper/model_naming_audit_v6.md",
+  "checkpoints": {
+    "neu_seg_240k": {
+      "checkpoint_file": "repro_runs/long240k_seed1337/base_b/checkpoints/base_b_s1337_long240k_codex1_iter240000.pkl",
+      "checkpoint_sha256": "46c5b83c73130ade56bffacb52f16df79f3975a9c1b192925d767324c571013f",
+      "actual_iter": 240000,
+      "dataset": "NEU-Seg (train 3630 / test 840, 200x200, 4 classes incl background)",
+      "seed": 1337,
+      "init": "from scratch",
+      "selection": "固定训练终点（无验证/测试集模型选择）",
+      "config": "experiments/configs/neu_dsmonet_b_240k.yaml",
+      "test_miou_unified840": 0.9124083744680408,
+      "class_iou": {"background": 0.986201, "crazing": 0.841464, "inclusion": 0.934863, "patches": 0.887106},
+      "evidence": "experiments/audit/neu_current_base_9124_manifest.json"
+    },
+    "leather_val_best": {
+      "checkpoint_file": "new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl",
+      "checkpoint_sha256": "a96c78ea8ba95f792cb1619ad593722e2961801bf158fe330b45b6ef6bf9abe3",
+      "actual_iter": 78000,
+      "filename_iter_mismatch_note": "文件名 80000 为链目标；实际保存点为 val-best 截获 iter=78000",
+      "dataset": "Leather (train 1638 / val 235 / test 468, 768x768, 8 classes incl background)",
+      "seed": "历史链未记录（见 experiments/audit/）",
+      "selection": "val235 最优（训练中每 1000 迭代监控）",
+      "config": "experiments/configs/leather_dsmonet_b.yaml",
+      "historical_val235_best_miou": 0.8929607161637454,
+      "test_miou_unified468": 0.899120,
+      "class_iou_test468": {"background": 0.993250, "open_wound": 0.764801, "scratch": 0.700504, "brand_mark": 0.882528, "hole": 0.990708, "skin_disease": 0.971181, "rotten_surface": 0.915895, "wart": 0.974096},
+      "evidence": "experiments/audit/leather_paper_final_results.json"
+    }
+  },
+  "note": "权重文件不上传（.gitignore）；本文件仅记录元信息。训练权重留存于服务器。",
+  "date": "2026-09-28"
+}

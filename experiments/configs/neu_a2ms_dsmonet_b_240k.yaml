@@ -1,0 +1,47 @@
+# Protocol L1 long240k | model=A2MS-DSMONet-B | seed 1337
+# NEU-Seg 正式训练配置（论文表1/表7 的 91.45% mIoU 对应配置）
+# 来源：repro_runs/long240k_seed1337/a2_full/config/config.yml（2026-09-28 原样整理，路径已改为相对占位）
+seed: 1337
+model:
+    arch: dsmonet_resnet
+    model_file: model_dsmo_rs50_eSE_adapt_detailloss_fixed.py   # A2MS-DSMONet-B（AAM=eSE+ACW + 辅助细节监督，head_seg1=out）
+    backbone: resnet50
+data:
+    dataset: pascal
+    train_split: train_neu
+    img_rows: 200
+    img_cols: 200
+    path: ./dataset/
+    train_list: ./dataset/train_neu.txt
+    num_classes: 4
+training:
+    train_iters: 240000
+    batch_size: 16
+    n_workers: 8
+    print_interval: 100
+    seed: 1337
+    loss_weights: [10, 1, 3, 3]      # 三路分割输出权重 [10,1,3] + 细节监督 λ_d=3
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.000002
+    loss:
+        [
+            { name: 'ohem_cross_entropy' },
+            { name: 'bce_with_logits_loss' },
+            { name: 'ohem_cross_entropy' },
+            { name: 'detail_aggregate_loss' }    # 辅助细节监督（仅训练阶段）
+        ]
+    lr_schedule: null
+    resume: null
+experiment:
+    run_prefix: a2_full_s1337_long240k
+    checkpoint_dir: ./checkpoints
+    log_dir: ./logs
+    result_dir: ./analysis
+    recovery_interval: 5000
+    overwrite: false
+predict:
+    batch_size: 1
+    n_workers: 4
+# 评价协议与 neu_dsmonet_b_240k.yaml 相同（统一 840 张固定终点，mIoU 含背景）。

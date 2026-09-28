@@ -1,0 +1,90 @@
+{
+  "crazing": {
+    "bottom3_worsened": [
+      {
+        "sample_id": "000722",
+        "delta_bf1_2px": -0.4818477493722923
+      },
+      {
+        "sample_id": "000723",
+        "delta_bf1_2px": -0.2424023215261249
+      },
+      {
+        "sample_id": "000812",
+        "delta_bf1_2px": -0.1659939455095863
+      }
+    ],
+    "top3_improved": [
+      {
+        "sample_id": "000653",
+        "delta_bf1_2px": 0.1332368032317357
+      },
+      {
+        "sample_id": "000006",
+        "delta_bf1_2px": 0.1199265326706248
+      },
+      {
+        "sample_id": "000717",
+        "delta_bf1_2px": 0.0940887914988433
+      }
+    ],
+    "zero3": [
+      {
+        "sample_id": "000058",
+        "delta_bf1_2px": 0.0
+      },
+      {
+        "sample_id": "000057",
+        "delta_bf1_2px": 0.0
+      },
+      {
+        "sample_id": "000056",
+        "delta_bf1_2px": 0.0
+      }
+    ]
+  },
+  "patches": {
+    "bottom3_worsened": [
+      {
+        "sample_id": "000722",
+        "delta_bf1_2px": -0.3394931124233296
+      },
+      {
+        "sample_id": "000830",
+        "delta_bf1_2px": -0.1627430370573017
+      },
+      {
+        "sample_id": "000801",
+        "delta_bf1_2px": -0.0936502836658144
+      }
+    ],
+    "top3_improved": [
+      {
+        "sample_id": "000802",
+        "delta_bf1_2px": 0.3346284040508696
+      },
+      {
+        "sample_id": "000834",
+        "delta_bf1_2px": 0.2317827951075315
+      },
+      {
+        "sample_id": "000728",
+        "delta_bf1_2px": 0.1904474763358604
+      }
+    ],
+    "zero3": [
+      {
+        "sample_id": "000439",
+        "delta_bf1_2px": 0.0
+      },
+      {
+        "sample_id": "000440",
+        "delta_bf1_2px": 0.0
+      },
+      {
+        "sample_id": "000527",
+        "delta_bf1_2px": 0.0
+      }
+    ]
+  }
+}

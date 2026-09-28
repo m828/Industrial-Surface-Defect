@@ -1,0 +1,39 @@
+# Leather | model=DSMONet-B（历史训练链配置存档）
+# 论文表4/表5 的 89.91% mIoU 对应训练链
+# 来源：new (copy)/dsmonet_resnet_pige.yml（历史配置，2026-09-28 整理存档；
+#       原始文件中的 VOC 路径注释与无关历史注释已清理，训练超参数保持原值）
+model:
+    arch: dsmonet_resnet
+    model_file: model_dsmo_rs50.py
+    backbone: resnet50
+data:
+    dataset: pascal
+    train_split: train_aug     # 历史命名；实际为 leather_train.txt（1638 张）
+    val_split: val             # leather_val.txt（235 张），仅用于 checkpoint 选择
+    img_rows: 768
+    img_cols: 768
+    path: ./dataset/pige/      # 占位
+    num_classes: 8             # 7 缺陷类 + 背景
+training:
+    train_iters: 200000        # 链目标；实际保存点为验证集最优截获（见 checkpoint_metadata/）
+    batch_size: 12
+    val_interval: 1000         # 每 1000 次迭代在 val235 上监控 mIoU
+    n_workers: 16
+    print_interval: 50
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.000002
+    loss:
+        [
+            { name: 'ohem_cross_entropy' },
+            { name: 'bce_with_logits_loss' },
+            { name: 'ohem_cross_entropy' }
+        ]
+    lr_schedule: null          # 恒定学习率
+    resume: null               # 存档时置空；历史链曾分阶段 resume（见 experiments/audit/）
+predict:
+    batch_size: 1
+    n_workers: 16
+# 评价协议：验证集（235 张）选择最优权重；最终仅在 468 张独立测试集评价一次，
+# TestRescale + ToTensor，不使用 ImageNet Normalize，mIoU 含背景。

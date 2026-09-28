@@ -1,0 +1,39 @@
+{
+  "model": "A2MS-DSMONet-B",
+  "definition": "DSMONet-B + AAM（eSE 通道注意力 + ACW 自适应通道权重）+ 辅助细节监督分支（仅训练阶段）",
+  "model_source_file": "new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+  "model_file_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+  "param_count": 29460804,
+  "forward_note": "主输出 head_seg1=out（arm2 细节—语义融合特征）；历史整理期曾出现 head_seg1=high_feats 退化，已修复并实证，见 experiments/audit/a2ms_b_fixed_forward_audit.md",
+  "checkpoints": {
+    "neu_seg_240k": {
+      "checkpoint_file": "repro_runs/long240k_seed1337/a2_full/checkpoints/a2_full_s1337_long240k_codex1_iter240000.pkl",
+      "checkpoint_sha256": "5beaaa1c0b42440336063c47eacbae38eb105112f980c7f05a35cbbf9639fb1b",
+      "actual_iter": 240000,
+      "dataset": "NEU-Seg (train 3630 / test 840, 200x200, 4 classes incl background)",
+      "seed": 1337,
+      "init": "from scratch",
+      "selection": "固定训练终点（无验证/测试集模型选择）",
+      "config": "experiments/configs/neu_a2ms_dsmonet_b_240k.yaml",
+      "test_miou_unified840": 0.914544,
+      "class_iou": {"background": 0.9864, "crazing": 0.8447, "inclusion": 0.9355, "patches": 0.8916},
+      "evidence": "experiments/audit/long240k_endpoint_results.json / long240k_a2_full_manifest.json"
+    },
+    "leather_val_best": {
+      "checkpoint_file": "new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl",
+      "checkpoint_sha256": "336c5a4c2e5c1def67e34dc5061c5ed384829c8fdf318ce67b64f04e1a54f01f",
+      "actual_iter": 130000,
+      "filename_iter_mismatch_note": "文件名 160000 为链目标；实际保存点为 val-best 截获 iter=130000",
+      "dataset": "Leather (train 1638 / val 235 / test 468, 768x768, 8 classes incl background)",
+      "seed": "历史链未记录（见 experiments/audit/）",
+      "selection": "val235 最优（训练中每 1000 迭代监控）",
+      "config": "experiments/configs/leather_a2ms_dsmonet_b.yaml",
+      "historical_val235_best_miou": 0.9090842792341525,
+      "test_miou_unified468": 0.909713,
+      "class_iou_test468": {"background": 0.992442, "open_wound": 0.792120, "scratch": 0.747213, "brand_mark": 0.895430, "hole": 0.993314, "skin_disease": 0.978667, "rotten_surface": 0.941891, "wart": 0.936625},
+      "evidence": "experiments/audit/leather_paper_final_results.json"
+    }
+  },
+  "note": "权重文件不上传（.gitignore）；本文件仅记录元信息。训练权重留存于服务器。",
+  "date": "2026-09-28"
+}

@@ -1,0 +1,40 @@
+# Leather | model=A2MS-DSMONet-B（历史训练链配置存档）
+# 论文表4/表5 的 90.97% mIoU 对应训练链
+# 来源：new/dsmonet_resnet_pige_loss.yml（历史配置，2026-09-28 整理存档；
+#       训练超参数保持原值；模型文件为 model_dsmo_r50_eSE_adapt_detailloss.py，
+#       其计算图与 new/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py 一致）
+model:
+    arch: dsmonet_resnet
+    model_file: model_dsmo_rs50_eSE_adapt_detailloss_fixed.py   # A2MS-DSMONet-B（AAM=eSE+ACW + 辅助细节监督）
+    backbone: resnet50
+data:
+    dataset: pascal
+    train_split: train_aug     # leather_train.txt（1638 张）
+    val_split: val             # leather_val.txt（235 张），仅用于 checkpoint 选择
+    img_rows: 768
+    img_cols: 768
+    path: ./dataset/pige/
+    num_classes: 8
+training:
+    train_iters: 80000         # 该阶段链目标；完整链实际保存点见 checkpoint_metadata/
+    batch_size: 12
+    val_interval: 1000
+    n_workers: 16
+    print_interval: 50
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.000002
+    loss:
+        [
+            { name: 'ohem_cross_entropy' },
+            { name: 'bce_with_logits_loss' },
+            { name: 'ohem_cross_entropy' },
+            { name: 'detail_aggregate_loss' }    # λ_d=1（历史 Leather 链细节监督权重）
+        ]
+    lr_schedule: null
+    resume: null               # 存档时置空；历史链曾分阶段 resume（见 experiments/audit/）
+predict:
+    batch_size: 1
+    n_workers: 16
+# 评价协议与 leather_dsmonet_b.yaml 相同（val235 选择 + test468 终评一次）。

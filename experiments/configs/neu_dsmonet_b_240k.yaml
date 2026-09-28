@@ -1,0 +1,49 @@
+# Protocol L1 long240k | model=DSMONet-B | seed 1337
+# NEU-Seg 正式训练配置（论文表1/表7 的 91.24% mIoU 对应配置）
+# 来源：repro_runs/long240k_seed1337/base_b/config/config.yml（2026-09-28 原样整理，路径已改为相对占位）
+seed: 1337
+model:
+    arch: dsmonet_resnet
+    model_file: model_dsmo_rs50.py        # DSMONet-B 模型定义
+    backbone: resnet50
+data:
+    dataset: pascal                        # 历史代码链的数据集接口名，实际加载 NEU-Seg
+    train_split: train_neu
+    img_rows: 200
+    img_cols: 200
+    path: ./dataset/                       # 占位：数据集根目录（数据不上传）
+    train_list: ./dataset/train_neu.txt    # 对应 experiments/protocol/splits/neu_train.txt
+    num_classes: 4                         # 含背景
+training:
+    train_iters: 240000
+    batch_size: 16
+    n_workers: 8
+    print_interval: 100
+    seed: 1337
+    loss_weights: [10, 1, 3]               # 三路输出（主输出+两路辅助）权重
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.000002
+    loss:
+        [
+            { name: 'ohem_cross_entropy' },
+            { name: 'bce_with_logits_loss' },   # 前景-背景掩码感知损失
+            { name: 'ohem_cross_entropy' }
+        ]
+    lr_schedule: null          # 恒定学习率 1e-4
+    resume: null               # 从头训练
+experiment:
+    run_prefix: base_b_s1337_long240k
+    checkpoint_dir: ./checkpoints
+    log_dir: ./logs
+    result_dir: ./analysis
+    recovery_interval: 5000
+    overwrite: false
+predict:
+    batch_size: 1
+    n_workers: 4
+# 评价协议（训练后统一执行，训练中不进行任何测试集评估）：
+#   TestRescale(200,200) + ToTensor，不使用 ImageNet Normalize；
+#   840 张测试图像全量、batch=1、pred=outputs[0]、mIoU 含背景；
+#   固定终点（iter=240000）评价一次，无基于测试集的模型选择。

@@ -1,0 +1,88 @@
+{
+  "checkpoints": {
+    "base": "<workspace>/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl",
+    "a2": "<workspace>/new/dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl"
+  },
+  "base_actual_iter": 78000,
+  "a2_actual_iter": 130000,
+  "consistency_gate": {
+    "base": 0.89912,
+    "a2": 0.909713,
+    "status": "passed"
+  },
+  "rule": "defect-bearing subset of test468 ranked by per-image 8-class mIoU delta (A2MS-DSMONet-B minus DSMONet-B); top2/bottom2/2-nearest-zero",
+  "n_defect_bearing": 268,
+  "n_improved": 211,
+  "n_worsened": 45,
+  "n_tie": 12,
+  "label_version": "v6 (DSMONet-B naming)",
+  "cases": [
+    {
+      "group": "worsened",
+      "sample_id": "210",
+      "gt_classes": [
+        1
+      ],
+      "base": 0.8447056425094136,
+      "a2": 0.31161351775414625,
+      "delta": -0.5330921247552673,
+      "file": "<workspace>/repro_runs/leather_historical_audit/final_viz/leather_final_worsened_210.png"
+    },
+    {
+      "group": "worsened",
+      "sample_id": "129",
+      "gt_classes": [
+        3
+      ],
+      "base": 0.8776489344567457,
+      "a2": 0.47924803007029415,
+      "delta": -0.3984009043864516,
+      "file": "<workspace>/repro_runs/leather_historical_audit/final_viz/leather_final_worsened_129.png"
+    },
+    {
+      "group": "improved",
+      "sample_id": "396",
+      "gt_classes": [
+        1
+      ],
+      "base": 0.4204783212479465,
+      "a2": 0.842733538173609,
+      "delta": 0.4222552169256625,
+      "file": "<workspace>/repro_runs/leather_historical_audit/final_viz/leather_final_improved_396.png"
+    },
+    {
+      "group": "improved",
+      "sample_id": "19",
+      "gt_classes": [
+        3
+      ],
+      "base": 0.3329540900903345,
+      "a2": 0.7545331285276113,
+      "delta": 0.42157903843727684,
+      "file": "<workspace>/repro_runs/leather_historical_audit/final_viz/leather_final_improved_19.png"
+    },
+    {
+      "group": "near_zero",
+      "sample_id": "77",
+      "gt_classes": [
+        1
+      ],
+      "base": 0.49951256646050346,
+      "a2": 0.49951256646050346,
+      "delta": 0.0,
+      "file": "<workspace>/repro_runs/leather_historical_audit/final_viz/leather_final_near_zero_77.png"
+    },
+    {
+      "group": "near_zero",
+      "sample_id": "102",
+      "gt_classes": [
+        7
+      ],
+      "base": 0.49869876437717015,
+      "a2": 0.49869876437717015,
+      "delta": 0.0,
+      "file": "<workspace>/repro_runs/leather_historical_audit/final_viz/leather_final_near_zero_102.png"
+    }
+  ],
+  "_path_note": "paths sanitized: <workspace> = server project root; filenames/IDs unchanged"
+}
