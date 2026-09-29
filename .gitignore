@@ -11,10 +11,12 @@ __pycache__/
 *.7z
 .ipynb_checkpoints/
 data/
+dataset/
 datasets/
 weights/
 trainedfile/
 runs/
+repro_runs/
 wandb/
 .DS_Store
 

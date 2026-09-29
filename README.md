@@ -15,7 +15,7 @@
 - A2MS-DSMONet / A2MS-DSMONet-B：工业缺陷增强完整模型（NEU-Seg 91.45% / Leather 90.97% mIoU）；
 - 历史整理期别名 Base-B、A2MS-DefectNet 已废止，见 `docs/paper/model_naming_audit_v6.md`。
 
-当前投稿候选稿：`docs/paper/paper_draft_cjig_v6_1_submission_candidate.md`。
+当前投稿候选稿：`docs/paper/paper_draft_cjig_v6_2_submission_candidate.md`（CJIG v6.2，论文主线已冻结，实验数字锁定，不再修改）。
 
 ## 数据集
 
@@ -26,11 +26,13 @@
 
 ## 目录说明
 
-- `docs/paper/`：论文稿（v2–v6.1）、图件（Fig1–4，SVG/PDF/600dpi PNG）、修订日志、claim 审查、命名审计、投稿检查清单；
+- `docs/paper/`：论文稿（v2–v6.2，当前投稿候选稿为 v6.2）、图件（Fig1–4，SVG/PDF/600dpi PNG）、修订日志、claim 审查、方法谱系说明、命名审计、投稿检查清单；
+- `docs/journal/`：期刊材料（CJIG 体例排版模板 `CJIG_template.doc`、版权转让声明及保密审查证明 `CJIG_copyright.pdf`）；
 - `docs/literature/`：相关工作调研与参考文献核验；
 - `experiments/audit/`：全部审计档案（NEU 历史结果溯源、Leather checkpoint 取证、统一复评 manifest、边界/尺度/形态分析结果 JSON）；
 - `experiments/results/`：类别 IoU、复杂度、小目标分组等结果表与判定记录；
 - `experiments/configs/`：论文结果对应的四个正式训练配置（NEU/Leather × DSMONet-B/A2MS-DSMONet-B）；
+- `experiments/baseline_comparison/`：后续 STDC/PIDNet/DDRNet 等基线对比实验（配置、结果汇总、日志摘要）；
 - `experiments/protocol/`：评价协议锁定记录与数据划分清单（`splits/`）；
 - `checkpoint_metadata/`：论文 checkpoint 元信息（iter/seed/sha256/mIoU），**不含权重文件**；
 - `tools/`：统一评价与复杂度测量脚本（`evaluate_class_iou.py`、`measure_complexity.py` 等）；
@@ -64,7 +66,9 @@
 
 ## 重要说明
 
-- 训练权重、数据集、大规模训练日志不提交到 GitHub（`.gitignore` 已覆盖 `*.pkl/*.pth/*.pt`、`data/`、`dataset/`、`runs/` 等）；
+- 本仓库是论文与代码的主版本库（CJIG 投稿准备阶段唯一工作版本）；服务器仅用于训练实验，不作为论文修改源，baseline 等训练实验在服务器执行后按协议回传结果汇总；
+- GitHub 仅保存：代码、配置、论文、审计文件与小型结果文件；
+- 训练权重、数据集、大规模训练日志不提交到 GitHub（`.gitignore` 已覆盖 `*.pkl/*.pth/*.pt/*.ckpt`、`data/`、`dataset/`、`repro_runs/`、`runs/` 等）；
 - 权重建议使用 Git LFS、Release、网盘或服务器路径管理；
 - 所有新实验结果必须先写入 `experiments/results/new_results_pending.md`，核验后再进入论文；
 - 不允许将口头结果、未确认日志或未核验表格直接写入摘要、结论或主实验表。
