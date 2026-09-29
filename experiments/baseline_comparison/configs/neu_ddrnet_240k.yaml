@@ -1,0 +1,33 @@
+# Protocol-compliant NEU-Seg baseline: DDRNet (DualResNet_imagenet), 240k iters.
+# Protocol: from scratch, seed 1337, Adam lr=1e-4 constant (no schedule), wd=2e-6,
+# batch 16, 200x200, 4 classes, NO val/test during training, checkpoint only at final iter.
+model:
+  arch: ddrnet
+data:
+  dataset: neu
+  num_classes: 4
+  train_list: /workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt
+  data_dir: /workspace/Industrial Surface Defect/new (copy)
+  input_hw: [200, 200]
+training:
+  train_iters: 240000
+  batch_size: 16
+  n_workers: 8
+  print_interval: 100
+  seed: 1337
+  optimizer:
+    name: adam
+    lr: 1.0e-4
+    weight_decay: 2.0e-6
+  # chain loss habit: [ohem_cross_entropy, bce_with_logits_loss] on [x_, x_extra]
+  loss:
+    - name: ohem_cross_entropy
+    - name: bce_with_logits_loss
+  loss_weights: [1.0, 0.4]
+  lr_schedule: null   # ConstantLR (protocol: constant LR)
+  resume: null
+experiment:
+  run_prefix: neu_ddrnet_240k
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/logs
