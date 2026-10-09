@@ -1,0 +1,28 @@
+{
+  "model": "base_b",
+  "model_desc": "DSMONet(num_classes=N, backbone=resnet50())",
+  "model_file": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50.py",
+  "weight": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/checkpoints/base_b_s1337_long240k_codex1_iter240000.pkl",
+  "input_size": [
+    200,
+    200
+  ],
+  "batch": 1,
+  "dtype": "FP32",
+  "eval_mode": true,
+  "no_grad": true,
+  "warmup": 100,
+  "measure": 1000,
+  "latency_ms": {
+    "mean": 16.641767594963312,
+    "median": 12.172881513834,
+    "p95": 39.967926777899244,
+    "std": 10.500451927279872
+  },
+  "fps": 60.089770770663414,
+  "peak_memory_mb": 504.971264,
+  "params_total": 29370629,
+  "params_m": 29.370629,
+  "macs_g": 6.648159494,
+  "device_name": "NVIDIA A100-PCIE-40GB"
+}

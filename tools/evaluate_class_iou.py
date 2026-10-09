@@ -81,6 +81,10 @@ MODEL_ALIASES = {
     "ppliteseg_b": "PP-LiteSeg-B",
     "bisenetv1-l": "BiSeNetV1-L",
     "bisenetv1_l": "BiSeNetV1-L",
+    "fdsnet": "FDSNet",
+    "fds": "FDSNet",
+    "letnet": "LETNet",
+    "let": "LETNet",
 }
 
 DEFAULT_MODEL_FILES = {
@@ -93,6 +97,8 @@ DEFAULT_MODEL_FILES = {
     "PIDNet-S": NEW_DIR / "pid.py",
     "PP-LiteSeg-B": NEW_DIR / "model_dsmo_rs50_ppliteseg.py",
     "BiSeNetV1-L": NEW_DIR / "model_dsmo_rs50_csfcn_yuan.py",
+    "FDSNet": REPO_DIR / "third_party" / "FDSNet" / "core" / "models" / "fdsnet.py",
+    "LETNet": REPO_DIR / "third_party" / "LETNet" / "Network" / "model" / "LETNet.py",
 }
 
 DEFAULT_DATA_ROOTS = {
@@ -315,6 +321,86 @@ def build_bisenetv1_l(model_file: Path, num_classes: int, device: torch.device) 
     return model, "DSMONet(CSFCN/BiSeNetV1-L candidate, num_classes=N, backbone=resnet50())"
 
 
+def _install_mmcv_shim() -> None:
+    """Minimal mmcv.cnn shim for FDSNet's gcblock (constant_init/kaiming_init only).
+    mmcv is intentionally not installed (environment conflict); see
+    experiments/baseline_comparison/industrial_baseline_audit.md."""
+    if "mmcv.cnn" in sys.modules:
+        return
+    import types
+
+    mmcv = types.ModuleType("mmcv")
+    mmcv_cnn = types.ModuleType("mmcv.cnn")
+
+    def constant_init(m, val=0):
+        if hasattr(m, "weight") and m.weight is not None:
+            torch.nn.init.constant_(m.weight, val)
+        if hasattr(m, "bias") and m.bias is not None:
+            torch.nn.init.constant_(m.bias, val)
+
+    def kaiming_init(m, mode="fan_out", nonlinearity="relu", **kw):
+        torch.nn.init.kaiming_normal_(m.weight, mode=mode, nonlinearity=nonlinearity)
+        if hasattr(m, "bias") and m.bias is not None:
+            torch.nn.init.constant_(m.bias, 0)
+
+    mmcv_cnn.constant_init = constant_init
+    mmcv_cnn.kaiming_init = kaiming_init
+    mmcv.cnn = mmcv_cnn
+    sys.modules.setdefault("mmcv", mmcv)
+    sys.modules.setdefault("mmcv.cnn", mmcv_cnn)
+
+
+def build_fdsnet(model_file: Path, num_classes: int, device: torch.device) -> Tuple[torch.nn.Module, str]:
+    # The repo's core/__init__ is broken upstream (missing core.nn.jpu); load the
+    # model file directly under a stub parent package so its relative imports work.
+    import types
+
+    _install_mmcv_shim()
+    pkg = types.ModuleType("fdsnet_models")
+    pkg.__path__ = [str(model_file.parent)]
+    sys.modules.setdefault("fdsnet_models", pkg)
+    module = load_module_from_file(model_file, "fdsnet_models.fdsnet")
+    model = module.FDSNet(num_classes=num_classes, aux=True).to(device)
+    return model, "FDSNet(num_classes=N, aux=True) [ICASSP 2022]"
+
+
+class _PadCropWrapper(torch.nn.Module):
+    """Pad HxW input to pad_to x pad_to (right/bottom, zeros), run inner model,
+    crop logits back to HxW. Used for LETNet (/16-divisible input constraint)."""
+
+    def __init__(self, inner: torch.nn.Module, pad_to: int = 208):
+        super().__init__()
+        self.inner = inner
+        self.pad_to = pad_to
+
+    def load_state_dict(self, state_dict, strict: bool = True):
+        # Training checkpoints store the RAW inner model's keys (no "inner."
+        # prefix); accept both layouts so strict loading works either way.
+        if not any(k.startswith("inner.") for k in state_dict.keys()):
+            state_dict = {f"inner.{k}": v for k, v in state_dict.items()}
+        return super().load_state_dict(state_dict, strict=strict)
+
+    def forward(self, x):
+        h, w = x.shape[-2:]
+        x = F.pad(x, (0, self.pad_to - w, 0, self.pad_to - h))
+        out = self.inner(x)
+        if isinstance(out, (list, tuple)):
+            out = out[0]
+        return out[..., :h, :w]
+
+
+def build_letnet(model_file: Path, num_classes: int, device: torch.device) -> Tuple[torch.nn.Module, str]:
+    # LETNet imports "from module.transformer import ..." -> needs Network/model on path.
+    network_dir = model_file.parent.parent  # third_party/LETNet/Network
+    for _p in (str(network_dir), str(network_dir / "model")):
+        if _p not in sys.path:
+            sys.path.insert(0, _p)
+    module = load_module_from_file(model_file, "eval_letnet_module")
+    inner = module.LETNet(classes=num_classes)
+    model = _PadCropWrapper(inner, pad_to=208).to(device)
+    return model, "LETNet(classes=N) with 200->208 pad / 208->200 crop wrapper"
+
+
 MODEL_BUILDERS: Dict[str, Callable[[Path, int, torch.device], Tuple[torch.nn.Module, str]]] = {
     "Base-S": build_base_s,
     "Base-B": build_base_b,
@@ -325,6 +411,8 @@ MODEL_BUILDERS: Dict[str, Callable[[Path, int, torch.device], Tuple[torch.nn.Mod
     "PIDNet-S": build_pidnet,
     "PP-LiteSeg-B": build_ppliteseg_b,
     "BiSeNetV1-L": build_bisenetv1_l,
+    "FDSNet": build_fdsnet,
+    "LETNet": build_letnet,
 }
 
 

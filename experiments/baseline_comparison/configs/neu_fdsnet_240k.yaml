@@ -1,0 +1,23 @@
+# Protocol-compliant NEU-Seg baseline: FDSNet (ICASSP 2022), 240k iters.
+# Protocol: from scratch, seed 1337, Adam lr=1e-4 constant, wd=2e-6,
+# batch 16, 200x200, 4 classes, NO val/test during training, checkpoint only at final iter.
+# Loss (chain habit): [OHEM CE main, BCE edge, BCE semantic] x [1.0, 0.5, 0.5].
+model:
+  arch: fdsnet
+data:
+  dataset: neu
+  num_classes: 4
+  train_list: /workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt
+  data_dir: /workspace/Industrial Surface Defect/new (copy)
+  input_hw: [200, 200]
+training:
+  train_iters: 240000
+  batch_size: 16
+  n_workers: 8
+  print_interval: 100
+  seed: 1337
+experiment:
+  run_prefix: neu_fdsnet_240k
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/fdsnet/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/fdsnet/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/fdsnet/logs

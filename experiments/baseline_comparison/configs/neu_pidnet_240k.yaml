@@ -28,6 +28,6 @@ training:
   resume: null
 experiment:
   run_prefix: neu_pidnet_240k
-  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/checkpoints
-  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/results
-  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/logs
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/pidnet/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/pidnet/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/pidnet/logs

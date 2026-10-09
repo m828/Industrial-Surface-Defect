@@ -1,0 +1,36 @@
+{
+  "model": "let",
+  "run": "letnet",
+  "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/letnet/checkpoints/neu_letnet_240k_iter240000.pkl",
+  "checkpoint_sha256": "6ab2806a9cd5f6cf905afc64dc6037a98eb3893ff296aa27860c76d37cc8df56",
+  "checkpoint_iter": 240000,
+  "protocol": "NEU-Seg train3630/test840 200x200 4cls-incl-bg; from scratch; seed1337; Adam lr1e-4 const; wd2e-6; batch16; 240k fixed endpoint; no val/test during training",
+  "eval_tool": "tools/evaluate_class_iou.py (strict)",
+  "mIoU": 0.863617,
+  "class_IoU": {
+    "background": 0.975905,
+    "crazing": 0.747656,
+    "inclusion": 0.896234,
+    "patches": 0.834674
+  },
+  "pixel_accuracy": 0.9786128869047619,
+  "params": 950976,
+  "params_m": 0.950976,
+  "MACs_g": 1.207007216,
+  "fps": 21.9456550701262,
+  "latency_ms": {
+    "mean": 45.567106418311596,
+    "median": 45.2534519135952,
+    "p95": 47.20488842576742,
+    "std": 2.5014179652935735
+  },
+  "peak_memory_mb": 50.176,
+  "bench_protocol": {
+    "warmup": 100,
+    "measure": 1000,
+    "batch": 1,
+    "dtype": "FP32",
+    "device": "NVIDIA A100-PCIE-40GB"
+  },
+  "note": "baseline result pending user review; not yet in paper"
+}

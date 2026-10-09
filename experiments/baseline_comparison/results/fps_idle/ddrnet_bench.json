@@ -1,0 +1,28 @@
+{
+  "model": "ddr",
+  "model_desc": "DualResNet_imagenet(num_classes=N)",
+  "model_file": "/workspace/Industrial Surface Defect/new/model_ddr.py",
+  "weight": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/ddrnet/checkpoints/neu_ddrnet_240k_iter240000.pkl",
+  "input_size": [
+    200,
+    200
+  ],
+  "batch": 1,
+  "dtype": "FP32",
+  "eval_mode": true,
+  "no_grad": true,
+  "warmup": 100,
+  "measure": 1000,
+  "latency_ms": {
+    "mean": 8.703789230436087,
+    "median": 6.764132529497147,
+    "p95": 18.688962422311306,
+    "std": 5.397489229745201
+  },
+  "fps": 114.89248803304224,
+  "peak_memory_mb": 343.386112,
+  "params_total": 20295496,
+  "params_m": 20.295496,
+  "macs_g": 2.904617472,
+  "device_name": "NVIDIA A100-PCIE-40GB"
+}

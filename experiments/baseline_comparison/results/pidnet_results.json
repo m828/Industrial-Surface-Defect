@@ -1,0 +1,36 @@
+{
+  "model": "pid",
+  "run": "pidnet",
+  "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/pidnet/checkpoints/neu_pidnet_240k_iter240000.pkl",
+  "checkpoint_sha256": "b40e3ab97cbc039b58d00721deff8e144211e227535be3217fc632c970418c53",
+  "checkpoint_iter": 240000,
+  "protocol": "NEU-Seg train3630/test840 200x200 4cls-incl-bg; from scratch; seed1337; Adam lr1e-4 const; wd2e-6; batch16; 240k fixed endpoint; no val/test during training",
+  "eval_tool": "tools/evaluate_class_iou.py (strict)",
+  "mIoU": 0.888158,
+  "class_IoU": {
+    "background": 0.982813,
+    "crazing": 0.81439,
+    "inclusion": 0.928415,
+    "patches": 0.827015
+  },
+  "pixel_accuracy": 0.9846178869047619,
+  "params": 7717065,
+  "params_m": 7.717065,
+  "MACs_g": 0.969301248,
+  "fps": 108.86914060383911,
+  "latency_ms": {
+    "mean": 9.185339339077473,
+    "median": 9.370261803269386,
+    "p95": 11.571504548192024,
+    "std": 1.1403269817540858
+  },
+  "peak_memory_mb": 130.620416,
+  "bench_protocol": {
+    "warmup": 100,
+    "measure": 1000,
+    "batch": 1,
+    "dtype": "FP32",
+    "device": "NVIDIA A100-PCIE-40GB"
+  },
+  "note": "baseline result pending user review; not yet in paper"
+}

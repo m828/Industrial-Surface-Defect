@@ -1,0 +1,28 @@
+{
+  "model": "pid",
+  "model_desc": "PIDNet(m=2, n=3, planes=32, ppm_planes=96, head_planes=128, augment=True)",
+  "model_file": "/workspace/Industrial Surface Defect/new/pid.py",
+  "weight": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/pidnet/checkpoints/neu_pidnet_240k_iter240000.pkl",
+  "input_size": [
+    200,
+    200
+  ],
+  "batch": 1,
+  "dtype": "FP32",
+  "eval_mode": true,
+  "no_grad": true,
+  "warmup": 100,
+  "measure": 1000,
+  "latency_ms": {
+    "mean": 11.579916592687368,
+    "median": 8.780792355537415,
+    "p95": 26.975680701434612,
+    "std": 8.363682843540946
+  },
+  "fps": 86.3564078372976,
+  "peak_memory_mb": 130.620416,
+  "params_total": 7717065,
+  "params_m": 7.717065,
+  "macs_g": 0.969301248,
+  "device_name": "NVIDIA A100-PCIE-40GB"
+}

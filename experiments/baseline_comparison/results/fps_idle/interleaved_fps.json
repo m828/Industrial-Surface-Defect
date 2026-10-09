@@ -1,0 +1,128 @@
+{
+  "ddrnet": {
+    "segment_mean_ms": [
+      6.0111,
+      5.94,
+      5.9483,
+      5.9514,
+      5.9582,
+      5.9372,
+      5.9519,
+      5.9257,
+      5.9487,
+      5.9442
+    ],
+    "median_segment_ms": 5.948491655290127,
+    "fps_from_median_segment": 168.10984329290898,
+    "params_total": 20295496,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  },
+  "stdc": {
+    "segment_mean_ms": [
+      8.6829,
+      8.7109,
+      8.6166,
+      8.5813,
+      8.5938,
+      8.5606,
+      8.5388,
+      8.5245,
+      8.5883,
+      8.6236
+    ],
+    "median_segment_ms": 8.591050505638123,
+    "fps_from_median_segment": 116.40020034147412,
+    "params_total": 16073632,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  },
+  "pidnet": {
+    "segment_mean_ms": [
+      8.0609,
+      8.112,
+      8.1352,
+      8.1652,
+      8.0728,
+      8.0969,
+      8.0758,
+      8.0709,
+      8.0441,
+      8.2199
+    ],
+    "median_segment_ms": 8.086342848837376,
+    "fps_from_median_segment": 123.66529823105093,
+    "params_total": 7717065,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  },
+  "fdsnet": {
+    "segment_mean_ms": [
+      4.8563,
+      4.8656,
+      4.8636,
+      4.8624,
+      6.781,
+      4.9115,
+      4.8862,
+      5.1108,
+      4.8299,
+      4.8557
+    ],
+    "median_segment_ms": 4.864583145827055,
+    "fps_from_median_segment": 205.56745974376483,
+    "params_total": 2591609,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  },
+  "letnet": {
+    "segment_mean_ms": [
+      45.8429,
+      45.5496,
+      45.9628,
+      45.9403,
+      45.8286,
+      45.243,
+      45.7187,
+      45.9447,
+      45.9413,
+      45.7874
+    ],
+    "median_segment_ms": 45.83576571196318,
+    "fps_from_median_segment": 21.817023986990996,
+    "params_total": 950976,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  },
+  "dsmonet_b": {
+    "segment_mean_ms": [
+      11.1053,
+      13.7989,
+      10.9644,
+      11.1134,
+      10.9236,
+      12.3743,
+      11.0605,
+      11.0551,
+      10.9581,
+      10.9305
+    ],
+    "median_segment_ms": 11.057771164923906,
+    "fps_from_median_segment": 90.43413768337658,
+    "params_total": 29370629,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  },
+  "a2ms_b": {
+    "segment_mean_ms": [
+      10.8444,
+      10.8276,
+      11.0533,
+      11.0007,
+      10.8595,
+      10.9153,
+      11.1025,
+      11.026,
+      10.6355,
+      11.06
+    ],
+    "median_segment_ms": 10.95802502706647,
+    "fps_from_median_segment": 91.25732032277591,
+    "params_total": 29460804,
+    "protocol": "interleaved 10x100, warmup 50, batch1 FP32 eval no_grad; shared-GPU robust (median of segment means)"
+  }
+}

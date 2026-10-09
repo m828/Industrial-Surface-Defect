@@ -1,0 +1,24 @@
+# Protocol-compliant NEU-Seg baseline: LETNet, 240k iters.
+# Protocol: from scratch, seed 1337, Adam lr=1e-4 constant, wd=2e-6,
+# batch 16, 4 classes, NO val/test during training, checkpoint only at final iter.
+# Input: 200x200 padded to 208x208 (LETNet /16 constraint); output cropped back at eval.
+# Loss (chain habit): weighted CE [1.4646, 8.7251, 6.2481, 8.4495], ignore 255.
+model:
+  arch: letnet
+data:
+  dataset: neu
+  num_classes: 4
+  train_list: /workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt
+  data_dir: /workspace/Industrial Surface Defect/new (copy)
+  input_hw: [200, 200]
+training:
+  train_iters: 240000
+  batch_size: 16
+  n_workers: 8
+  print_interval: 100
+  seed: 1337
+experiment:
+  run_prefix: neu_letnet_240k
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/letnet/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/letnet/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_industrial/letnet/logs

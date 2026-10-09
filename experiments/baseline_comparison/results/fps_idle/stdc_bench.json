@@ -1,0 +1,28 @@
+{
+  "model": "stdc",
+  "model_desc": "BiSeNet(backbone='STDCNet1446', n_classes=N, use_boundary_8=True)",
+  "model_file": "/workspace/Industrial Surface Defect/new (copy)/stdc.py",
+  "weight": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/stdc/checkpoints/neu_stdc_bisenet_240k_iter240000.pkl",
+  "input_size": [
+    200,
+    200
+  ],
+  "batch": 1,
+  "dtype": "FP32",
+  "eval_mode": true,
+  "no_grad": true,
+  "warmup": 100,
+  "measure": 1000,
+  "latency_ms": {
+    "mean": 13.103966251015663,
+    "median": 9.45701077580452,
+    "p95": 30.18827270716428,
+    "std": 8.666534434235816
+  },
+  "fps": 76.31277285398167,
+  "peak_memory_mb": 242.089472,
+  "params_total": 16073632,
+  "params_m": 16.073632,
+  "macs_g": 6.0168672,
+  "device_name": "NVIDIA A100-PCIE-40GB"
+}

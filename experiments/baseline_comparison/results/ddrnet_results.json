@@ -1,0 +1,36 @@
+{
+  "model": "ddr",
+  "run": "ddrnet",
+  "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k/ddrnet/checkpoints/neu_ddrnet_240k_iter240000.pkl",
+  "checkpoint_sha256": "c2ce05e8b83f1303ff1122c1d1c78b249ac902d69906dd4c39df2d146cf4a8d5",
+  "checkpoint_iter": 240000,
+  "protocol": "NEU-Seg train3630/test840 200x200 4cls-incl-bg; from scratch; seed1337; Adam lr1e-4 const; wd2e-6; batch16; 240k fixed endpoint; no val/test during training",
+  "eval_tool": "tools/evaluate_class_iou.py (strict)",
+  "mIoU": 0.89241,
+  "class_IoU": {
+    "background": 0.983286,
+    "crazing": 0.820255,
+    "inclusion": 0.934433,
+    "patches": 0.831668
+  },
+  "pixel_accuracy": 0.9851841369047619,
+  "params": 20295496,
+  "params_m": 20.295496,
+  "MACs_g": 2.904617472,
+  "fps": 138.77018824167968,
+  "latency_ms": {
+    "mean": 7.206158705055714,
+    "median": 6.846411153674126,
+    "p95": 8.961528167128563,
+    "std": 0.9844109926034982
+  },
+  "peak_memory_mb": 343.386112,
+  "bench_protocol": {
+    "warmup": 100,
+    "measure": 1000,
+    "batch": 1,
+    "dtype": "FP32",
+    "device": "NVIDIA A100-PCIE-40GB"
+  },
+  "note": "baseline result pending user review; not yet in paper"
+}
