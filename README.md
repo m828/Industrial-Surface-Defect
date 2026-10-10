@@ -28,15 +28,17 @@
 
 为论文实验章节补充的三级对比，全部在统一协议下完成：
 
-- **工业缺陷方法**：FDSNet、LETNet；
-- **通用实时语义分割**：STDC-Seg、PIDNet-S、DDRNet23-slim；
+- **Classical 分割方法**：U-Net、DeepLabv3+；
+- **通用实时语义分割**：BiSeNetV2、STDC-Seg、PIDNet-S、DDRNet-23、LETNet；
+- **工业缺陷方法**：FDSNet（近年其余工业方法官方代码未公开或不完整，见 `experiments/baseline_comparison/recent_industrial_methods_audit.md`）；
 - **本文方法**：DSMONet-B、A2MS-DSMONet-B。
 
 统一训练/评价协议（所有 baseline 与本文模型一致）：NEU-Seg train 3630 / test 840；4 类含背景；from scratch；seed 1337；Adam（lr 1e-4 恒定、wd 2e-6）；batch 16；240k 固定终点评价；训练全程不使用验证/测试集、无 test-based 模型选择；统一 `tools/evaluate_class_iou.py` 评价。
 
 资产位置（`experiments/baseline_comparison/`）：
 
-- `results/final_baseline_table_v2.md`：7 模型对比总表（mIoU/逐类 IoU/Params/MACs；FPS 待统一复测）；
+- `results/final_baseline_table_v3.md`：10 模型对比总表（mIoU/Background/逐类 IoU/Params/MACs，推理路径口径；FPS 待统一复测）；v2 保留为历史版本；
+- `results/complexity_audit_final.md`：Params/MACs 推理路径审计（含 DDRNet-23 身份核实：内部实现与官方 DDRNet-23 逐位一致，历史误标 23-slim）；
 - `results/{fdsnet,letnet,stdc,pidnet,ddrnet}_results.json` + 对应 `_audit.md`：单模型结果与审计（checkpoint sha256、配置、评价口径）；
 - `results/fps_rebenchmark_plan.md`：FPS 统一复测计划（GPU 空闲时执行后回填）；
 - `industrial_baseline_audit.md`：DMC-Net 不可复现的证据链与工业 baseline 选型记录；
@@ -50,7 +52,7 @@
 - `experiments/audit/`：全部审计档案（NEU 历史结果溯源、Leather checkpoint 取证、统一复评 manifest、边界/尺度/形态分析结果 JSON）；
 - `experiments/results/`：类别 IoU、复杂度、小目标分组等结果表与判定记录；
 - `experiments/configs/`：论文结果对应的四个正式训练配置（NEU/Leather × DSMONet-B/A2MS-DSMONet-B）；
-- `experiments/baseline_comparison/`：CJIG v7 基线对比实验（工业缺陷 FDSNet/LETNet + 通用实时 STDC/PIDNet/DDRNet 的 240k 配置、脚本、结果 JSON 与逐模型审计），详见上文"Baseline 对比实验"一节；
+- `experiments/baseline_comparison/`：CJIG v7 基线对比实验（Classical：U-Net/DeepLabv3+；实时：BiSeNetV2/STDC/PIDNet/DDRNet-23/LETNet；工业：FDSNet；240k 配置、脚本、结果 JSON 与逐模型审计），详见上文"Baseline 对比实验"一节；
 - `experiments/protocol/`：评价协议锁定记录与数据划分清单（`splits/`）；
 - `checkpoint_metadata/`：论文 checkpoint 元信息（iter/seed/sha256/mIoU），**不含权重文件**；
 - `tools/`：统一评价与复杂度测量脚本（`evaluate_class_iou.py`、`measure_complexity.py` 等）；

@@ -85,6 +85,15 @@ MODEL_ALIASES = {
     "fds": "FDSNet",
     "letnet": "LETNet",
     "let": "LETNet",
+    "unet": "U-Net",
+    "u-net": "U-Net",
+    "deeplabv3p": "DeepLabv3+",
+    "deeplabv3+": "DeepLabv3+",
+    "deeplabv3plus": "DeepLabv3+",
+    "deeplab": "DeepLabv3+",
+    "bisenetv2": "BiSeNetV2",
+    "bisenet": "BiSeNetV2",
+    "bsv2": "BiSeNetV2",
 }
 
 DEFAULT_MODEL_FILES = {
@@ -99,6 +108,9 @@ DEFAULT_MODEL_FILES = {
     "BiSeNetV1-L": NEW_DIR / "model_dsmo_rs50_csfcn_yuan.py",
     "FDSNet": REPO_DIR / "third_party" / "FDSNet" / "core" / "models" / "fdsnet.py",
     "LETNet": REPO_DIR / "third_party" / "LETNet" / "Network" / "model" / "LETNet.py",
+    "U-Net": NEW_DIR / "model_unet.py",
+    "DeepLabv3+": NEW_COPY_DIR / "model" / "deeplabv3.py",
+    "BiSeNetV2": REPO_DIR / "third_party" / "BiSeNetV2" / "lib" / "models" / "bisenetv2.py",
 }
 
 DEFAULT_DATA_ROOTS = {
@@ -401,6 +413,42 @@ def build_letnet(model_file: Path, num_classes: int, device: torch.device) -> Tu
     return model, "LETNet(classes=N) with 200->208 pad / 208->200 crop wrapper"
 
 
+def build_unet(model_file: Path, num_classes: int, device: torch.device) -> Tuple[torch.nn.Module, str]:
+    # new/model_unet.py imports "from tools.models.utils import ..."; NEW_DIR is on
+    # sys.path (module header). Canonical full U-Net (feature_scale=1, filters
+    # 64..1024, deconv decoder, BatchNorm). 200 is not /16-divisible and unetUp's
+    # negative-offset pad breaks there, so evaluate through the 208 pad/crop wrapper
+    # (same convention as LETNet).
+    module = load_module_from_file(model_file, "eval_unet_module")
+    inner = module.unet(feature_scale=1, n_classes=num_classes, is_deconv=True,
+                        in_channels=3, is_batchnorm=True)
+    model = _PadCropWrapper(inner, pad_to=208).to(device)
+    return model, "U-Net(feature_scale=1, is_deconv=True, BN) with 200->208 pad / 208->200 crop wrapper"
+
+
+def build_deeplabv3p(model_file: Path, num_classes: int, device: torch.device) -> Tuple[torch.nn.Module, str]:
+    # DeepLabv3+ (ASPP + decoder) from the historical repo file; pretrained=False
+    # keeps evaluation strictly on the protocol-trained checkpoint (no download).
+    module = load_module_from_file(model_file, "eval_deeplabv3p_module")
+    model = module.DeepLab(num_classes=num_classes, backbone="resnet50",
+                           pretrained=False, output_stride=16).to(device)
+    return model, "DeepLabv3+(backbone=resnet50, output_stride=16, pretrained=False)"
+
+
+def build_bisenetv2(model_file: Path, num_classes: int, device: torch.device) -> Tuple[torch.nn.Module, str]:
+    # CoinCheung/BiSeNet lib implementation. aux_mode="train" keeps the aux head
+    # parameters present so the 240k train checkpoint loads strict; the wrapper
+    # consumes outputs[0] (main head). load_pretrain is disabled: it would download
+    # backbone_v2.pth, violating the from-scratch protocol. BGALayer requires the
+    # /32 branch x4 to equal the /8 detail map, so input is padded 200->224 and
+    # logits cropped back (same convention as LETNet).
+    module = load_module_from_file(model_file, "eval_bisenetv2_module")
+    module.BiSeNetV2.load_pretrain = lambda self: None
+    inner = module.BiSeNetV2(num_classes, aux_mode="train")
+    model = _PadCropWrapper(inner, pad_to=224).to(device)
+    return model, "BiSeNetV2(aux heads retained for strict load) with 200->224 pad / 224->200 crop wrapper [CoinCheung/BiSeNet]"
+
+
 MODEL_BUILDERS: Dict[str, Callable[[Path, int, torch.device], Tuple[torch.nn.Module, str]]] = {
     "Base-S": build_base_s,
     "Base-B": build_base_b,
@@ -413,6 +461,9 @@ MODEL_BUILDERS: Dict[str, Callable[[Path, int, torch.device], Tuple[torch.nn.Mod
     "BiSeNetV1-L": build_bisenetv1_l,
     "FDSNet": build_fdsnet,
     "LETNet": build_letnet,
+    "U-Net": build_unet,
+    "DeepLabv3+": build_deeplabv3p,
+    "BiSeNetV2": build_bisenetv2,
 }
 
 

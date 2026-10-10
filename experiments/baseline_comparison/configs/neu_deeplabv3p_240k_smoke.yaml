@@ -1,0 +1,23 @@
+# Protocol-compliant NEU-Seg baseline: DeepLabv3+ (Chen et al. 2018, ResNet-50, OS=16), 240k iters.
+# Protocol: from scratch, seed 1337, Adam lr=1e-4 constant, wd=2e-6,
+# batch 16, 4 classes, NO val/test during training, checkpoint only at final iter.
+# Native 200x200 input (forward interpolates logits back to input size). Loss = plain CE.
+model:
+  arch: deeplabv3p
+data:
+  dataset: neu
+  num_classes: 4
+  train_list: /workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt
+  data_dir: /workspace/Industrial Surface Defect/new (copy)
+  input_hw: [200, 200]
+training:
+  train_iters: 100
+  batch_size: 16
+  n_workers: 8
+  print_interval: 100
+  seed: 1337
+experiment:
+  run_prefix: neu_deeplabv3p_smoke
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/deeplabv3p_240k/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/deeplabv3p_240k/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/deeplabv3p_240k/logs

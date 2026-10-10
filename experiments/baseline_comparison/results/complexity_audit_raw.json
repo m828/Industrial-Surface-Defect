@@ -1,0 +1,72 @@
+{
+  "dsmonet_b_eval": {
+    "params_m": 29.321089,
+    "macs_g": 6.648159494,
+    "note": "expect ~= 29.37M / 6.65G (frozen)"
+  },
+  "a2ms_b_fixed_eval": {
+    "params_m": 29.337216,
+    "macs_g": 6.648175622,
+    "note": "expect ~= 29.46M / 6.65G (frozen)"
+  },
+  "ddrnet_internal_augT_eval": {
+    "params_m": 20.147012,
+    "macs_g": 2.904617472,
+    "note": "internal planes=64/head=128, augment=True, eval mode"
+  },
+  "ddrnet_official_23": {
+    "params_m": 20.147012,
+    "macs_g": 2.904617472,
+    "note": "official DDRNet_23.py planes=64 head=128 nc=4 augment=False"
+  },
+  "ddrnet_official_23_slim": {
+    "params_m": 5.695012,
+    "macs_g": 0.742889728,
+    "note": "official DDRNet_23_slim.py planes=32 head=64 nc=4 augment=False"
+  },
+  "bisenetv2_trainmode_224": {
+    "params_m": 5.195652,
+    "macs_g": 3.417225664,
+    "note": "all 5 heads executed (as evaluated)"
+  },
+  "bisenetv2_evalmode_224": {
+    "params_m": 3.343252,
+    "macs_g": 2.364483008,
+    "note": "aux heads absent (deployable)"
+  },
+  "fdsnet_auxT": {
+    "params_m": 2.591609,
+    "macs_g": 0.332822498,
+    "note": "edge+se aux layers executed (as evaluated)"
+  },
+  "fdsnet_auxF": {
+    "params_m": 0.961653,
+    "macs_g": 0.16791229,
+    "note": "aux layers absent (deployable)"
+  },
+  "stdc_seg": {
+    "params_m": 22.297152,
+    "macs_g": 6.0168672,
+    "note": "BiSeNet(backbone='STDCNet1446', n_classes=N, use_boundary_8=True)"
+  },
+  "pidnet_s": {
+    "params_m": 7.62378,
+    "macs_g": 0.969301248,
+    "note": "PIDNet(m=2, n=3, planes=32, ppm_planes=96, head_planes=128, augment=Tr"
+  },
+  "letnet_208": {
+    "params_m": 0.950432,
+    "macs_g": 1.207007216,
+    "note": "LETNet(classes=N) with 200->208 pad / 208->200 crop wrapper"
+  },
+  "unet_208": {
+    "params_m": 31.039876,
+    "macs_g": 36.102250496,
+    "note": "U-Net(feature_scale=1, is_deconv=True, BN) with 200->208 pad / 208->20"
+  },
+  "deeplabv3p": {
+    "params_m": 59.33994,
+    "macs_g": 14.28951168,
+    "note": "DeepLabv3+(backbone=resnet50, output_stride=16, pretrained=False)"
+  }
+}

@@ -1,0 +1,25 @@
+# Protocol-compliant NEU-Seg baseline: BiSeNetV2 (Yu et al. IJCV 2021, CoinCheung official), 240k iters.
+# Protocol: from scratch (load_pretrain disabled -- it would download backbone_v2.pth),
+# seed 1337, Adam lr=1e-4 constant, wd=2e-6, batch 16, 4 classes,
+# NO val/test during training, checkpoint only at final iter.
+# Input: 200x200 padded to 224x224 (BGALayer /32-x4==/8 constraint). All heads exact 224.
+# Chain-habit loss: OHEM-CE (thresh 0.7, min_kept 1e5, ignore 255) on all 5 heads, weight 1.0 each.
+model:
+  arch: bisenetv2
+data:
+  dataset: neu
+  num_classes: 4
+  train_list: /workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt
+  data_dir: /workspace/Industrial Surface Defect/new (copy)
+  input_hw: [200, 200]
+training:
+  train_iters: 100
+  batch_size: 16
+  n_workers: 8
+  print_interval: 100
+  seed: 1337
+experiment:
+  run_prefix: neu_bisenetv2_smoke
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/bisenetv2_240k/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/bisenetv2_240k/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_smoke/bisenetv2_240k/logs

@@ -1,0 +1,23 @@
+{
+  "model": "bisenetv2",
+  "run": "bisenetv2",
+  "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_classical/bisenetv2/checkpoints/neu_bisenetv2_240k_iter240000.pkl",
+  "checkpoint_sha256": "e0f66982b9ae3812b55bb5355da170492327ceb0d38864abbb39e1128636958d",
+  "checkpoint_iter": 240000,
+  "protocol": "NEU-Seg train3630/test840 200x200 4cls-incl-bg; from scratch (load_pretrain disabled); seed1337; Adam lr1e-4 const; wd2e-6; batch16; 240k fixed endpoint; no val/test during training",
+  "eval_tool": "tools/evaluate_class_iou.py (strict)",
+  "mIoU": 0.887461,
+  "class_IoU": {
+    "background": 0.982675,
+    "crazing": 0.807185,
+    "inclusion": 0.930033,
+    "patches": 0.829952
+  },
+  "pixel_accuracy": 0.984469,
+  "params": 5195652,
+  "params_m": 5.195652,
+  "MACs_g": 3.417225664,
+  "fps": null,
+  "fps_note": "FPS deferred to unified idle-GPU interleaved rebenchmark (results/fps_rebenchmark_plan.md); not measured under training load",
+  "note": "baseline result pending user review; not yet in paper"
+}

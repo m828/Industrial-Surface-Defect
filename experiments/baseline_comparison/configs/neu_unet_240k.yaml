@@ -1,0 +1,24 @@
+# Protocol-compliant NEU-Seg baseline: U-Net (Ronneberger 2015, canonical full size), 240k iters.
+# Protocol: from scratch, seed 1337, Adam lr=1e-4 constant, wd=2e-6,
+# batch 16, 4 classes, NO val/test during training, checkpoint only at final iter.
+# Input: 200x200 padded to 208x208 (200 is not /16-divisible; unetUp negative-offset
+# pad breaks at 200). Loss = plain CE with ignore_index=255 over the padded map.
+model:
+  arch: unet
+data:
+  dataset: neu
+  num_classes: 4
+  train_list: /workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt
+  data_dir: /workspace/Industrial Surface Defect/new (copy)
+  input_hw: [200, 200]
+training:
+  train_iters: 240000
+  batch_size: 16
+  n_workers: 8
+  print_interval: 100
+  seed: 1337
+experiment:
+  run_prefix: neu_unet_240k
+  checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_classical/unet/checkpoints
+  result_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_classical/unet/results
+  log_dir: /workspace/Industrial Surface Defect/repro_runs/baseline_neu_240k_classical/unet/logs
