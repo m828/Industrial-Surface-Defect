@@ -1,0 +1,80 @@
+{
+  "gpu": "NVIDIA A100-PCIE-40GB",
+  "timestamp": "2026-10-12T10:22:49",
+  "clean_run": false,
+  "blocks": [
+    {
+      "block": 1,
+      "wall_s": 11.46,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 2,
+      "wall_s": 11.39,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 3,
+      "wall_s": 11.44,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 4,
+      "wall_s": 11.4,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 5,
+      "wall_s": 11.45,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 6,
+      "wall_s": 11.68,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 7,
+      "wall_s": 11.46,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 8,
+      "wall_s": 11.53,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 9,
+      "wall_s": 11.5,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    },
+    {
+      "block": 10,
+      "wall_s": 11.56,
+      "foreign_gpu_procs_at_block_start": [
+        "3147147"
+      ]
+    }
+  ],
+  "torch": "2.7.1+cu126",
+  "cudnn_benchmark": false,
+  "protocol": "interleaved 10x100 per-iteration timings, warmup 100, batch1 FP32 eval no_grad, FPS=1000/median"
+}
