@@ -1,0 +1,87 @@
+{
+  "doc": "Leather baseline extension (U-Net/DeepLabv3+/FDSNet), leather60k fixed-endpoint protocol, seed 1337, evaluated on locked test468.",
+  "protocol": {
+    "train_list": "new (copy)/dataset/pige/train.txt (1638)",
+    "test_list": "experiments/protocol/leather_valid_test_list.txt (468)",
+    "input": "768x768 native (no padding; 768=16*48)",
+    "num_classes": 8,
+    "training": "from scratch; Adam lr=1e-4 wd=2e-6; CosineAnnealingLR(T_max=48000, eta_min=1e-6) per-iter; batch 8; 60000 iters; seed 1337; NO val/test loader; NO model selection; fixed endpoint",
+    "recipe_identity": "identical to repro_runs/leather_60k_seed1337 (LR trajectory verified equal at iters 59800/59900/60000)",
+    "eval": "batch1, TestRescale-equivalent+ToTensor, no ImageNet Normalize, pred=outputs[0]; DeepLabv3+/FDSNet via official tools/evaluate_class_iou.py; U-Net via scripts/eval_leather_ext.py (official dataset+metrics, native-768 model builder; driver cross-validated vs official tool on DeepLabv3+/FDSNet, |diff|<5e-7)"
+  },
+  "models": {
+    "U-Net": {
+      "category": "Classical",
+      "mIoU": 0.824239,
+      "class_IoU": {
+        "background": 0.989616,
+        "open_wound": 0.575676,
+        "scratch": 0.587608,
+        "brand_mark": 0.840779,
+        "hole": 0.981189,
+        "skin_disease": 0.926178,
+        "rotten_surface": 0.756152,
+        "wart": 0.936715
+      },
+      "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/leather_baseline_extension/unet/checkpoints/leather60k_unet_s1337_iter060000.pkl",
+      "checkpoint_sha256": "eb4bba2e608e21040e4ddb139711f90f71f159292c97d0250f756ba310377b08",
+      "train_wall_hours": 9.21,
+      "eval_driver_json": "results/unet_leather60k_test468_driver.json",
+      "FPS_768": 28.26,
+      "latency_mean_ms_768": 35.382,
+      "Params_M": 31.04
+    },
+    "DeepLabv3+": {
+      "category": "Classical",
+      "mIoU": 0.876026,
+      "class_IoU": {
+        "background": 0.992602,
+        "open_wound": 0.704751,
+        "scratch": 0.629937,
+        "brand_mark": 0.875252,
+        "hole": 0.987924,
+        "skin_disease": 0.956338,
+        "rotten_surface": 0.888293,
+        "wart": 0.973114
+      },
+      "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/leather_baseline_extension/deeplabv3p/checkpoints/leather60k_deeplabv3p_s1337_iter060000.pkl",
+      "checkpoint_sha256": "7f6c5e7ad1d9b713924fdc8b42f2128db9fedd5a600d47a535db0e4088e8e17a",
+      "train_wall_hours": 6.23,
+      "eval_driver_json": "results/deeplabv3p_leather60k_test468_driver.json",
+      "FPS_768": 52.63,
+      "latency_mean_ms_768": 19.001,
+      "Params_M": 59.341
+    },
+    "FDSNet": {
+      "category": "Industrial defect",
+      "mIoU": 0.781923,
+      "class_IoU": {
+        "background": 0.98288,
+        "open_wound": 0.651447,
+        "scratch": 0.344149,
+        "brand_mark": 0.816656,
+        "hole": 0.980964,
+        "skin_disease": 0.884809,
+        "rotten_surface": 0.73313,
+        "wart": 0.861346
+      },
+      "checkpoint": "/workspace/Industrial Surface Defect/repro_runs/leather_baseline_extension/fdsnet/checkpoints/leather60k_fdsnet_s1337_iter060000.pkl",
+      "checkpoint_sha256": "c2cd214f1ebe3e23b6f362bdc3520faf05c3d70101b85287cf4a795ab81af850",
+      "train_wall_hours": 3.38,
+      "eval_driver_json": "results/fdsnet_leather60k_test468_driver.json",
+      "FPS_768": 176.52,
+      "latency_mean_ms_768": 5.665,
+      "Params_M": 2.6
+    }
+  },
+  "same_protocol_reference_archived_60k": {
+    "DSMONet-B": 0.872137,
+    "A2MS-DSMONet-B": 0.849932,
+    "source": "repro_runs/leather_60k_seed1337/leather_results.json (archived, NOT the paper value)"
+  },
+  "paper_frozen_valbest_reference": {
+    "DSMONet-B": 0.89912,
+    "A2MS-DSMONet-B": 0.909713,
+    "note": "historical val235-monitored val-best checkpoints, unified test468 re-eval; DIFFERENT selection protocol from this extension"
+  }
+}
