@@ -1,0 +1,55 @@
+# Leather-60k protocol | model=Base-B | seed 1337 (top-level)
+# Recipe matches the established leather chain (new/config_pige_base_b.yml):
+# 60k iters, batch 8, Adam 1e-4, cosine T_max=48000, 768x768, 8 classes.
+# Test discipline: NO test/val loader; fixed-endpoint eval only (matches NEU fixed-endpoint discipline).
+seed: 1337
+model:
+    arch: dsmonet_resnet
+    model_file: model_dsmo_rs50.py
+    backbone: resnet50
+data:
+    dataset: pige
+    train_split: train
+    img_rows: 768
+    img_cols: 768
+    path: ./dataset/
+    train_list: ./dataset/pige/train.txt
+    num_classes: 8
+training:
+    train_iters: 60000
+    batch_size: 8
+    n_workers: 8
+    print_interval: 100
+    seed: 1337
+    loss_weights: [10, 1, 3]
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.000002
+    loss:
+        [
+            {
+                name: 'ohem_cross_entropy'
+            },
+            {
+                name: 'bce_with_logits_loss'
+            },
+            {
+                name: 'ohem_cross_entropy'
+            }
+        ]
+    lr_schedule:
+        name: 'cosine_annealing'
+        T_max: 48000
+        eta_min: 1.0e-6
+    resume: null
+experiment:
+    run_prefix: base_b_s1337_leather60k
+    checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/checkpoints
+    log_dir: /workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/logs
+    result_dir: /workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/analysis
+    recovery_interval: 5000
+    overwrite: false
+predict:
+    batch_size: 1
+    n_workers: 4

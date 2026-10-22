@@ -1,0 +1,37 @@
+{
+ "checkpoint_path": "/workspace/Industrial Surface Defect/new (copy)/model_savePath/dsmonet_resnet_pascal_pige_dsmor50_0127_80000.pkl",
+ "checkpoint_sha256": "a96c78ea8ba95f792cb1619ad593722e2961801bf158fe330b45b6ef6bf9abe3",
+ "checkpoint_epoch_field": 78000,
+ "checkpoint_best_iou_val235": 0.8929607161637454,
+ "scheduler_last_lr": [
+  0.0001
+ ],
+ "model_source_file": "/workspace/Industrial Surface Defect/new/model_dsmo_rs50.py",
+ "model_file_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+ "real_model_structure": "Base-B",
+ "state_dict_load": "strict_success",
+ "test_list": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/protocol/leather_valid_test_list.txt",
+ "test_list_sha256": "f9ac23b3b330759f096d71e8432fcbc5376a0766cc778be9adcce569218bf95c",
+ "test_samples": 468,
+ "eval_script": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/tools/evaluate_class_iou.py",
+ "eval_script_sha256": "91019daaff7f77d08065e86e3dc4f9eb5c08f967307cbfb2aaf52aaf71313d46",
+ "environment": {
+  "python": "3.11.13",
+  "torch": "2.7.1+cu126",
+  "gpu": "NVIDIA A100-PCIE-40GB"
+ },
+ "unified468_mIoU": 0.89912,
+ "per_class_iou": {
+  "background": 0.99325,
+  "open_wound": 0.764801,
+  "scratch": 0.700504,
+  "brand_mark": 0.882528,
+  "hole": 0.990708,
+  "skin_disease": 0.971181,
+  "rotten_surface": 0.915895,
+  "wart": 0.974096
+ },
+ "eval_csv": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/evals/hist_0127_baseb_78k_reverify_class_iou.csv",
+ "eval_log": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/evals/hist_0127_baseb_78k_reverify.log",
+ "eval_time_local": "2026-09-28"
+}

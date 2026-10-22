@@ -1,0 +1,83 @@
+{
+  "crazing": {
+    "000510": {
+      "gt_area": 0,
+      "base_pred_area": 41,
+      "a2_pred_area": 0,
+      "base_valid_boundary2": true,
+      "a2_valid_boundary2": false,
+      "base_boundary_iou_2px": 0.0,
+      "a2_boundary_iou_2px": null,
+      "base_iou": 0.0,
+      "a2_iou": null
+    },
+    "000529": {
+      "gt_area": 0,
+      "base_pred_area": 96,
+      "a2_pred_area": 0,
+      "base_valid_boundary2": true,
+      "a2_valid_boundary2": false,
+      "base_boundary_iou_2px": 0.0,
+      "a2_boundary_iou_2px": null,
+      "base_iou": 0.0,
+      "a2_iou": null
+    },
+    "000597": {
+      "gt_area": 0,
+      "base_pred_area": 1,
+      "a2_pred_area": 0,
+      "base_valid_boundary2": true,
+      "a2_valid_boundary2": false,
+      "base_boundary_iou_2px": 0.0,
+      "a2_boundary_iou_2px": null,
+      "base_iou": 0.0,
+      "a2_iou": null
+    },
+    "000524": {
+      "gt_area": 0,
+      "base_pred_area": 0,
+      "a2_pred_area": 4,
+      "base_valid_boundary2": false,
+      "a2_valid_boundary2": true,
+      "base_boundary_iou_2px": null,
+      "a2_boundary_iou_2px": 0.0,
+      "base_iou": null,
+      "a2_iou": 0.0
+    },
+    "000526": {
+      "gt_area": 0,
+      "base_pred_area": 0,
+      "a2_pred_area": 3,
+      "base_valid_boundary2": false,
+      "a2_valid_boundary2": true,
+      "base_boundary_iou_2px": null,
+      "a2_boundary_iou_2px": 0.0,
+      "base_iou": null,
+      "a2_iou": 0.0
+    }
+  },
+  "inclusion": {
+    "000511": {
+      "gt_area": 0,
+      "base_pred_area": 17,
+      "a2_pred_area": 0,
+      "base_valid_boundary2": true,
+      "a2_valid_boundary2": false,
+      "base_boundary_iou_2px": 0.0,
+      "a2_boundary_iou_2px": null,
+      "base_iou": 0.0,
+      "a2_iou": null
+    },
+    "000509": {
+      "gt_area": 0,
+      "base_pred_area": 0,
+      "a2_pred_area": 1,
+      "base_valid_boundary2": false,
+      "a2_valid_boundary2": true,
+      "base_boundary_iou_2px": null,
+      "a2_boundary_iou_2px": 0.0,
+      "base_iou": null,
+      "a2_iou": 0.0
+    }
+  }
+}

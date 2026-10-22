@@ -1,0 +1,15 @@
+{
+  "run_id": "base_b_s1337_leather60k_codex1",
+  "train_list": "./dataset/pige/train.txt",
+  "train_samples": 1638,
+  "train_iters": 60000,
+  "resumed_from": null,
+  "saved_permanent_paths": [
+    "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/checkpoints/base_b_s1337_leather60k_codex1_iter010000.pkl",
+    "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/checkpoints/base_b_s1337_leather60k_codex1_iter030000.pkl",
+    "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/checkpoints/base_b_s1337_leather60k_codex1_iter060000.pkl"
+  ],
+  "final_checkpoint_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/checkpoints/base_b_s1337_leather60k_codex1_iter060000.pkl",
+  "wall_time_seconds": 45772.7857542038,
+  "test_during_training": "none (Protocol L1)"
+}

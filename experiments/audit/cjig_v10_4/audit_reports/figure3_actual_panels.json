@@ -1,0 +1,56 @@
+[
+  {
+    "class": "crazing",
+    "group": "top3_improved",
+    "rank": 1,
+    "sample_id": "000653",
+    "panel_path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/visualizations/crazing_top3_improved_1_000653.png",
+    "panel_exists": true,
+    "recomputed_delta_bf1_2px": 0.1332368032317357
+  },
+  {
+    "class": "crazing",
+    "group": "bottom3_worsened",
+    "rank": 1,
+    "sample_id": "000722",
+    "panel_path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/visualizations/crazing_bottom3_worsened_1_000722.png",
+    "panel_exists": true,
+    "recomputed_delta_bf1_2px": -0.48184774937229236
+  },
+  {
+    "class": "crazing",
+    "group": "zero3",
+    "rank": 1,
+    "sample_id": "000058",
+    "panel_path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/visualizations/crazing_zero3_1_000058.png",
+    "panel_exists": true,
+    "recomputed_delta_bf1_2px": 0.0
+  },
+  {
+    "class": "patches",
+    "group": "top3_improved",
+    "rank": 1,
+    "sample_id": "000802",
+    "panel_path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/visualizations/patches_top3_improved_1_000802.png",
+    "panel_exists": true,
+    "recomputed_delta_bf1_2px": 0.3346284040508696
+  },
+  {
+    "class": "patches",
+    "group": "bottom3_worsened",
+    "rank": 1,
+    "sample_id": "000722",
+    "panel_path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/visualizations/patches_bottom3_worsened_1_000722.png",
+    "panel_exists": true,
+    "recomputed_delta_bf1_2px": -0.3394931124233296
+  },
+  {
+    "class": "patches",
+    "group": "zero3",
+    "rank": 1,
+    "sample_id": "000439",
+    "panel_path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/visualizations/patches_zero3_1_000439.png",
+    "panel_exists": true,
+    "recomputed_delta_bf1_2px": 0.0
+  }
+]

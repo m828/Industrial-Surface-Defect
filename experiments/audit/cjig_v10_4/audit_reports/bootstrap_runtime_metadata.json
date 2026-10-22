@@ -1,0 +1,15 @@
+{
+  "numpy_version": "2.4.6",
+  "pandas_version": "2.3.1",
+  "opencv_version": "4.11.0",
+  "pillow_version": "11.0.0",
+  "python_version": "3.11.13",
+  "bootstrap_n": 5000,
+  "seed": 20261018,
+  "rng": "numpy.random.default_rng(PCG64)",
+  "sampling_index_shape": [
+    5000,
+    840
+  ],
+  "sampling_index_sha256": "c454e06b6c066dc1b69e687f36fcf61a599265b898e91709aae0b68932c7c876"
+}

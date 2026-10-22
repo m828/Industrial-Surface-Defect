@@ -1,0 +1,138 @@
+{
+  "test_list_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/code/dataset/test_neu.txt",
+  "test_list_sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06",
+  "n_test_list": 840,
+  "manifest_n": 840,
+  "manifest_order_equals_test_list_order": true,
+  "manifest_set_equals_test_list_set": true,
+  "directory_counts": {
+    "gt": 840,
+    "base": 840,
+    "a2": 840
+  },
+  "directory_set_equals_test_list": {
+    "gt": true,
+    "base": true,
+    "a2": true
+  },
+  "duplicate_ids": {
+    "test_list": [],
+    "manifest": []
+  },
+  "missing_ids_by_directory": {
+    "gt": [],
+    "base": [],
+    "a2": []
+  },
+  "extra_ids_by_directory": {
+    "gt": [],
+    "base": [],
+    "a2": []
+  },
+  "shape_checks": {
+    "gt": {
+      "200;200": 840
+    },
+    "base": {
+      "200;200": 840
+    },
+    "a2": {
+      "200;200": 840
+    }
+  },
+  "label_values": {
+    "gt": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "base": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "a2": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "cached_gt_vs_source": {
+    "checked": 840,
+    "pixel_equal": 840,
+    "mismatch_ids": []
+  },
+  "cache_script_outputs_main_output": "cache_predictions.py line 69 uses model(img)[0].data.max(1)[1]",
+  "postprocessing_observed_in_cache_script": "none; direct argmax followed by PNG uint8 save",
+  "all_shapes_200x200": true,
+  "all_labels_within_0_to_3": true,
+  "miou_recalculation": {
+    "base": {
+      "confusion_matrix_rows_gt_columns_pred": [
+        [
+          29189016,
+          85485,
+          91477,
+          52437
+        ],
+        [
+          59100,
+          777236,
+          537,
+          675
+        ],
+        [
+          66815,
+          2,
+          2344082,
+          980
+        ],
+        [
+          53099,
+          636,
+          3515,
+          874908
+        ]
+      ],
+      "miou": 0.9124083744680408,
+      "pixel_accuracy": 0.9876560119047619,
+      "expected_miou": 0.9124083744680408,
+      "absolute_miou_error": 0.0
+    },
+    "a2": {
+      "confusion_matrix_rows_gt_columns_pred": [
+        [
+          29222293,
+          65696,
+          79555,
+          50871
+        ],
+        [
+          73155,
+          764005,
+          0,
+          388
+        ],
+        [
+          80834,
+          1,
+          2331044,
+          0
+        ],
+        [
+          53721,
+          1244,
+          346,
+          876847
+        ]
+      ],
+      "miou": 0.9145442177671137,
+      "pixel_accuracy": 0.9879222916666667,
+      "expected_miou": 0.9145442177671137,
+      "absolute_miou_error": 0.0
+    }
+  }
+}

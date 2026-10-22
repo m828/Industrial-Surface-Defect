@@ -1,0 +1,29 @@
+{
+  "manifest_type": "supplemental",
+  "created": "2026-10-22",
+  "purpose": "CJIG v10.4 Leather provenance deep-search files not covered by source_manifest.json (2026-10-22 earlier build). Does not replace the primary manifest.",
+  "root": "/workspace/Industrial Surface Defect",
+  "entries": [
+    {"path": "new (copy)/runs_other/dsmonet_resnet_pige/dsmor50_pige/run_2024_01_27_14_05_37.log", "sha256": "4b4a25ad7e8a136b45febd07e935098a5fc0669d3af87a5cc2cdeb359c21366e", "bytes": 58478, "role": "DSMONet-B Leather historical training log (2024-01-27); line 745 val235 Mean IoU 0.8929607161637454 immediately after Iter [78000/80000]; closes Base val-best chain"},
+    {"path": "new (copy)/runs/dsmonet_resnet_detailloss/pige_4_0228/run_2024_02_28_21_51_41.log", "sha256": "9ad67e1c5c9ccfec0fe519ec488374c056b62c7f02130e66df4f6579683dc155", "bytes": null, "role": "pige_4_0228 chain segment 0-80k; 4-loss incl detail_aggregate_loss; checkpoint family pige_4_0228 (822 variant, NOT paper A2MS)"},
+    {"path": "new (copy)/runs/dsmonet_resnet_detailloss/pige_4_0228/run_2024_02_29_14_53_40.log", "sha256": "43cae1079c859d4bc7394356f6ef6c052292137c57fbf58faeaeee6f383a7c4e", "bytes": null, "role": "pige_4_0228 chain segment 74k-110k resume; 822 variant, NOT paper A2MS"},
+    {"path": "new (copy)/runs/dsmonet_resnet_detailloss/pige_4_0228/run_2024_02_29_21_55_15.log", "sha256": "92859515871b05bdd383757765a2bd280d68886bee631696e1d38e1fc4a03904", "bytes": null, "role": "pige_4_0228 chain segment 101k-160k resume; 822 variant, NOT paper A2MS"},
+    {"path": "new (copy)/runs/dsmonet_resnet_pige/eSE_adapt/run_2024_01_20_16_34_38.log", "sha256": "4f7397118c461c420f11ad875b4b12359af938fb89216f6b249f8caea21deea9", "bytes": null, "role": "eSE_adapt 60k run, 3 losses (no detail_aggregate_loss), best val 0.8694658880555808; ruled out as paper A2MS 130k training log"},
+    {"path": "repro_runs/leather_historical_audit/final_viz/final_viz_manifest.json", "sha256": "dc26d413d6ba5948e3b8917511f3a553f1375ff8e68c0638c4aa3aafed1b4152", "bytes": 2721, "role": "Figure 4 source manifest: n_defect_bearing=268, improved=211, worsened=45, tie=12; six panels 210/129/396/19/77/102"},
+    {"path": "repro_runs/leather_historical_audit/leather_viz_final_v6.py", "sha256": "2ad77a44a9c3ce38197706ca96441bef82761c10f9dfd55e64597dba141910d7", "bytes": 6210, "role": "Figure 4 generator; in-memory inference with consistency gate (|agg mIoU - audited| < 2e-4); does NOT save 468 raw prediction masks"},
+    {"path": "repro_runs/leather_historical_audit/assemble_fig34_v6.py", "sha256": "00d0c62d0203275951e2be638c541a986060167e86bd5dcf39f2a786423adc2e", "bytes": 2792, "role": "Figure 3/4 assembler; lines 39-46 hardcode the six Figure 3 NEU panels"},
+    {"path": "Industrial-Surface-Defect/checkpoint_metadata/A2MS-DSMONet-B/checkpoint_info.json", "sha256": "5b7191e25364b9711c630f3883165552b339f2b189f03e12c5e5847dba8c1745", "bytes": null, "role": "A2MS checkpoint metadata; records filename_iter mismatch (filename 160000, actual val-best intercept 130000)"},
+    {"path": "Industrial-Surface-Defect/experiments/audit/leather_paper_final_results.json", "sha256": "3656e34afa0ddce6a78de076e82cc2298d5850c9eb2716bc7be1e14abbd5ec31", "bytes": null, "role": "Paper-final Leather results: Base 0.89912 / A2MS 0.909713 unified test468; declares 60k fixed-endpoint values (0.872137/0.849932) archived-only"},
+    {"path": "Industrial-Surface-Defect/experiments/audit/leather_historical_91x_evidence.md", "sha256": "f99b2663c1c66b91a5c2d7740879b272e9bda56f8c243704e10fe8cbcb15d37b", "bytes": null, "role": "Earlier historical forensic audit of Leather 0.89/0.90 chain"},
+    {"path": "Industrial-Surface-Defect/experiments/protocol/leather_valid_test_list.txt", "sha256": "f9ac23b3b330759f096d71e8432fcbc5376a0766cc778be9adcce569218bf95c", "bytes": null, "role": "Leather test list, 468 lines; SHA matches both historical eval manifests"},
+    {"path": "repro_runs/leather_historical_audit/manifests/hist_0127_baseb_78k_reverify.json", "sha256": "ba3b71d00ba7780ce45f903298213274639e3ce7f22c5388aa1c0cfd660fee99", "bytes": 1693, "role": "DSMONet-B historical reverify manifest (test468 mIoU 0.89912)"},
+    {"path": "repro_runs/leather_historical_audit/manifests/hist_a2_160k_fixedfwd.json", "sha256": "ca8737aecb7d93717ed4f8b6e8c1ebd7ecf20196f407021ee95f0fc5fa390cb3", "bytes": 1736, "role": "A2MS-DSMONet-B fixed-forward reverify manifest (test468 mIoU 0.909713)"},
+    {"path": "repro_runs/leather_historical_audit/evals/hist_0127_baseb_78k_reverify_class_iou.csv", "sha256": "84ee26b6503061e62b242206e91e235df58508829b15807839a009fb1af1c4db", "bytes": 3697, "role": "DSMONet-B unified 468 eval class-IoU CSV incl 8x8 confusion matrix JSON"},
+    {"path": "repro_runs/leather_historical_audit/evals/hist_a2_160k_fixedfwd_class_iou.csv", "sha256": "f40175c43d625973d7e0b9f930519621c7a8e73464ee71619b4c7f0c5a126aa5", "bytes": 4016, "role": "A2MS-DSMONet-B unified 468 eval class-IoU CSV incl 8x8 confusion matrix JSON"}
+  ],
+  "negative_findings": [
+    "No training log anywhere under /workspace/Industrial Surface Defect contains the A2MS embedded val235 best 0.9090842792341525 (grep over *.log/*.txt/*.json/*.md/*.csv; hits are only manifests/metadata/audit files). A2MS 130k full training log is MISSING.",
+    "No Leather 468-image raw prediction mask cache exists under repro_runs/ (searched prediction/mask/cache path patterns). leather_viz_final_v6.py holds predictions in memory only.",
+    "runs/dsmonet_resnet_detailloss/pige_4_0228 three logs use 4-loss (incl detail_aggregate_loss) but write checkpoint family pige_4_0228*/pige_4_0229_160000 — the 822/Light_Bag variant chain, not the paper A2MS checkpoint dsmonet_resnet_pascal_pige_dsmor50_eSE_adapt_detailloss_160000.pkl."
+  ]
+}

@@ -1,0 +1,57 @@
+# Leather-60k protocol | model=A2 Full (fixed forward + eSE/ACW + detail supervision) | seed 1337 (top-level)
+# Same recipe as leather Base-B (60k, batch 8, cosine T_max=48000, 768x768, 8 classes) + detail loss.
+# Test discipline: NO test/val loader; fixed-endpoint eval only.
+seed: 1337
+model:
+    arch: dsmonet_resnet
+    model_file: model_dsmo_rs50_eSE_adapt_detailloss_fixed.py
+    backbone: resnet50
+data:
+    dataset: pige
+    train_split: train
+    img_rows: 768
+    img_cols: 768
+    path: ./dataset/
+    train_list: ./dataset/pige/train.txt
+    num_classes: 8
+training:
+    train_iters: 60000
+    batch_size: 8
+    n_workers: 8
+    print_interval: 100
+    seed: 1337
+    loss_weights: [10, 1, 3, 3]
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.000002
+    loss:
+        [
+            {
+                name: 'ohem_cross_entropy'
+            },
+            {
+                name: 'bce_with_logits_loss'
+            },
+            {
+                name: 'ohem_cross_entropy'
+            },
+            {
+                name: 'detail_aggregate_loss'
+            }
+        ]
+    lr_schedule:
+        name: 'cosine_annealing'
+        T_max: 48000
+        eta_min: 1.0e-6
+    resume: null
+experiment:
+    run_prefix: a2_full_s1337_leather60k
+    checkpoint_dir: /workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/checkpoints
+    log_dir: /workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/logs
+    result_dir: /workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/analysis
+    recovery_interval: 5000
+    overwrite: false
+predict:
+    batch_size: 1
+    n_workers: 4

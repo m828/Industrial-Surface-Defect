@@ -1,0 +1,5 @@
+analysis,size_group,n,iou_delta,boundary_iou_2px_delta,pearson_area_vs_complexity,pearson_area_vs_component_count,pearson_complexity_vs_component_count
+high_complexity_by_coarse_area,Small,29,-0.024172633787005765,-0.023763814064511356,,,
+high_complexity_by_coarse_area,Medium,48,-0.012653789153818948,-0.005316303663139101,,,
+high_complexity_by_coarse_area,Large,44,-0.01814477823700268,-0.016054830062865424,,,
+exploratory_correlation,all,364,,,0.009767169229101478,0.015755374516565394,0.676209692371034

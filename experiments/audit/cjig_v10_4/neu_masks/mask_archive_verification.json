@@ -1,0 +1,19 @@
+{
+  "source_root": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k",
+  "groups": {
+    "gt": 840,
+    "base_predictions": 840,
+    "a2_predictions": 840
+  },
+  "total_files": 2520,
+  "manifest_csv": "mask_sha256_manifest.csv",
+  "tarball": "neu_test840_masks.tar.gz",
+  "tarball_sha256": "768d53cbce4c1d3600caf3b607e4f020cdab3a8b941cc219c7b3ca05cffc45c5",
+  "tarball_bytes": 1563571,
+  "extraction_recheck": {
+    "files_checked": 2520,
+    "mismatches": [],
+    "status": "PASS"
+  },
+  "note": "Manifest hashes computed from ORIGINAL source dirs; archive verified by full extraction + per-file SHA-256 recheck."
+}

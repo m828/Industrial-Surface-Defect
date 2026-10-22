@@ -1,0 +1,342 @@
+{
+  "checked_files": 56,
+  "all_match": true,
+  "entries": [
+    {
+      "archive_path": "audit_reports/bootstrap_reproduction_summary.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/bootstrap_reproduction_summary.csv",
+      "sha256": "ef369faa743dfb6e7f197d53353acbc241dbab1133b16923db1852a5117c11d6",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/bootstrap_runtime_metadata.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/bootstrap_runtime_metadata.json",
+      "sha256": "2286de263dc789906d1e8ca38ffeb3665c2be3a1937ee19a9b76717e9752f472",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/boundary_empty_rule_tests.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/boundary_empty_rule_tests.json",
+      "sha256": "6d92d9abda1aebddaeb3f7a356f4f076859114db275a1f42c6bb30248b79135f",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/boundary_metric_implementation_audit.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/boundary_metric_implementation_audit.md",
+      "sha256": "5acdaa7726a8bc2d4f69796d7c9203df44340d042c8ff7e0858c2060bed98ded",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/boundary_named_sample_audit.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/boundary_named_sample_audit.json",
+      "sha256": "7517645b4a406da2254ed03c5d87f6410837ddea922b00dd83305dadbf6923c9",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/estimand_abc_pixel_verification.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/estimand_abc_pixel_verification.csv",
+      "sha256": "3f8cfe8ad6f20529a7945f728c91fcd72d9cd5a43e1890b33f239e604b5855b2",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/estimand_abc_sample_sets.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/estimand_abc_sample_sets.json",
+      "sha256": "0e3800ff713104b9609b7c571016962ee759f0f8cce263980cd60620f1af8080",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/figure3_actual_panels.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/figure3_actual_panels.json",
+      "sha256": "352613123999571ac71b96f2c76c2c790630d45132c22f1ad25fb210190c6888",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/figure3_candidate_trace.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/figure3_candidate_trace.csv",
+      "sha256": "383ced7840b7be1b8624530ba8f300715f8e457467de3e20da26f088135e58bb",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/figure_case_source_audit.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/figure_case_source_audit.md",
+      "sha256": "c7301d13fb14ae249f5e27e4f80ec84258236949a7021b0bdbf49fd1aaf66d0d",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/final_scientific_evidence_status.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/final_scientific_evidence_status.md",
+      "sha256": "edc52127aeb0c3abe9565056b064138724022af8f7a20c61212812bddb2c3182",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/leather_raw_provenance_update.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/leather_raw_provenance_update.md",
+      "sha256": "b9cde97278b99342033c935a29725eb106ede33fa58cb651fd8c2ac52327df46",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/neu_confusion_matrices.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/neu_confusion_matrices.json",
+      "sha256": "6b1a19ad4a706bbaf669af1bf5e2facbb1baa18142f18e94361f1c7f0375e731",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/neu_identity_checks.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/neu_identity_checks.json",
+      "sha256": "7108c619de3e78d83042a791a70019e77c82cb87ba3cc030a904e6e20e9bd6ad",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/neu_mask_identity_verification.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/neu_mask_identity_verification.md",
+      "sha256": "c2cd57ce88f8f1a750b1ce6208d6b3d39a4b53354341cd6e2bbd677275169829",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/neu_pixel_audit_summary.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/neu_pixel_audit_summary.json",
+      "sha256": "abef313214d8b0562362b1d3b7f9aafe2e09264b0ea61731e01a9a41184608ec",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/neu_pixel_metric_reproduction.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/neu_pixel_metric_reproduction.csv",
+      "sha256": "c0520443a2205ea76126559e936c0c8065a3a06ccc4d5c4e1dfb462f46438a5c",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/paired_case_reproduction_diff.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/paired_case_reproduction_diff.json",
+      "sha256": "cbb83e147949cfc788104a85cd98e097a4077330a9c721523e13b2206a07156b",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/recomputed_case_metrics.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/recomputed_case_metrics.csv",
+      "sha256": "fb4583034e6db58887fb5ad7ce66b8a04adcffba6a282903b5e18465725c8bc5",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/recomputed_per_image_miou.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/recomputed_per_image_miou.csv",
+      "sha256": "e0a3c5518f9e5aed8f4b657d6a1b91b56e8cac28006ac0df0203bdc16e17780f",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq1_decomposition.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq1_decomposition.csv",
+      "sha256": "a2e2611cb9793ef68430ca7ac28e643e6eb1765309076d66bee83f84c3a5b338",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq1_pixel_decomposition.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq1_pixel_decomposition.md",
+      "sha256": "d1045db4bb3116988acbf09f5249cdf1bbd37b4922af7dc3e8c29b7ed7e6635b",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq1_size_group_contributions.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq1_size_group_contributions.csv",
+      "sha256": "8c6fbbdf7ff6c6448c649da6fed3c5efffbcdce3e075d11460da3da8e631f3ca",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq2_area_reproduction.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq2_area_reproduction.csv",
+      "sha256": "af42b0e8bb354731edd36666a598cfe4238c0f2a73e44a00a3875cc634adc05d",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq2_complexity_reproduction.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq2_complexity_reproduction.csv",
+      "sha256": "9966edbd5c497d0e1e010b58ce59eba56345fd306a1e5d07a5358ade80a3685d",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq2_exploratory_confounders.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq2_exploratory_confounders.csv",
+      "sha256": "4c2b69c22839b0699cc3852ec06fe8040ff342d3ecd32c1cc9d6cb7a6eb21b59",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/rq2_raw_mask_condition_audit.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/rq2_raw_mask_condition_audit.md",
+      "sha256": "2c52dba6c7413cc2e21dce737aec84e4e920fba38f3ad07d460612686ac462af",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/scale_dice_corrected_recalculation.csv",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/scale_dice_corrected_recalculation.csv",
+      "sha256": "24014149e31bfc99f2aea8835ecd8840b1e4bc489de9cf916f33dfa05619c118",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/scale_dice_root_cause_audit.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/scale_dice_root_cause_audit.md",
+      "sha256": "dcc022a17f482effb78f992116e6bb6dc8c1a6d01294e5e244197ad194c065e2",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/source_inventory.md",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/source_inventory.md",
+      "sha256": "16964b140a9d08fd7d39fa2f979ad5030f73a11c4a8c9619089117a07f3a6d8a",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/source_manifest.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/source_manifest.json",
+      "sha256": "5edda954445f6cce6c9fcba753b0944db80c0dbf4596165ff8e418f8c67a7ccd",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/source_manifest_supplemental.json",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/source_manifest_supplemental.json",
+      "sha256": "0db771698645c6188eab28eec386a61bd96ad32d1fe0348231948179e5060588",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/scripts/build_inventory.py",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/scripts/build_inventory.py",
+      "sha256": "76699d1fadd4c10bf7d58807b0e28f94f616e2ad4e77691a4b1488279f859310",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/scripts/run_neu_pixel_audit.py",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/scripts/run_neu_pixel_audit.py",
+      "sha256": "998565f7769fd6bf6001abfb52c593e9d65304d3e9316ba3b0d6287be72b2274",
+      "match_source": true
+    },
+    {
+      "archive_path": "audit_reports/scripts/build_archive.sh",
+      "source_path": "/workspace/cjig_v10_4_readonly_audit/scripts/build_archive.sh",
+      "sha256": "e9890acedfa7681754485036e0f61b807c03310dc80fce592f54fc0c22ecee4f",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/logs/run_2024_01_27_14_05_37.log",
+      "source_path": "/workspace/Industrial Surface Defect/new (copy)/runs_other/dsmonet_resnet_pige/dsmor50_pige/run_2024_01_27_14_05_37.log",
+      "sha256": "4b4a25ad7e8a136b45febd07e935098a5fc0669d3af87a5cc2cdeb359c21366e",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/checkpoint_metadata/DSMONet-B_checkpoint_info.json",
+      "source_path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/checkpoint_metadata/DSMONet-B/checkpoint_info.json",
+      "sha256": "c87574f32d046b1464bc8b8316fd6209d6a71b5264d35001c1ef3a633bcca5cf",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/checkpoint_metadata/A2MS-DSMONet-B_checkpoint_info.json",
+      "source_path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/checkpoint_metadata/A2MS-DSMONet-B/checkpoint_info.json",
+      "sha256": "5b7191e25364b9711c630f3883165552b339f2b189f03e12c5e5847dba8c1745",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/evals/hist_0127_baseb_78k_reverify_class_iou.csv",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/evals/hist_0127_baseb_78k_reverify_class_iou.csv",
+      "sha256": "84ee26b6503061e62b242206e91e235df58508829b15807839a009fb1af1c4db",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/evals/hist_a2_160k_fixedfwd_class_iou.csv",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/evals/hist_a2_160k_fixedfwd_class_iou.csv",
+      "sha256": "f40175c43d625973d7e0b9f930519621c7a8e73464ee71619b4c7f0c5a126aa5",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/manifests/hist_0127_baseb_78k_reverify.json",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/manifests/hist_0127_baseb_78k_reverify.json",
+      "sha256": "ba3b71d00ba7780ce45f903298213274639e3ce7f22c5388aa1c0cfd660fee99",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/manifests/hist_a2_160k_fixedfwd.json",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/manifests/hist_a2_160k_fixedfwd.json",
+      "sha256": "ca8737aecb7d93717ed4f8b6e8c1ebd7ecf20196f407021ee95f0fc5fa390cb3",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/leather_paper_final_results.json",
+      "source_path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/leather_paper_final_results.json",
+      "sha256": "3656e34afa0ddce6a78de076e82cc2298d5850c9eb2716bc7be1e14abbd5ec31",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/base_b_config.yml",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/logs/base_b_s1337_leather60k_codex1/config.yml",
+      "sha256": "d1c3434e80e1efaf4466ad57b3d066a45ee6e9122bd54fc697247ee7730991f7",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/a2_full_config.yml",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/logs/a2_full_s1337_leather60k_codex1/config.yml",
+      "sha256": "d2609c4b6438e6e75f94c664c28c31488fa94641e5ddf54f597ac1562d485f65",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/base_b_run_2026_09_24_15_39_05.log",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/logs/base_b_s1337_leather60k_codex1/run_2026_09_24_15_39_05.log",
+      "sha256": "fb7d332fcf355babdefec18068f8b62795b6cd6872e8d1dc2be81cf41fd3a94b",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/a2_full_run_2026_09_25_04_23_08.log",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/logs/a2_full_s1337_leather60k_codex1/run_2026_09_25_04_23_08.log",
+      "sha256": "d39c6fe375fc0f1c00916750a0429d4187d83e227a6ef3f2c18b89dea8bdd850",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/base_b_train_metrics.jsonl",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/analysis/train_metrics.jsonl",
+      "sha256": "6a7192628504e22ff266729946143c73c742d053229fe8f3f6d99fb2b1ea1d16",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/a2_full_train_metrics.jsonl",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/analysis/train_metrics.jsonl",
+      "sha256": "e5e579dac789c5c535ed86707938fd13ca876e1bfc0b0945456c318d1a4fb867",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/base_b_train_summary.json",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/analysis/base_b_s1337_leather60k_codex1_train_summary.json",
+      "sha256": "9c1828f9886187d959c57f6119df48134c05ad34ce04c6a0123a92f9bbd1943a",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/a2_full_train_summary.json",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/analysis/a2_full_s1337_leather60k_codex1_train_summary.json",
+      "sha256": "c7a597bb81feaa5b2c7817888ffb23e6e7aa35b810b3de933dc69b6ddda14483",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/base_b_unified468_iter60000.csv",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/base_b/analysis/unified468_iter60000.csv",
+      "sha256": "4cad1bc4341faf23ca795e0a06c88a4025e4afba98fba97b5acce29084b5251c",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/control_60k/a2_full_unified468_iter60000.csv",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_60k_seed1337/a2_full/analysis/unified468_iter60000.csv",
+      "sha256": "f26c81f3bd5ba221bd5c2e5f0a3e49cbc09571c97d949c0642ca95fdd818c026",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/figure4/final_viz_manifest.json",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/final_viz/final_viz_manifest.json",
+      "sha256": "dc26d413d6ba5948e3b8917511f3a553f1375ff8e68c0638c4aa3aafed1b4152",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/figure4/leather_viz_final_v6.py",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/leather_viz_final_v6.py",
+      "sha256": "2ad77a44a9c3ce38197706ca96441bef82761c10f9dfd55e64597dba141910d7",
+      "match_source": true
+    },
+    {
+      "archive_path": "leather/figure4/assemble_fig34_v6.py",
+      "source_path": "/workspace/Industrial Surface Defect/repro_runs/leather_historical_audit/assemble_fig34_v6.py",
+      "sha256": "00d0c62d0203275951e2be638c541a986060167e86bd5dcf39f2a786423adc2e",
+      "match_source": true
+    }
+  ]
+}
