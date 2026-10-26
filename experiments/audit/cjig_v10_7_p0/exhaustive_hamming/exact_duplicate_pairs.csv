@@ -1,0 +1,9 @@
+relation_type,shared_sha256,key_a,key_b,split_a,split_b,sample_id_a,sample_id_b,scope,image_file_bytes_equal,image_pixels_equal,gt_file_bytes_equal,gt_pixels_equal
+IMAGE_FILE_BYTES_IDENTICAL,1333a1847b2e305da58d87b855e68c0c1151f49aad105b02f9283ec94ca1918a,train:003021,train:003025,train,train,003021,003025,train/train,true,true,false,false
+IMAGE_FILE_BYTES_IDENTICAL,32b8ebddb9a3daac170dae02acb2aec15ef744a96d43a554b658a5d573735c11,train:002151,train:002155,train,train,002151,002155,train/train,true,true,false,false
+IMAGE_FILE_BYTES_IDENTICAL,4d2de82731b86cdbc7a66f2a9bfb01074bb4cb65e47bccf06b66470d53857071,test:000301,test:000305,test,test,000301,000305,test/test,true,true,false,false
+IMAGE_FILE_BYTES_IDENTICAL,a20d50a78450b2a599b534fee9f00b3aee1991dcafa6366009148a0745d0bb05,train:001281,train:001285,train,train,001281,001285,train/train,true,true,false,false
+IMAGE_DECODED_PIXELS_IDENTICAL,44f7092cd9e26f9a08fa26c256b8f29abce8e065d80c5dc0bf7c19b27e36b2cb,test:000301,test:000305,test,test,000301,000305,test/test,true,true,false,false
+IMAGE_DECODED_PIXELS_IDENTICAL,4ab8f8ee6ed5e87c9976dc224e5428226b06fd15dbe9d47ed5b3dbb574bf6092,train:002151,train:002155,train,train,002151,002155,train/train,true,true,false,false
+IMAGE_DECODED_PIXELS_IDENTICAL,68f4450990c269b83373185386570e1aea62648556f460cc1a45d97f14f6be98,train:001281,train:001285,train,train,001281,001285,train/train,true,true,false,false
+IMAGE_DECODED_PIXELS_IDENTICAL,9ea811279010edb99ea1d64dc987e09137c469bdaa122e0b4b2a7b7bed9c000c,train:003021,train:003025,train,train,003021,003025,train/train,true,true,false,false

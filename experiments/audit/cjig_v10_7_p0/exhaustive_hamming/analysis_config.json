@@ -1,0 +1,96 @@
+{
+  "audit_id": "CJIG-v10.7-P0-exhaustive-hamming",
+  "parent_audit_id": "CJIG-v10.7-P0",
+  "parent_config_sha256": "527356837b6c6d8f4a19c9fa0108060dc9203989b937a07aa0ce9141b62d6389",
+  "authoritative_near_duplicate_screen": true,
+  "superseded_near_outputs": "Parent LSH near-candidate summaries are diagnostic only: 3436 reversed duplicate rows were caused by unsorted exact-D4 seed indices, and LSH overflow left the screen partial. Parent exact-file/pixel/D4 outputs remain valid.",
+  "method_change": "Replace LSH collision enumeration with exhaustive all-pairs oriented Hamming prefilter and vectorized thumbnail gates; correct exact-D4 seed index ordering; preserve every similarity and classification threshold.",
+  "config_frozen_before_full_near_duplicate_results": true,
+  "config_timestamp": "2026-10-26T17:48:42+08:00",
+  "retrospective_not_blind_preregistered": true,
+  "record_key": "(split, sample_id)",
+  "expected_records": {"train": 3630, "test": 840, "total": 4470},
+  "source_layout": {
+    "local_dataset": "new (copy)/dataset/NEUSeg",
+    "train_list": "new (copy)/dataset/train_neu.txt",
+    "test_list": "new (copy)/dataset/test_neu.txt",
+    "upstream_repository": "https://github.com/DHW-Master/NEU_Seg.git",
+    "upstream_commit": "da8cebedb292beca4d101db8c442d5706fac3bfe"
+  },
+  "pixel_identity": {
+    "image_decode": "PIL Image.open.convert('RGB')",
+    "gt_decode": "PIL Image.open.convert('L')",
+    "hash": "SHA-256 of dtype, shape, and contiguous decoded bytes",
+    "file_hash": "SHA-256 of original file bytes"
+  },
+  "d4": {
+    "operations": ["r0", "r90", "r180", "r270", "r0_hflip", "r90_hflip", "r180_hflip", "r270_hflip"],
+    "definition": "np.fliplr(np.rot90(a, k)) for k=0,1,2,3; hflip is applied after rotation; no interpolation",
+    "canonical_hash": "lexicographic minimum of the eight operation-specific pixel SHA-256 values",
+    "pair_transforms": "all operations for which transform(A) has the same pixel hash as original B"
+  },
+  "descriptors_private_only": {
+    "image_thumbnail": "32x32 grayscale PIL BILINEAR descriptor for each D4 orientation; not a transformed training input",
+    "gt_thumbnail": "32x32 float32 OpenCV INTER_AREA descriptor for each D4 orientation; retrieval only, never a reannotation",
+    "phash": "64 bits from the 8x8 lowest-frequency DCT-II coefficients excluding DC, threshold at their median; 32x32 descriptor",
+    "dhash": "64 bits from horizontal differences on a 9x8 OpenCV INTER_AREA descriptor",
+    "storage": "private NPZ outside the public Git repository; no image or GT arrays in public outputs"
+  },
+  "candidate_retrieval": {
+    "lsh": "NOT USED",
+    "exhaustive_method": "For every one of 9988215 unordered nonself pairs, compute minimum pHash/dHash distance over all eight orientations using NumPy uint64 bitwise_count. Apply the frozen hash prefilter, then vectorized 32x32 thumbnail gates. Only gate-passing pairs and exact-D4 seeds become candidates.",
+    "image_hash_prefilter": "(min_image_phash<=16 AND min_image_dhash<=24) OR min_image_phash<=10 OR min_image_dhash<=10",
+    "gt_hash_prefilter": "min_gt_phash<=16 OR min_gt_dhash<=12",
+    "prefilter_counts_before_candidate_review": {"image_pairs": 445473, "gt_pairs": 2894526, "union_pairs": 3035263},
+    "best_orientation_tie_break": "ascending combined Hamming, then pHash, then dHash, then D4 operation index",
+    "additional_seeds": "all exact image-D4 and exact GT-D4 pairs, with sorted record indices",
+    "max_retrieved_unique_pairs": 100000,
+    "max_lsh_bucket_entries": null,
+    "overflow_policy": "abort before near-duplicate conclusions if the eligible candidate count exceeds the frozen safety cap; any triggered review cap downgrades the screen to PARTIAL",
+    "precandidate_storage": "Private oriented distance matrices and aggregate rejection counts preserve the all-pairs screen; prefilter rejections are not called candidates"
+  },
+  "review_gate": {
+    "image_rule": "(min_image_phash<=16 AND min_image_dhash<=24 AND thumbnail_pearson>=0.85) OR (min_image_phash<=10 AND thumbnail_pearson>=0.80) OR (min_image_dhash<=10 AND thumbnail_pearson>=0.88) OR thumbnail_pearson>=0.965",
+    "gt_rule": "(min_gt_phash<=16 OR min_gt_dhash<=12) AND (thumbnail_foreground_iou>=0.85 OR thumbnail_pixel_agreement>=0.995)",
+    "exact_gt_d4": "always fully reviewed and exempt from review caps",
+    "exact_image_d4": "always fully reviewed and exempt from review caps",
+    "priority_samples": "all pairs consisting solely of the eight priority records are exempt from review caps",
+    "per_record_full_reviews": 64,
+    "global_full_reviews": 50000,
+    "cap_change_from_parent": "32->64 per record and 20000->50000 globally, disclosed before this exhaustive run to accommodate the larger deterministic candidate set; thresholds are unchanged",
+    "ordering": "descending max(image thumbnail Pearson, GT thumbnail foreground IoU), then ascending summed minimum Hamming distance, then record keys; no split or outcome preference",
+    "cap_policy": "save every candidate and its filtering/cap reason; any triggered cap downgrades the near-duplicate screen to PARTIAL"
+  },
+  "full_alignment_review": {
+    "candidate_orientations": "best image-hash orientation, best GT-hash orientation, and every exact image/GT D4 orientation",
+    "image_metrics": "RGB Pearson, RGB MAE, RGB PSNR, grayscale Pearson, grayscale MAE, grayscale PSNR, grayscale SSIM",
+    "ssim": "skimage.metrics.structural_similarity on 8-bit grayscale with data_range=255, win_size=7, gaussian_weights=False, use_sample_covariance=True, K1=0.01, K2=0.03",
+    "gt_metrics": "pixel agreement, nonzero foreground IoU, present-class macro IoU, exact differing-pixel count",
+    "constant_input_rule": "Pearson is null for a constant vector; PSNR is Infinity only for zero MSE and null for undefined inputs"
+  },
+  "classification_thresholds_retrospective": {
+    "image_high_similarity": "RGB Pearson>=0.990 AND RGB MAE<=6.0 AND RGB PSNR>=24.0 AND grayscale SSIM>=0.95 under one D4 alignment",
+    "image_near_only": "RGB Pearson>=0.950 AND RGB MAE<=12.0 AND grayscale SSIM>=0.80 under one D4 alignment",
+    "gt_near_similarity": "foreground IoU>=0.95 AND pixel agreement>=0.995 under one D4 alignment; exact GT-D4 is recorded separately",
+    "category_precedence": ["FILE_BYTES_IDENTICAL", "DECODED_PIXELS_IDENTICAL", "D4_IMAGE_PIXELS_IDENTICAL", "D4_GT_EXACT_AND_IMAGE_HIGH_SIMILARITY", "IMAGE_NEAR_HIGH_CONFIDENCE_SHARED_SOURCE_CANDIDATE", "GT_SIMILAR_ONLY_SOURCE_UNRESOLVED", "IMAGE_NEAR_ONLY_SOURCE_UNRESOLVED", "REVIEWED_BELOW_NEAR_THRESHOLD"]
+  },
+  "family_rules": {
+    "digital_identity": "join only decoded-image identity edges",
+    "transform_equivalence": "join only exact image-D4 edges, never GT-only edges",
+    "high_confidence_candidate": "join exact image-D4 edges and fully reviewed image-high-similarity edges; GT-D4 plus high image similarity is sufficient, GT-only similarity is not",
+    "acquisition_proven": "requires an explicit upstream acquisition ID or generation record linking derivatives; repository path, hash, correlation, and visual appearance alone do not qualify",
+    "transitivity": "no transitive closure of low-threshold or unreviewed candidates"
+  },
+  "positive_controls": {
+    "exact_image_pairs": [["train:001281", "train:001285"], ["train:002151", "train:002155"], ["train:003021", "train:003025"], ["test:000301", "test:000305"]],
+    "rotation_gt_controls": "test:000301 and test:000305 must each have three non-mirrored rotation-exact GT partners among train:001281/001285/002151/002155/003021/003025; six unique cross-split pairs in total",
+    "failure_policy": "stop before near-duplicate conclusions if any control fails"
+  },
+  "independence_status_rule": {
+    "COMPROMISED": "at least one exact decoded-image or exact image-D4 relation crosses train/test",
+    "HIGH_RISK_CANDIDATE": "no exact image cross-split edge, but at least one fully reviewed high-confidence candidate crosses train/test",
+    "VERIFIED": "not assigned by this retrospective screen; absence of detected candidates is not acquisition-level proof",
+    "UNRESOLVED": "no exact or high-confidence cross-split relation is detected"
+  },
+  "not_run": ["model training", "model forward inference", "checkpoint selection", "new bootstrap or cluster bootstrap", "new metric evaluation on model predictions", "data relabeling", "split modification"]
+}

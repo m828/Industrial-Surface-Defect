@@ -1,0 +1,31 @@
+{
+  "audit_id": "CJIG-v10.7-P0-cap-resolution",
+  "parent_audit_id": "CJIG-v10.7-P0-exhaustive-hamming",
+  "parent_config_sha256": "bc33398cdfd2c3d7234ad2dce949df149effba18c3705b32997630a34589b91f",
+  "config_timestamp": "2026-10-26T17:58:37+08:00",
+  "config_frozen_before_reviewing_backlog_outcomes": true,
+  "retrospective_not_blind_preregistered": true,
+  "purpose": "Complete only the pre-existing CAP_NOT_REVIEWED candidate IDs from the exhaustive parent run; do not retrieve new candidates, alter thresholds, or select pairs by outcome.",
+  "parent_candidate_count": 33145,
+  "parent_first_pass_selected_count": 20810,
+  "expected_backlog_count": 12335,
+  "allowed_inputs": [
+    "exhaustive_hamming/full_image_identity_manifest.csv",
+    "exhaustive_hamming/d4_transform_duplicate_pairs.csv",
+    "exhaustive_hamming/near_duplicate_candidates.csv",
+    "original source image/GT files for metric recomputation only"
+  ],
+  "candidate_rule": "A row is eligible for second-pass review if and only if the parent row has review_status=CAP_NOT_REVIEWED and filter_reason=REVIEW_CAP. Every such row must be reviewed; zero backlog rows may remain.",
+  "maximum_merged_candidate_rows": 33145,
+  "maximum_merged_full_reviews": 33145,
+  "new_candidate_retrieval": "FORBIDDEN",
+  "similarity_and_classification_thresholds": "unchanged from exhaustive_hamming/analysis_config.json",
+  "image_high_similarity": "RGB Pearson>=0.990 AND RGB MAE<=6.0 AND RGB PSNR>=24.0 AND grayscale SSIM>=0.95 under one D4 alignment",
+  "image_near_only": "RGB Pearson>=0.950 AND RGB MAE<=12.0 AND grayscale SSIM>=0.80 under one D4 alignment",
+  "gt_near_similarity": "foreground IoU>=0.95 AND pixel agreement>=0.995 under one D4 alignment; exact GT-D4 recorded separately",
+  "ssim": "skimage.metrics.structural_similarity on 8-bit grayscale with data_range=255, win_size=7, gaussian_weights=False, use_sample_covariance=True, K1=0.01, K2=0.03",
+  "completion_gate": "33145 unique candidate pairs, all review_status=FULLY_REVIEWED, no CAP_NOT_REVIEWED rows, no new pair IDs, and independent metric verification",
+  "source_family_rules": "unchanged; GT-only relations never merge image families; no transitive closure of unreviewed or low-confidence candidates",
+  "status_rule": "Parent remains PARTIAL. Merged result is COMPLETE only if every completion-gate condition and independent verification pass; otherwise PARTIAL.",
+  "not_run": ["model training", "model forward inference", "checkpoint selection", "new bootstrap or cluster bootstrap", "new metric evaluation on model predictions", "data relabeling", "split modification"]
+}

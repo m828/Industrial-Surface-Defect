@@ -1,0 +1,41 @@
+{
+  "audit_id": "CJIG-v10.7-P0",
+  "initial_git_root": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect",
+  "initial_head": "0426b978ef76cd082a060874b3eff2a16184ce6d",
+  "initial_branch": "main",
+  "initial_remote_origin": "https://github.com/m828/Industrial-Surface-Defect.git",
+  "initial_tracking_state": "main...origin/main; no ahead/behind marker",
+  "initial_status_short": [
+    " m third_party/LETNet",
+    "?? experiments/audit/cjig_v10_code_consistency_report.md",
+    "?? experiments/audit/cjig_v10_method_lineage_matrix.md",
+    "?? experiments/audit/cjig_v10_source_bundle.tar.gz",
+    "?? experiments/audit/cjig_v10_source_manifest.json",
+    "?? experiments/baseline_comparison/results/fps_final/bench_log.txt",
+    "?? experiments/baseline_comparison/results/fps_final/driver_log.txt",
+    "?? third_party/BiSeNetV2/",
+    "?? third_party/DDRNet/",
+    "?? third_party/FDSNet/",
+    "?? third_party/STDC-Seg/"
+  ],
+  "new_audit_directory_check": "experiments/audit/cjig_v10_7_p0 absent at 2026-10-26T16:30:37+08:00",
+  "actual_experiment_root": "/workspace/Industrial Surface Defect/repro_runs",
+  "actual_neu_dataset_root": "/workspace/Industrial Surface Defect/new (copy)/dataset/NEUSeg",
+  "runtime_dataset_symlinks": [
+    "repro_runs/long240k_seed1337/base_b/code/dataset -> /workspace/Industrial Surface Defect/new (copy)/dataset",
+    "repro_runs/long240k_seed1337/a2_full/code/dataset -> /workspace/Industrial Surface Defect/new (copy)/dataset",
+    "new/dataset -> /workspace/Industrial Surface Defect/new (copy)/dataset"
+  ],
+  "prior_audits": [
+    "experiments/audit/cjig_v10_4",
+    "experiments/audit/cjig_v10_6"
+  ],
+  "upstream_reference": {
+    "repository": "https://github.com/DHW-Master/NEU_Seg",
+    "commit": "da8cebedb292beca4d101db8c442d5706fac3bfe",
+    "main_at_preflight_ls_remote": "da8cebedb292beca4d101db8c442d5706fac3bfe"
+  },
+  "existing_files_policy": "Read-only source data and historical records; no deletion, cleaning, retraining, inference, relabeling, split modification, or frozen-result modification",
+  "private_upstream_workspace": "/workspace/cjig_v10_7_p0_private",
+  "public_output_workspace": "experiments/audit/cjig_v10_7_p0"
+}

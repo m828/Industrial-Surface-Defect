@@ -1,0 +1,22 @@
+{
+  "upstream_repository": "https://github.com/DHW-Master/NEU_Seg.git",
+  "requested_commit": "da8cebedb292beca4d101db8c442d5706fac3bfe",
+  "actual_checkout_head": null,
+  "verified_upstream_commit": "da8cebedb292beca4d101db8c442d5706fac3bfe",
+  "commit_verification_method": "immutable_codeload_commit_archive_plus_ls_remote",
+  "remote_main_at_verification": "da8cebedb292beca4d101db8c442d5706fac3bfe",
+  "remote_main_live_match": true,
+  "remote_verification_error": null,
+  "commit_archive_sha256": "aae62b176f14f56f90bce313046802ceb6c1efb418c692b925ce77a1cf67a436",
+  "commit_exact_match": true,
+  "dataset_root_relative_to_checkout": "NEU_Seg-da8cebedb292beca4d101db8c442d5706fac3bfe",
+  "records": 4470,
+  "image_files_existing": 4470,
+  "gt_files_existing": 4470,
+  "image_file_byte_matches": 4470,
+  "gt_file_byte_matches": 4470,
+  "image_pixel_matches": 4470,
+  "gt_pixel_matches": 4470,
+  "all_8940_files_byte_identical": true,
+  "interpretation_boundary": "Byte identity connects current local inputs to this fixed upstream tree; it does not establish original camera acquisition IDs or how upstream augmentation/splitting was performed."
+}

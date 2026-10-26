@@ -1,0 +1,95 @@
+{
+  "digital_identity": {
+    "level": "digital_identity",
+    "components_total_including_singletons": 4466,
+    "nonsingleton_components": 4,
+    "nonsingletons_with_train": 3,
+    "nonsingletons_with_test": 1,
+    "cross_split_nonsingletons": 0,
+    "train_records_in_nonsingletons": 6,
+    "test_records_in_nonsingletons": 2,
+    "train_nonsingleton_coverage": 0.001652892561983471,
+    "test_nonsingleton_coverage": 0.002380952380952381,
+    "edges_joined": 4
+  },
+  "transform_equivalence": {
+    "level": "transform_equivalence",
+    "components_total_including_singletons": 4465,
+    "nonsingleton_components": 5,
+    "nonsingletons_with_train": 4,
+    "nonsingletons_with_test": 2,
+    "cross_split_nonsingletons": 1,
+    "train_records_in_nonsingletons": 7,
+    "test_records_in_nonsingletons": 3,
+    "train_nonsingleton_coverage": 0.001928374655647383,
+    "test_nonsingleton_coverage": 0.0035714285714285713,
+    "edges_joined": 5
+  },
+  "high_confidence_candidate": {
+    "level": "high_confidence_candidate",
+    "components_total_including_singletons": 1920,
+    "nonsingleton_components": 1107,
+    "nonsingletons_with_train": 1106,
+    "nonsingletons_with_test": 414,
+    "cross_split_nonsingletons": 413,
+    "train_records_in_nonsingletons": 3242,
+    "test_records_in_nonsingletons": 415,
+    "train_nonsingleton_coverage": 0.8931129476584022,
+    "test_nonsingleton_coverage": 0.49404761904761907,
+    "edges_joined": 4485
+  },
+  "acquisition_proven": {
+    "explicit_acquisition_ids_found": 0,
+    "nonsingleton_components_with_direct_acquisition_proof": 0,
+    "components_total_including_singletons": null,
+    "train_records_in_nonsingletons": null,
+    "test_records_in_nonsingletons": null,
+    "status": "SOURCE_UNRESOLVED",
+    "reason": "No upstream acquisition-ID map or derivative-generation record was found; digital and candidate components must not be relabeled as acquisition-proven families."
+  },
+  "priority_components": [
+    {
+      "group_id": "high_confidence_candidate-0301",
+      "members": [
+        "test:000301",
+        "test:000305"
+      ],
+      "size": 2,
+      "train_records": 0,
+      "test_records": 2,
+      "contains_all_eight_priority_records": false
+    },
+    {
+      "group_id": "high_confidence_candidate-1394",
+      "members": [
+        "train:001281",
+        "train:001285",
+        "train:002151",
+        "train:002155",
+        "train:003021",
+        "train:003025"
+      ],
+      "size": 6,
+      "train_records": 6,
+      "test_records": 0,
+      "contains_all_eight_priority_records": false
+    }
+  ],
+  "independence_derivation": {
+    "cross_split_digital_identity_pairs": 0,
+    "cross_split_transform_equivalence_pairs": 1,
+    "cross_split_high_confidence_pairs": 1160
+  },
+  "cross_split_source_independence": "COMPROMISED",
+  "unreviewed_or_filtered_candidate_pairs": 0,
+  "cap_or_overflow_pending_review": {
+    "retrieved_pair_cap": false,
+    "lsh_buckets": [],
+    "per_record_cap_pairs": 12335,
+    "global_cap_pairs": 0,
+    "first_pass_cap_not_reviewed": 12335,
+    "second_pass_backlog_reviewed": 12335,
+    "remaining_cap_not_reviewed": 0,
+    "new_candidate_pairs_retrieved_in_second_pass": 0
+  }
+}

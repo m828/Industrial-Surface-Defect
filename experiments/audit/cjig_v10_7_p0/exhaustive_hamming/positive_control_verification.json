@@ -1,0 +1,186 @@
+{
+  "four_exact_image_checks": [
+    {
+      "pair": [
+        "train:001281",
+        "train:001285"
+      ],
+      "image_decoded_pair_detected": true,
+      "image_file_bytes_equal": true,
+      "gt_diff_pixels": 580,
+      "pass": true
+    },
+    {
+      "pair": [
+        "train:002151",
+        "train:002155"
+      ],
+      "image_decoded_pair_detected": true,
+      "image_file_bytes_equal": true,
+      "gt_diff_pixels": 580,
+      "pass": true
+    },
+    {
+      "pair": [
+        "train:003021",
+        "train:003025"
+      ],
+      "image_decoded_pair_detected": true,
+      "image_file_bytes_equal": true,
+      "gt_diff_pixels": 580,
+      "pass": true
+    },
+    {
+      "pair": [
+        "test:000301",
+        "test:000305"
+      ],
+      "image_decoded_pair_detected": true,
+      "image_file_bytes_equal": true,
+      "gt_diff_pixels": 580,
+      "pass": true
+    }
+  ],
+  "four_exact_image_pairs_pass": true,
+  "six_cross_split_rotation_gt_pairs_detected": 6,
+  "rotation_pairs": [
+    {
+      "relation_type": "GT_D4_EXACT",
+      "canonical_sha256": "12606c362f441723800afabf0d6f4c0839f7b150e32b2ed3320feb4f2fb6d34b",
+      "key_a": "test:000305",
+      "key_b": "train:001285",
+      "split_a": "test",
+      "split_b": "train",
+      "sample_id_a": "000305",
+      "sample_id_b": "001285",
+      "scope": "train/test",
+      "transforms_a_to_b": [
+        "r90"
+      ],
+      "includes_identity_r0": false,
+      "nonidentity_transforms": [
+        "r90"
+      ],
+      "rotation_only_nonidentity_transforms": [
+        "r90"
+      ],
+      "mirror_transforms": []
+    },
+    {
+      "relation_type": "GT_D4_EXACT",
+      "canonical_sha256": "12606c362f441723800afabf0d6f4c0839f7b150e32b2ed3320feb4f2fb6d34b",
+      "key_a": "test:000305",
+      "key_b": "train:002155",
+      "split_a": "test",
+      "split_b": "train",
+      "sample_id_a": "000305",
+      "sample_id_b": "002155",
+      "scope": "train/test",
+      "transforms_a_to_b": [
+        "r180"
+      ],
+      "includes_identity_r0": false,
+      "nonidentity_transforms": [
+        "r180"
+      ],
+      "rotation_only_nonidentity_transforms": [
+        "r180"
+      ],
+      "mirror_transforms": []
+    },
+    {
+      "relation_type": "GT_D4_EXACT",
+      "canonical_sha256": "12606c362f441723800afabf0d6f4c0839f7b150e32b2ed3320feb4f2fb6d34b",
+      "key_a": "test:000305",
+      "key_b": "train:003025",
+      "split_a": "test",
+      "split_b": "train",
+      "sample_id_a": "000305",
+      "sample_id_b": "003025",
+      "scope": "train/test",
+      "transforms_a_to_b": [
+        "r270"
+      ],
+      "includes_identity_r0": false,
+      "nonidentity_transforms": [
+        "r270"
+      ],
+      "rotation_only_nonidentity_transforms": [
+        "r270"
+      ],
+      "mirror_transforms": []
+    },
+    {
+      "relation_type": "GT_D4_EXACT",
+      "canonical_sha256": "1bbc5a0b1480f174c675bd28a18ddfd8ca8fa3550aba9fc6273cf642d3d03778",
+      "key_a": "test:000301",
+      "key_b": "train:001281",
+      "split_a": "test",
+      "split_b": "train",
+      "sample_id_a": "000301",
+      "sample_id_b": "001281",
+      "scope": "train/test",
+      "transforms_a_to_b": [
+        "r90"
+      ],
+      "includes_identity_r0": false,
+      "nonidentity_transforms": [
+        "r90"
+      ],
+      "rotation_only_nonidentity_transforms": [
+        "r90"
+      ],
+      "mirror_transforms": []
+    },
+    {
+      "relation_type": "GT_D4_EXACT",
+      "canonical_sha256": "1bbc5a0b1480f174c675bd28a18ddfd8ca8fa3550aba9fc6273cf642d3d03778",
+      "key_a": "test:000301",
+      "key_b": "train:002151",
+      "split_a": "test",
+      "split_b": "train",
+      "sample_id_a": "000301",
+      "sample_id_b": "002151",
+      "scope": "train/test",
+      "transforms_a_to_b": [
+        "r180"
+      ],
+      "includes_identity_r0": false,
+      "nonidentity_transforms": [
+        "r180"
+      ],
+      "rotation_only_nonidentity_transforms": [
+        "r180"
+      ],
+      "mirror_transforms": []
+    },
+    {
+      "relation_type": "GT_D4_EXACT",
+      "canonical_sha256": "1bbc5a0b1480f174c675bd28a18ddfd8ca8fa3550aba9fc6273cf642d3d03778",
+      "key_a": "test:000301",
+      "key_b": "train:003021",
+      "split_a": "test",
+      "split_b": "train",
+      "sample_id_a": "000301",
+      "sample_id_b": "003021",
+      "scope": "train/test",
+      "transforms_a_to_b": [
+        "r270"
+      ],
+      "includes_identity_r0": false,
+      "nonidentity_transforms": [
+        "r270"
+      ],
+      "rotation_only_nonidentity_transforms": [
+        "r270"
+      ],
+      "mirror_transforms": []
+    }
+  ],
+  "per_test_rotation_partner_count": {
+    "test:000301": 3,
+    "test:000305": 3
+  },
+  "six_rotation_gt_pairs_pass": true,
+  "overall_pass": true
+}

@@ -1,0 +1,332 @@
+{
+  "record_counts": {
+    "train": 3630,
+    "test": 840,
+    "total": 4470
+  },
+  "same_sample_id_across_splits": {
+    "ids": 300,
+    "image_file_equal": 0,
+    "image_pixel_equal": 0
+  },
+  "exact_identity": {
+    "image_file_duplicate_pairs": {
+      "train/train": 3,
+      "test/test": 1,
+      "train/test": 0
+    },
+    "image_pixel_duplicate_pairs": {
+      "train/train": 3,
+      "test/test": 1,
+      "train/test": 0
+    },
+    "gt_file_duplicate_pairs": {
+      "train/train": 0,
+      "test/test": 0,
+      "train/test": 0
+    },
+    "gt_pixel_duplicate_pairs": {
+      "train/train": 0,
+      "test/test": 0,
+      "train/test": 0
+    },
+    "same_image_different_gt_pairs": 4,
+    "same_gt_different_image_pairs": 0
+  },
+  "d4": {
+    "relations": {
+      "IMAGE_D4_EXACT": {
+        "nonsingleton_groups_by_scope": {
+          "test/test": 1,
+          "train/test": 1,
+          "train/train": 3
+        },
+        "pairs_including_identity_by_scope": {
+          "train/train": 3,
+          "test/test": 1,
+          "train/test": 1
+        },
+        "pairs_with_nonidentity_transform_by_scope": {
+          "train/train": 0,
+          "test/test": 0,
+          "train/test": 1
+        },
+        "records_involved_by_scope": {
+          "train/train": 6,
+          "test/test": 2,
+          "train/test": 2
+        }
+      },
+      "GT_D4_EXACT": {
+        "nonsingleton_groups_by_scope": {
+          "train/test": 570,
+          "train/train": 300
+        },
+        "pairs_including_identity_by_scope": {
+          "train/train": 3510,
+          "test/test": 0,
+          "train/test": 1710
+        },
+        "pairs_with_nonidentity_transform_by_scope": {
+          "train/train": 3510,
+          "test/test": 0,
+          "train/test": 1710
+        },
+        "records_involved_by_scope": {
+          "train/train": 2910,
+          "test/test": 0,
+          "train/test": 2280
+        }
+      }
+    }
+  },
+  "cross_split_exact_image_pairs": [
+    {
+      "key_a": "test:000717",
+      "key_b": "train:004097",
+      "transforms": "r180",
+      "gt_diff_pixels": "4682",
+      "gt_foreground_iou": "0.49709989258861437"
+    }
+  ],
+  "gt_d4_group_evidence": {
+    "nonsingleton_groups": 870,
+    "groups_with_image_d4_pair": 0,
+    "groups_with_high_confidence_image_pair": 870,
+    "pairs_without_image_d4_or_high_confidence_evidence": 1795,
+    "interpretation": "GT canonical groups are not acquisition families."
+  },
+  "near_duplicate_screen": {
+    "candidate_pairs": 33145,
+    "fully_reviewed_pairs": 33145,
+    "remaining_cap_not_reviewed": 0,
+    "high_confidence_pairs": 4481,
+    "high_confidence_cross_split_pairs": 1160,
+    "high_confidence_cross_split_test_record_count": 413,
+    "other_high_confidence_test_records_beyond_000301_000305_count": 413,
+    "category_counts": [
+      {
+        "scope": "test/test",
+        "category": "FILE_BYTES_IDENTICAL",
+        "pairs": 1
+      },
+      {
+        "scope": "test/test",
+        "category": "IMAGE_NEAR_ONLY_SOURCE_UNRESOLVED",
+        "pairs": 5
+      },
+      {
+        "scope": "test/test",
+        "category": "REVIEWED_BELOW_NEAR_THRESHOLD",
+        "pairs": 275
+      },
+      {
+        "scope": "train/test",
+        "category": "D4_GT_EXACT_AND_IMAGE_HIGH_SIMILARITY",
+        "pairs": 714
+      },
+      {
+        "scope": "train/test",
+        "category": "D4_IMAGE_PIXELS_IDENTICAL",
+        "pairs": 1
+      },
+      {
+        "scope": "train/test",
+        "category": "GT_SIMILAR_ONLY_SOURCE_UNRESOLVED",
+        "pairs": 7
+      },
+      {
+        "scope": "train/test",
+        "category": "IMAGE_NEAR_HIGH_CONFIDENCE_SHARED_SOURCE_CANDIDATE",
+        "pairs": 445
+      },
+      {
+        "scope": "train/test",
+        "category": "IMAGE_NEAR_ONLY_SOURCE_UNRESOLVED",
+        "pairs": 1323
+      },
+      {
+        "scope": "train/test",
+        "category": "REVIEWED_BELOW_NEAR_THRESHOLD",
+        "pairs": 4614
+      },
+      {
+        "scope": "train/train",
+        "category": "D4_GT_EXACT_AND_IMAGE_HIGH_SIMILARITY",
+        "pairs": 2711
+      },
+      {
+        "scope": "train/train",
+        "category": "FILE_BYTES_IDENTICAL",
+        "pairs": 3
+      },
+      {
+        "scope": "train/train",
+        "category": "GT_SIMILAR_ONLY_SOURCE_UNRESOLVED",
+        "pairs": 15
+      },
+      {
+        "scope": "train/train",
+        "category": "IMAGE_NEAR_HIGH_CONFIDENCE_SHARED_SOURCE_CANDIDATE",
+        "pairs": 610
+      },
+      {
+        "scope": "train/train",
+        "category": "IMAGE_NEAR_ONLY_SOURCE_UNRESOLVED",
+        "pairs": 1028
+      },
+      {
+        "scope": "train/train",
+        "category": "REVIEWED_BELOW_NEAR_THRESHOLD",
+        "pairs": 21393
+      }
+    ],
+    "cap_resolution": {
+      "first_pass_fully_reviewed": 20810,
+      "second_pass_fully_reviewed": 12335,
+      "total_unique_candidates": 33145,
+      "remaining_unreviewed_candidates": 0,
+      "new_pair_ids": 0,
+      "duplicate_pair_ids": 0,
+      "thresholds_changed": false
+    },
+    "exhaustive_screen": {
+      "method": "exhaustive all-pairs oriented Hamming prefilter followed by vectorized thumbnail gates; no LSH",
+      "hamming_feature_file": "/workspace/cjig_v10_7_p0_private/oriented_hamming_private_v2.npz",
+      "all_unordered_nonself_pairs": 9988215,
+      "image_hamming_prefilter_pairs": 445473,
+      "gt_hamming_prefilter_pairs": 2894526,
+      "union_hamming_prefilter_pairs": 3035263,
+      "prefilter_pairs_passing_thumbnail_gates_before_exact_seeds": 33145,
+      "prefilter_pairs_rejected_by_thumbnail_gates": 3002118,
+      "unique_prefilter_candidate_pairs_before_exact_seeds": 33145,
+      "exact_d4_seed_pairs_added_or_updated": 5225,
+      "unique_candidate_pairs_after_exact_seeds": 33145,
+      "eligible_candidate_safety_cap": 100000,
+      "precandidate_storage": "The private oriented distance matrices and aggregate rejection counts preserve the all-pairs screen; only thumbnail-gate candidates and exact-D4 seeds enter the public candidate CSV."
+    }
+  },
+  "source_families": {
+    "digital_identity": {
+      "level": "digital_identity",
+      "components_total_including_singletons": 4466,
+      "nonsingleton_components": 4,
+      "nonsingletons_with_train": 3,
+      "nonsingletons_with_test": 1,
+      "cross_split_nonsingletons": 0,
+      "train_records_in_nonsingletons": 6,
+      "test_records_in_nonsingletons": 2,
+      "train_nonsingleton_coverage": 0.001652892561983471,
+      "test_nonsingleton_coverage": 0.002380952380952381,
+      "edges_joined": 4
+    },
+    "transform_equivalence": {
+      "level": "transform_equivalence",
+      "components_total_including_singletons": 4465,
+      "nonsingleton_components": 5,
+      "nonsingletons_with_train": 4,
+      "nonsingletons_with_test": 2,
+      "cross_split_nonsingletons": 1,
+      "train_records_in_nonsingletons": 7,
+      "test_records_in_nonsingletons": 3,
+      "train_nonsingleton_coverage": 0.001928374655647383,
+      "test_nonsingleton_coverage": 0.0035714285714285713,
+      "edges_joined": 5
+    },
+    "high_confidence_candidate": {
+      "level": "high_confidence_candidate",
+      "components_total_including_singletons": 1920,
+      "nonsingleton_components": 1107,
+      "nonsingletons_with_train": 1106,
+      "nonsingletons_with_test": 414,
+      "cross_split_nonsingletons": 413,
+      "train_records_in_nonsingletons": 3242,
+      "test_records_in_nonsingletons": 415,
+      "train_nonsingleton_coverage": 0.8931129476584022,
+      "test_nonsingleton_coverage": 0.49404761904761907,
+      "edges_joined": 4485
+    },
+    "acquisition_proven": {
+      "explicit_acquisition_ids_found": 0,
+      "nonsingleton_components_with_direct_acquisition_proof": 0,
+      "components_total_including_singletons": null,
+      "train_records_in_nonsingletons": null,
+      "test_records_in_nonsingletons": null,
+      "status": "SOURCE_UNRESOLVED",
+      "reason": "No upstream acquisition-ID map or derivative-generation record was found; digital and candidate components must not be relabeled as acquisition-proven families."
+    },
+    "priority_components": [
+      {
+        "group_id": "high_confidence_candidate-0301",
+        "members": [
+          "test:000301",
+          "test:000305"
+        ],
+        "size": 2,
+        "train_records": 0,
+        "test_records": 2,
+        "contains_all_eight_priority_records": false
+      },
+      {
+        "group_id": "high_confidence_candidate-1394",
+        "members": [
+          "train:001281",
+          "train:001285",
+          "train:002151",
+          "train:002155",
+          "train:003021",
+          "train:003025"
+        ],
+        "size": 6,
+        "train_records": 6,
+        "test_records": 0,
+        "contains_all_eight_priority_records": false
+      }
+    ],
+    "independence_derivation": {
+      "cross_split_digital_identity_pairs": 0,
+      "cross_split_transform_equivalence_pairs": 1,
+      "cross_split_high_confidence_pairs": 1160
+    },
+    "cross_split_source_independence": "COMPROMISED",
+    "unreviewed_or_filtered_candidate_pairs": 0,
+    "cap_or_overflow_pending_review": {
+      "retrieved_pair_cap": false,
+      "lsh_buckets": [],
+      "per_record_cap_pairs": 12335,
+      "global_cap_pairs": 0,
+      "first_pass_cap_not_reviewed": 12335,
+      "second_pass_backlog_reviewed": 12335,
+      "remaining_cap_not_reviewed": 0,
+      "new_candidate_pairs_retrieved_in_second_pass": 0
+    }
+  },
+  "priority_six_rotation_pairs": {
+    "count": 6,
+    "categories": [
+      "IMAGE_NEAR_ONLY_SOURCE_UNRESOLVED"
+    ],
+    "rgb_pearson_range": [
+      0.9943341509289756,
+      0.9944022765187372
+    ],
+    "rgb_mae_range": [
+      4.801275,
+      4.832225
+    ],
+    "gray_ssim_range": [
+      0.9095387314544193,
+      0.9107644719945558
+    ],
+    "all_gt_exact": true,
+    "any_high_confidence": false,
+    "interpretation": "Exact GT alignment plus near image similarity, but the frozen high-confidence image criteria are not met because SSIM is below 0.95."
+  },
+  "status_before_independent_verifier": {
+    "actual_training_input_identity": "VERIFIED",
+    "full_dataset_transform_screen": "PENDING_INDEPENDENT_VERIFICATION",
+    "cross_split_source_independence": "COMPROMISED",
+    "original_acquisition_provenance": "PARTIAL",
+    "manuscript_scientific_readiness": "HOLD FOR SOURCE EVIDENCE"
+  }
+}

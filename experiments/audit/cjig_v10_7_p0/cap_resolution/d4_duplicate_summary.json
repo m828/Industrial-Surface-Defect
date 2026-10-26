@@ -1,0 +1,47 @@
+{
+  "relations": {
+    "IMAGE_D4_EXACT": {
+      "nonsingleton_groups_by_scope": {
+        "test/test": 1,
+        "train/test": 1,
+        "train/train": 3
+      },
+      "pairs_including_identity_by_scope": {
+        "train/train": 3,
+        "test/test": 1,
+        "train/test": 1
+      },
+      "pairs_with_nonidentity_transform_by_scope": {
+        "train/train": 0,
+        "test/test": 0,
+        "train/test": 1
+      },
+      "records_involved_by_scope": {
+        "train/train": 6,
+        "test/test": 2,
+        "train/test": 2
+      }
+    },
+    "GT_D4_EXACT": {
+      "nonsingleton_groups_by_scope": {
+        "train/test": 570,
+        "train/train": 300
+      },
+      "pairs_including_identity_by_scope": {
+        "train/train": 3510,
+        "test/test": 0,
+        "train/test": 1710
+      },
+      "pairs_with_nonidentity_transform_by_scope": {
+        "train/train": 3510,
+        "test/test": 0,
+        "train/test": 1710
+      },
+      "records_involved_by_scope": {
+        "train/train": 2910,
+        "test/test": 0,
+        "train/test": 2280
+      }
+    }
+  }
+}

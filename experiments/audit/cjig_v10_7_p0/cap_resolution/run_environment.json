@@ -1,0 +1,12 @@
+{
+  "python": "3.11.13 | packaged by conda-forge | (main, Jun  4 2025, 14:48:23) [GCC 13.3.0]",
+  "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+  "numpy": "2.4.6",
+  "pillow": "11.0.0",
+  "opencv": "4.11.0",
+  "scipy": "1.16.1",
+  "skimage": "0.25.2",
+  "analysis_libraries_used_for_pixels_only": true,
+  "model_framework_imported": false,
+  "model_inference_executed": false
+}

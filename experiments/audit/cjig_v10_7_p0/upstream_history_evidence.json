@@ -1,0 +1,70 @@
+{
+  "scope": "Public upstream metadata and local fixed-tree inventory only; no author contact details, raw images, GT, or annotation files are included.",
+  "upstream_repository": "https://github.com/DHW-Master/NEU_Seg",
+  "reference_commit": "da8cebedb292beca4d101db8c442d5706fac3bfe",
+  "metadata_retrieval_date": "2026-10-26",
+  "official_api_sources": [
+    "https://api.github.com/repos/DHW-Master/NEU_Seg",
+    "https://api.github.com/repos/DHW-Master/NEU_Seg/commits?per_page=100",
+    "https://api.github.com/repos/DHW-Master/NEU_Seg/compare/c2f2f3a6e561a8cd8bff6e7c15bf1041ade78150...da8cebedb292beca4d101db8c442d5706fac3bfe"
+  ],
+  "commit_history_observed": [
+    {
+      "sha": "c2f2f3a6e561a8cd8bff6e7c15bf1041ade78150",
+      "commit_time_utc": "2020-12-30T13:12:59Z",
+      "message": "first commit",
+      "parents": [],
+      "tree_sha": "01fa6f85c4236a5fea905f601e99543d6c484c29"
+    },
+    {
+      "sha": "da8cebedb292beca4d101db8c442d5706fac3bfe",
+      "commit_time_utc": "2020-12-30T13:48:11Z",
+      "message": "first commit",
+      "parents": ["c2f2f3a6e561a8cd8bff6e7c15bf1041ade78150"],
+      "tree_sha": "98717b8a45a81b25f19913c09a565d6ad94fab0f"
+    }
+  ],
+  "second_commit_comparison": {
+    "ahead_by": 1,
+    "changed_file_count": 1,
+    "changed_files": [{"path": "README.md", "status": "added", "additions": 1, "deletions": 0}],
+    "conclusion": "The 4470 images and 4470 annotations were already present in the root commit; the later reference commit only added the one-line README."
+  },
+  "fixed_tree_inventory": {
+    "archive_members": 8948,
+    "regular_files": 8941,
+    "suffix_counts": {".jpg": 4470, ".png": 4470, ".md": 1},
+    "script_files": [],
+    "labelme_or_structured_metadata_candidates": [],
+    "readme_sha256": "7c1b2f3b12a858437f6986e650afa55814f2361e6d8c22180753c50fa2983f6d",
+    "readme_bytes": 10,
+    "readme_line_count": 1,
+    "readme_information": "Title only; no class-order metadata, acquisition IDs, split-generation rules, or augmentation-generation record."
+  },
+  "acquisition_and_split_provenance": {
+    "explicit_acquisition_ids": "NOT FOUND",
+    "offline_augmentation_script": "NOT FOUND IN THE FIXED UPSTREAM TREE",
+    "split_generation_script": "NOT FOUND IN THE FIXED UPSTREAM TREE",
+    "formation_order": "UNRESOLVED",
+    "evidence_boundary": "The fixed upstream tree can establish that duplicate/transformed records and the training/test directories existed at publication. It cannot establish whether augmentation preceded splitting, who created the derivatives, or the camera acquisition families."
+  },
+  "class_semantics_and_license": {
+    "integer_to_defect_name_upstream_evidence": "NO NEW EVIDENCE",
+    "repository_api_license_field": null,
+    "license_file_observed_in_fixed_tree": false,
+    "gt_redistribution_authorization": "NOT ESTABLISHED",
+    "action": "No raw GT, original images, LabelMe data, or third-party data archive is copied into the public audit package."
+  },
+  "download_and_integrity_record": {
+    "full_git_clone": "FAILED: network sideband disconnect; no complete checkout retained",
+    "shallow_git_clone_http1": "FAILED: TLS/early EOF; no complete checkout retained",
+    "commit_archive": "SUCCESS after the two Git transport failures",
+    "archive_url": "https://codeload.github.com/DHW-Master/NEU_Seg/tar.gz/da8cebedb292beca4d101db8c442d5706fac3bfe",
+    "archive_sha256": "aae62b176f14f56f90bce313046802ceb6c1efb418c692b925ce77a1cf67a436",
+    "gzip_integrity": "PASS",
+    "unsafe_member_check": "PASS: no absolute path, parent traversal, symlink, or hardlink",
+    "regular_files_expected_and_observed": "8941 = 8940 data files + 1 README",
+    "private_archive_location": "/workspace/cjig_v10_7_p0_private/upstream_neu_seg_da8cebed.tar.gz",
+    "private_extracted_location": "/workspace/cjig_v10_7_p0_private/upstream_archive/NEU_Seg-da8cebedb292beca4d101db8c442d5706fac3bfe"
+  }
+}

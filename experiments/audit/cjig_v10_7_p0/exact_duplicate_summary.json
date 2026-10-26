@@ -1,0 +1,74 @@
+{
+  "relations": {
+    "IMAGE_FILE_BYTES_IDENTICAL": {
+      "nonsingleton_groups_by_scope": {
+        "test/test": 1,
+        "train/train": 3
+      },
+      "pairs_by_scope": {
+        "train/train": 3,
+        "test/test": 1,
+        "train/test": 0
+      },
+      "records_involved_by_scope": {
+        "train/train": 6,
+        "test/test": 2,
+        "train/test": 0
+      },
+      "unique_hashes_total": 4466
+    },
+    "IMAGE_DECODED_PIXELS_IDENTICAL": {
+      "nonsingleton_groups_by_scope": {
+        "test/test": 1,
+        "train/train": 3
+      },
+      "pairs_by_scope": {
+        "train/train": 3,
+        "test/test": 1,
+        "train/test": 0
+      },
+      "records_involved_by_scope": {
+        "train/train": 6,
+        "test/test": 2,
+        "train/test": 0
+      },
+      "unique_hashes_total": 4466
+    },
+    "GT_FILE_BYTES_IDENTICAL": {
+      "nonsingleton_groups_by_scope": {},
+      "pairs_by_scope": {
+        "train/train": 0,
+        "test/test": 0,
+        "train/test": 0
+      },
+      "records_involved_by_scope": {
+        "train/train": 0,
+        "test/test": 0,
+        "train/test": 0
+      },
+      "unique_hashes_total": 4470
+    },
+    "GT_DECODED_PIXELS_IDENTICAL": {
+      "nonsingleton_groups_by_scope": {},
+      "pairs_by_scope": {
+        "train/train": 0,
+        "test/test": 0,
+        "train/test": 0
+      },
+      "records_involved_by_scope": {
+        "train/train": 0,
+        "test/test": 0,
+        "train/test": 0
+      },
+      "unique_hashes_total": 4470
+    }
+  },
+  "derived": {
+    "same_image_different_gt_pairs": 4,
+    "same_gt_different_image_pairs": 0,
+    "record_count": 4470,
+    "all_images_rgb_200x200": true,
+    "all_gt_l_200x200_labels_0_to_3": true,
+    "all_image_gt_dimensions_match": true
+  }
+}

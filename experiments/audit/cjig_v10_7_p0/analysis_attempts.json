@@ -1,0 +1,170 @@
+{
+  "audit_id": "CJIG-v10.7-P0",
+  "purpose": "Preserve failed, superseded, partial, completed, and verification attempts without treating pipeline completion as proof of screen completeness.",
+  "upstream_retrieval": [
+    {
+      "method": "git clone --no-tags",
+      "status": "TIMED_OUT",
+      "wall_seconds": 308.905,
+      "complete_checkout_retained": false,
+      "used_as_evidence": false
+    },
+    {
+      "method": "shallow HTTP/1.1 clone",
+      "status": "FAILED_TLS_OR_EARLY_EOF",
+      "wall_seconds": 453.260,
+      "exit_code": 128,
+      "complete_checkout_retained": false,
+      "used_as_evidence": false
+    },
+    {
+      "method": "immutable codeload archive for commit da8cebedb292beca4d101db8c442d5706fac3bfe",
+      "status": "COMPLETED",
+      "wall_seconds": 814.158,
+      "archive_sha256": "aae62b176f14f56f90bce313046802ceb6c1efb418c692b925ce77a1cf67a436",
+      "gzip_and_unsafe_member_checks": "PASS",
+      "regular_files": 8941,
+      "raw_archive_git_delivery": "NOT_UPLOADED"
+    }
+  ],
+  "analysis_runs": [
+    {
+      "run": "analysis_run_001",
+      "status": "FAILED_BEFORE_ANALYSIS_OUTPUT",
+      "wall_seconds": 0.841,
+      "reason": "Assertion on the upstream list path component; corrected before run002.",
+      "used_for_final_results": false
+    },
+    {
+      "run": "analysis_run_002",
+      "status": "PIPELINE_COMPLETED_BUT_NEAR_SCREEN_SUPERSEDED",
+      "wall_seconds": 1115.109,
+      "reason": "Original LSH candidate construction had reversed exact-D4 seed duplicates and capacity limits. Exact file/pixel/D4 outputs were not affected; near/family outputs are excluded from Git.",
+      "used_for_final_results": "Exact identity, D4, positive controls, and private descriptors only; not original near/family counts."
+    },
+    {
+      "run": "analysis_run_003_overflow",
+      "status": "FAILED_COMMAND_PATH_QUOTING",
+      "wall_seconds": 0.550,
+      "exit_code": 2,
+      "used_for_final_results": false
+    },
+    {
+      "run": "analysis_run_004_overflow",
+      "status": "STOPPED_WITHOUT_NEAR_CONCLUSION",
+      "wall_seconds": 230.253,
+      "reason": "LSH bucket collision work exceeded the supplementary bound; stopped instead of silently dropping pairs.",
+      "used_for_final_results": false
+    },
+    {
+      "run": "oriented_hamming_private_v2",
+      "status": "COMPLETED",
+      "wall_seconds": 11.45103406906128,
+      "method": "All 9988215 unordered nonself pairs against eight D4 orientations using deterministic uint64 Hamming distances; private matrices only.",
+      "used_for_final_results": true
+    },
+    {
+      "run": "analysis_run_005_exhaustive",
+      "status": "FIRST_PASS_COMPLETED_SCREEN_PARTIAL",
+      "wall_seconds_task": 2200.023,
+      "wall_seconds_script": 2199.1407692432404,
+      "candidate_pairs": 33145,
+      "fully_reviewed_pairs": 20810,
+      "cap_not_reviewed_pairs": 12335,
+      "thresholds_changed": false,
+      "used_for_final_results": "Parent candidate IDs and first-pass reviews; not a complete screen by itself."
+    },
+    {
+      "run": "analysis_run_006_cap_resolution",
+      "status": "STOPPED_TO_PARALLELIZE_SAME_BACKLOG",
+      "wall_seconds": 704.289,
+      "last_logged_progress": "5000/12335 backlog reviews",
+      "public_output_published": false,
+      "thresholds_or_candidate_ids_changed": false,
+      "used_for_final_results": false
+    },
+    {
+      "run": "analysis_run_007_cap_resolution_parallel",
+      "status": "COMPLETED_CAP_RESOLUTION",
+      "workers": 8,
+      "wall_seconds_task": 1144.384,
+      "wall_seconds_script": 1143.2650828361511,
+      "parent_reviews_preserved": 20810,
+      "backlog_reviews_completed": 12335,
+      "merged_unique_candidates": 33145,
+      "remaining_cap_not_reviewed": 0,
+      "new_pair_ids": 0,
+      "duplicate_pair_ids": 0,
+      "thresholds_changed": false,
+      "publish_verification": "PASS",
+      "used_for_final_results": true
+    }
+  ],
+  "verification": {
+    "independent_verification_report": {
+      "status": "PASS",
+      "wall_seconds": 881.067,
+      "checks_passed": 37,
+      "source_records_rechecked": 4470,
+      "full_resolution_candidate_alignments_rechecked": 33145,
+      "source_graph_edges_recomputed": true,
+      "failures": 0
+    },
+    "retrieval_screen_attempt1": {
+      "status": "FAILED_VERIFIER_COMPARISON_LOGIC",
+      "wall_seconds": 182.378,
+      "candidate_set_counts_gates_reasons_and_directions": "PASS",
+      "failure": "The new verifier compared final-orientation distances instead of independent across-orientation minima; the next diagnostic also established that joint-best orientation cannot recover independent minima. Both issues were corrected before retry1.",
+      "source_results_changed": false,
+      "private_failure_report": "/workspace/cjig_v10_7_p0_private/retrieval_screen_verification_attempt1.json",
+      "private_failure_log": "/workspace/cjig_v10_7_p0_private/retrieval_screen_verification_attempt1.log"
+    },
+    "retrieval_screen_verification": {
+      "status": "PASS",
+      "wall_seconds": 23.294,
+      "checks_passed": 7,
+      "all_pairs_oriented_hamming_recomputed": true,
+      "candidate_set_and_descriptors_recomputed": true,
+      "candidate_rows": 33145,
+      "missing_candidate_pairs": 0,
+      "extra_candidate_pairs": 0,
+      "failures": 0
+    },
+    "required_for_completion": "Both independent_verification_report.json and retrieval_screen_verification.json are PASS; finalizer enforces this gate."
+  },
+  "result_counts_after_verification_gate": {
+    "records": 4470,
+    "image_raw_or_decoded_duplicate_pairs": 4,
+    "gt_raw_or_decoded_duplicate_pairs": 0,
+    "image_d4_pairs_including_identity": 5,
+    "gt_d4_pairs": 5220,
+    "cross_split_exact_image_d4_pairs": 1,
+    "cross_split_exact_gt_d4_pairs": 1710,
+    "fully_reviewed_candidates": 33145,
+    "high_confidence_pairs_including_exact_image_d4": 4481,
+    "high_confidence_cross_split_pairs": 1160,
+    "high_confidence_cross_split_test_records": 413,
+    "interpretation": "Candidate counts are retrospective similarity results, not counts of proven acquisition leakage."
+  },
+  "data_preservation": {
+    "source_images_and_gt_modified": false,
+    "historical_predictions_or_checkpoints_modified": false,
+    "frozen_results_overwritten": false,
+    "data_split_modified": false,
+    "original_failed_or_superseded_outputs_deleted": false,
+    "original_workspace_changes_cleaned_or_reverted": false
+  },
+  "not_run": [
+    "model training",
+    "model forward inference",
+    "checkpoint loading or selection",
+    "new model prediction metric evaluation",
+    "new record-level or source-cluster Bootstrap",
+    "test-record deletion sensitivity analysis",
+    "data relabeling",
+    "new train/test/validation split",
+    "new multi-seed 240k training or mechanism ablation",
+    "manuscript modification",
+    "upload of raw images, GT, checkpoints, sensitive data, or credentials"
+  ]
+}

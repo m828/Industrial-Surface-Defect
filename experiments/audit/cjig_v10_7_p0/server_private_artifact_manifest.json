@@ -1,0 +1,186 @@
+{
+  "artifacts": [
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/upstream_neu_seg_da8cebed.tar.gz",
+      "bytes": 34058261,
+      "sha256": "aae62b176f14f56f90bce313046802ceb6c1efb418c692b925ce77a1cf67a436",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_002/descriptors_private.npz",
+      "bytes": 29762848,
+      "sha256": "6f91ccdcadf6698fd58bcfad650791a8157f4ab7fd64754fcc108d71d921cc9c",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/oriented_hamming_private_v2.npz",
+      "bytes": 120101728,
+      "sha256": "7d419707db58325f906fce34f249a4b990e688658f6c5bdb2a1d72681dee4de5",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/oriented_hamming_prefilter_counts_v2.json",
+      "bytes": 694,
+      "sha256": "fbcc39f56afee3b892f9efe32a7ee7badb1e40918d8c0ebcda5cc72ac7d27dea",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_001.log",
+      "bytes": 913,
+      "sha256": "3eedbb89d946301071d528b250c2afc8b730a663a0fba6096eb4de58c3e5e223",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_002.log",
+      "bytes": 24871,
+      "sha256": "dd6253758bbf80e53e8791d6f5e681043bd2c893134ee09609ada97554c96e1c",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_003_overflow.log",
+      "bytes": 463,
+      "sha256": "236fe9b278a9d80c563c4eef2257c2fa8bf6777a939b336aa3220e068187adfe",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_004_overflow.log",
+      "bytes": 3650,
+      "sha256": "45215e28f3dcdb07d453ddadce697c94025791926e00ad6b24f0e4de4ebd2cb6",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_005_exhaustive.log",
+      "bytes": 24155,
+      "sha256": "0ca74720b352ed2db6c8f67a8a052ec4f7b1b073131957ffe7bdc6e6378d84be",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_006_cap_resolution.log",
+      "bytes": 751,
+      "sha256": "8d5c57b0844be8ff238e2cf547c713a1c1dcb5238c8629c93afadd20fe791114",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_007_cap_resolution_parallel.log",
+      "bytes": 1802,
+      "sha256": "62b239363c0f59ab4b30cbfe275d09cdb684cca8812279c7d3e162a3d226a013",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/independent_verification.log",
+      "bytes": 2285,
+      "sha256": "e927a30a995007eeaba0755ba7af0a5b2c9276b2c217feb1afc91068daa63bbb",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/retrieval_screen_verification_attempt1.log",
+      "bytes": 1583,
+      "sha256": "8358b99defff1d554c7739d011ed4e9ccfd53b7f48b66aa65a0153c16b1a7d43",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/retrieval_screen_verification_attempt1.json",
+      "bytes": 6497,
+      "sha256": "5e5a4cee57e0334093f90ccec31b3854982c2e966c29579173c81f04a5a38008",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/retrieval_screen_verification_retry1.log",
+      "bytes": 1583,
+      "sha256": "3c678e7f917589665d5ebd0ee95b10364899285675b76e81e010931de53c2ab3",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/oriented_hamming.log",
+      "bytes": 1121,
+      "sha256": "af56d91b978410e960caec13605f3144a7741023506ec1f1c258d86815c4b3a4",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/upstream_archive_members.txt",
+      "bytes": 695557,
+      "sha256": "196785e7aa2d7d45b5c90fe6aeb7d5cf578d9c2adefa001e12701d4e6489bc03",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_005_exhaustive/publish_verification.json",
+      "bytes": 2648,
+      "sha256": "0b89ede203bb663fd3ad96cbdd0b916a1907552b9d705c82ac86698cd97be826",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_007_cap_resolution_parallel/publish_verification.json",
+      "bytes": 2648,
+      "sha256": "996ca7691b9fa18247e40b15be5e8890ac4b0209014eca45c1e3d09ffcb2b3d4",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/near_duplicate_candidates.csv",
+      "bytes": 149039990,
+      "sha256": "2d978e13884f56b15ec6fc37b89dd1910f8e85946ea78e02c32d87e58a1ff483",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/near_duplicate_summary.json",
+      "bytes": 19994,
+      "sha256": "fe768ca4d5eb8581a3705bb0537f2cd1b729297064b3e2fd10d5490784094ba9",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/source_family_edges.csv",
+      "bytes": 1771354,
+      "sha256": "6427ebf27dbdb11a56436ab26820274396fa819ff7420a84bd013a5ee9efefe6",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/source_family_membership.csv",
+      "bytes": 1187181,
+      "sha256": "2b60a5ad4c9db7ab761cc3f0a82ff64b47cfb60ee5eb260f2dde4dee29f46823",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/source_family_summary.json",
+      "bytes": 4414,
+      "sha256": "b46271f83a549454bf767048c1feede04b07cf9afb7d4c3e4591e612cca57348",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/additional_cross_split_candidates.csv",
+      "bytes": 768331,
+      "sha256": "e840f6b0b186ca4232619a6fbbb893bb5195e05106821c0021e46cbf62d3b460",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/cjig_v10_7_p0/execution_record.json",
+      "bytes": 27634,
+      "sha256": "e7d2c85894527369802216d85dffb4dfb5933f0b630d064bcf6b56ea18ae6097",
+      "role": "server-only original LSH diagnostic",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/upstream_archive",
+      "type": "directory",
+      "role": "fixed upstream extracted source; raw data not uploaded",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_005_exhaustive",
+      "type": "directory",
+      "role": "private staging and descriptors",
+      "git_delivery": "NOT_UPLOADED"
+    },
+    {
+      "path": "/workspace/cjig_v10_7_p0_private/analysis_run_007_cap_resolution_parallel",
+      "type": "directory",
+      "role": "private backlog staging",
+      "git_delivery": "NOT_UPLOADED"
+    }
+  ],
+  "note": "Server paths and hashes are recorded for traceability; no raw data, archive, checkpoint, descriptor NPZ, or full log is uploaded."
+}

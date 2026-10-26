@@ -1,0 +1,7 @@
+{
+  "source_files": 8940,
+  "minimum_mtime": "2026-05-18T20:33:00.797236+08:00",
+  "maximum_mtime": "2026-05-18T20:38:10.597410+08:00",
+  "formal_base_training_log_first_timestamp": "2026-09-22T14:42:16+08:00",
+  "interpretation": "Filesystem mtimes support but do not cryptographically prove training-time byte identity; resolved paths, pre-run list hashes, runtime logs, and fixed-upstream byte identity are separate evidence."
+}

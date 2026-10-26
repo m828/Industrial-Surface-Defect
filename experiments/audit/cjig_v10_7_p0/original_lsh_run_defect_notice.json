@@ -1,0 +1,40 @@
+{
+  "status": "SUPERSEDED_FOR_NEAR_DUPLICATE_ANALYSIS",
+  "scientific_use": "DO NOT USE the parent near_duplicate_candidates.csv, near_duplicate_summary.json, source_family_edges.csv, source_family_membership.csv, source_family_summary.json, additional_cross_split_candidates.csv, or the near/family fields in execution_record.json as final evidence. exhaustive_hamming/ is the first-pass partial review (20810 reviewed, 12335 CAP backlog); use cap_resolution/ as the authoritative merged result only after its independent verification passes.",
+  "unaffected_outputs": [
+    "full_image_identity_manifest.csv",
+    "actual_priority_training_input_identity.csv",
+    "priority_sample_identity.csv",
+    "upstream_identity_summary.json",
+    "exact_duplicate_pairs.csv",
+    "exact_duplicate_summary.json",
+    "d4_transform_duplicate_pairs.csv",
+    "d4_duplicate_summary.json",
+    "positive_control_verification.json",
+    "detector_self_tests.json"
+  ],
+  "defect": {
+    "cause": "Exact-D4 seed pairs were appended with unsorted record indices while LSH pairs used sorted indices. The same logical pair could appear twice in reversed orientation.",
+    "candidate_csv_rows": 503436,
+    "unique_logical_pairs": 500000,
+    "reversed_duplicate_rows": 3436,
+    "effect": "Candidate/category counts and high-confidence counts were inflated; graph union-find deduplicated logical pairs and therefore disagreed with the candidate summary.",
+    "independent_check": "Python CSV key-set comparison found 503436 rows versus 500000 unique (split,sample_id) pairs; every high-confidence candidate pair was present in the graph, but the graph also contained exact-D4 edges.",
+    "remediation": "Sort exact-D4 seed indices, preserve the defective implementation as scripts/legacy_lsh_defect_version.py, and regenerate all near/family outputs with exhaustive all-pairs prefiltering."
+  },
+  "other_parent_limitations": {
+    "retrieved_pair_cap_triggered": true,
+    "oversize_lsh_buckets": 12,
+    "per_record_review_cap_pairs": 725,
+    "global_review_cap_pairs": 0,
+    "screen_complete_under_parent_config": false
+  },
+  "preservation": {
+    "original_files_overwritten": false,
+    "original_near_candidate_sha256": "2d978e13884f56b15ec6fc37b89dd1910f8e85946ea78e02c32d87e58a1ff483",
+    "original_near_summary_sha256": "fe768ca4d5eb8581a3705bb0537f2cd1b729297064b3e2fd10d5490784094ba9",
+    "original_source_family_summary_sha256": "b46271f83a549454bf767048c1feede04b07cf9afb7d4c3e4591e612cca57348",
+    "original_outputs_git_delivery": "EXCLUDED as non-authoritative; server-side diagnostic evidence retained"
+  },
+  "exact_result_boundary": "The defect was confined to near-candidate construction and downstream counts. It did not alter file hashes, decoded-pixel hashes, D4 canonical hashes, exact relation pairs, upstream byte identity, or positive-control results."
+}

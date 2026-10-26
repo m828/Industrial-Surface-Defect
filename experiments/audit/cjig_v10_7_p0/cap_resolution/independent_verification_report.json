@@ -1,0 +1,200 @@
+{
+  "status": "PASS",
+  "checks": {
+    "manifest_4470_rows": {
+      "pass": true,
+      "detail": 4470
+    },
+    "manifest_unique_composite_keys": {
+      "pass": true,
+      "detail": null
+    },
+    "manifest_split_counts": {
+      "pass": true,
+      "detail": {
+        "train": 3630,
+        "test": 840
+      }
+    },
+    "known_positive_controls_pass": {
+      "pass": true,
+      "detail": null
+    },
+    "upstream_8940_byte_matches": {
+      "pass": true,
+      "detail": null
+    },
+    "source_file_and_pixel_failures_empty": {
+      "pass": true,
+      "detail": null
+    },
+    "exact_relation_IMAGE_FILE_BYTES_IDENTICAL": {
+      "pass": true,
+      "detail": {
+        "actual": 4,
+        "expected": 4
+      }
+    },
+    "exact_relation_IMAGE_DECODED_PIXELS_IDENTICAL": {
+      "pass": true,
+      "detail": {
+        "actual": 4,
+        "expected": 4
+      }
+    },
+    "exact_relation_GT_FILE_BYTES_IDENTICAL": {
+      "pass": true,
+      "detail": {
+        "actual": 0,
+        "expected": 0
+      }
+    },
+    "exact_relation_GT_DECODED_PIXELS_IDENTICAL": {
+      "pass": true,
+      "detail": {
+        "actual": 0,
+        "expected": 0
+      }
+    },
+    "no_duplicate_rows_IMAGE_FILE_BYTES_IDENTICAL": {
+      "pass": true,
+      "detail": 4
+    },
+    "no_duplicate_rows_IMAGE_DECODED_PIXELS_IDENTICAL": {
+      "pass": true,
+      "detail": 4
+    },
+    "no_duplicate_rows_GT_FILE_BYTES_IDENTICAL": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_duplicate_rows_GT_DECODED_PIXELS_IDENTICAL": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_duplicate_rows_IMAGE_D4_EXACT": {
+      "pass": true,
+      "detail": 5
+    },
+    "no_duplicate_rows_GT_D4_EXACT": {
+      "pass": true,
+      "detail": 5220
+    },
+    "near_candidates_unique_pairs": {
+      "pass": true,
+      "detail": 33145
+    },
+    "all_4470_d4_canonical_hashes_recomputed": {
+      "pass": true,
+      "detail": []
+    },
+    "d4_relation_IMAGE_D4_EXACT": {
+      "pass": true,
+      "detail": {
+        "actual": 5,
+        "expected": 5
+      }
+    },
+    "d4_relation_GT_D4_EXACT": {
+      "pass": true,
+      "detail": {
+        "actual": 5220,
+        "expected": 5220
+      }
+    },
+    "d4_transform_directions_all_match": {
+      "pass": true,
+      "detail": null
+    },
+    "all_reviewed_alignment_metrics_reproduce": {
+      "pass": true,
+      "detail": {
+        "reviewed": 33145,
+        "failures": []
+      }
+    },
+    "fully_reviewed_count_matches_summary": {
+      "pass": true,
+      "detail": {
+        "actual": 33145,
+        "summary": 33145
+      }
+    },
+    "merged_all_candidates_fully_reviewed": {
+      "pass": true,
+      "detail": {
+        "reviewed": 33145,
+        "candidates": 33145
+      }
+    },
+    "merged_cap_resolution_declared_complete": {
+      "pass": true,
+      "detail": null
+    },
+    "source_graph_high_edges_exactly_match_evidence": {
+      "pass": true,
+      "detail": {
+        "actual": 4485,
+        "expected": 4485
+      }
+    },
+    "near_summary_high_count_matches_candidates": {
+      "pass": true,
+      "detail": 4481
+    },
+    "family_high_edge_count_matches_summary": {
+      "pass": true,
+      "detail": 4485
+    },
+    "family_membership_complete_and_unique": {
+      "pass": true,
+      "detail": 13410
+    },
+    "family_components_recomputed_digital_identity": {
+      "pass": true,
+      "detail": {}
+    },
+    "family_components_recomputed_transform_equivalence": {
+      "pass": true,
+      "detail": {}
+    },
+    "family_components_recomputed_high_confidence_candidate": {
+      "pass": true,
+      "detail": {}
+    },
+    "priority_component_membership_matches": {
+      "pass": true,
+      "detail": []
+    },
+    "public_no_raw_or_checkpoint_files": {
+      "pass": true,
+      "detail": []
+    },
+    "public_no_credential_patterns": {
+      "pass": true,
+      "detail": []
+    },
+    "public_no_email_addresses": {
+      "pass": true,
+      "detail": []
+    },
+    "all_source_mtimes_precede_formal_training": {
+      "pass": true,
+      "detail": {
+        "source_files": 8940,
+        "minimum_mtime": "2026-05-18T20:33:00.797236+08:00",
+        "maximum_mtime": "2026-05-18T20:38:10.597410+08:00",
+        "formal_base_training_log_first_timestamp": "2026-09-22T14:42:16+08:00",
+        "interpretation": "Filesystem mtimes support but do not cryptographically prove training-time byte identity; resolved paths, pre-run list hashes, runtime logs, and fixed-upstream byte identity are separate evidence."
+      }
+    }
+  },
+  "failures": [],
+  "reviewed_alignment_pairs_independently_recomputed": 33145,
+  "public_files_scanned": 19,
+  "raw_or_checkpoint_files_found": [],
+  "credential_pattern_files": [],
+  "email_address_files": [],
+  "model_training_or_inference": "NOT RUN",
+  "new_bootstrap_or_prediction_metric_evaluation": "NOT RUN"
+}

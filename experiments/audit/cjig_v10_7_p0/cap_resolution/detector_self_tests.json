@@ -1,0 +1,17 @@
+{
+  "synthetic_jpeg_rotation_detector_check": {
+    "source_key": "test:000301",
+    "operation": "r90 then in-memory JPEG quality=95; no file or dataset modification",
+    "min_phash_hamming": 0,
+    "min_dhash_hamming": 0,
+    "thumbnail_pearson": 0.9999829103841448,
+    "passes_image_review_gate": true
+  },
+  "d4_synthetic_square_check": {
+    "eight_unique_orientations_for_asymmetric_square": true,
+    "rotation_inverse": true,
+    "horizontal_flip_involution": true,
+    "pass": true
+  },
+  "known_positive_controls": true
+}

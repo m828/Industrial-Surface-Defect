@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "checks": {
+    "keys_match_manifest_in_both_private_artifacts": {
+      "pass": true,
+      "detail": 4470
+    },
+    "all_pairs_all_orientations_hamming_and_tie_breaks_reproduce": {
+      "pass": true,
+      "detail": []
+    },
+    "retrieval_counts_match_authoritative_summary": {
+      "pass": true,
+      "detail": {
+        "actual": {
+          "method": "exhaustive all-pairs oriented Hamming prefilter followed by vectorized thumbnail gates; no LSH",
+          "hamming_feature_file": "/workspace/cjig_v10_7_p0_private/oriented_hamming_private_v2.npz",
+          "all_unordered_nonself_pairs": 9988215,
+          "image_hamming_prefilter_pairs": 445473,
+          "gt_hamming_prefilter_pairs": 2894526,
+          "union_hamming_prefilter_pairs": 3035263,
+          "prefilter_pairs_passing_thumbnail_gates_before_exact_seeds": 33145,
+          "prefilter_pairs_rejected_by_thumbnail_gates": 3002118,
+          "unique_prefilter_candidate_pairs_before_exact_seeds": 33145,
+          "exact_d4_seed_pairs_added_or_updated": 5225,
+          "unique_candidate_pairs_after_exact_seeds": 33145,
+          "eligible_candidate_safety_cap": 100000,
+          "precandidate_storage": "The private oriented distance matrices and aggregate rejection counts preserve the all-pairs screen; only thumbnail-gate candidates and exact-D4 seeds enter the public candidate CSV."
+        },
+        "recomputed": {
+          "all_unordered_nonself_pairs": 9988215,
+          "image_hamming_prefilter_pairs": 445473,
+          "gt_hamming_prefilter_pairs": 2894526,
+          "union_hamming_prefilter_pairs": 3035263,
+          "prefilter_pairs_passing_thumbnail_gates_before_exact_seeds": 33145,
+          "unique_prefilter_candidate_pairs_before_exact_seeds": 33145,
+          "prefilter_pairs_rejected_by_thumbnail_gates": 3002118,
+          "unique_candidate_pairs_after_exact_seeds": 33145,
+          "exact_d4_seed_pairs_added_or_updated": 5225
+        }
+      }
+    },
+    "candidate_set_exactly_matches_independent_retrieval": {
+      "pass": true,
+      "detail": {
+        "public": 33145,
+        "independent": 33145,
+        "missing": 0,
+        "extra": 0
+      }
+    },
+    "all_public_candidate_descriptors_gates_reasons_and_directions_reproduce": {
+      "pass": true,
+      "detail": []
+    },
+    "all_33145_candidates_fully_reviewed": {
+      "pass": true,
+      "detail": null
+    },
+    "no_raw_images_or_pixels_emitted": {
+      "pass": true,
+      "detail": null
+    }
+  },
+  "failures": [],
+  "independently_recomputed_counts": {
+    "all_unordered_nonself_pairs": 9988215,
+    "image_hamming_prefilter_pairs": 445473,
+    "gt_hamming_prefilter_pairs": 2894526,
+    "union_hamming_prefilter_pairs": 3035263,
+    "prefilter_pairs_passing_thumbnail_gates_before_exact_seeds": 33145,
+    "unique_prefilter_candidate_pairs_before_exact_seeds": 33145,
+    "prefilter_pairs_rejected_by_thumbnail_gates": 3002118,
+    "unique_candidate_pairs_after_exact_seeds": 33145,
+    "exact_d4_seed_pairs_added_or_updated": 5225
+  },
+  "scope": "Independent replay of descriptor-based all-pairs retrieval, thumbnail gates, exact-D4 seeds, and public descriptor fields; raw-file and full-resolution alignment checks are in independent_verification_report.json.",
+  "limitations": "This validates implementation fidelity under the declared retrospective retrieval and orientation-selection rules. It does not establish recall for unknown transforms, unrelated appearance, or original acquisition provenance.",
+  "descriptor_file_sha256": "6f91ccdcadf6698fd58bcfad650791a8157f4ab7fd64754fcc108d71d921cc9c",
+  "oriented_hamming_file_sha256": "7d419707db58325f906fce34f249a4b990e688658f6c5bdb2a1d72681dee4de5",
+  "model_training_or_inference": "NOT RUN",
+  "new_bootstrap_or_prediction_metric_evaluation": "NOT RUN"
+}
