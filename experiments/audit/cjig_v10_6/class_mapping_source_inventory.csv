@@ -1,0 +1,18 @@
+item,path,sha256_or_status,evidence_type,proves,status
+NEU-Seg原始数据目录,new (copy)/dataset/NEUSeg/,annotations 3630+840 / images 3630+840,上游数据本体,"灰度整数标注,200x200,ID域{0,1,2,3}",VERIFIED
+NEU-Seg第二副本,new/dataset/NEUSeg/,8940文件与主副本SHA逐一相同,版本一致性检查,无跨版本混用,VERIFIED
+上游README,new (copy)/dataset/NEUSeg/README.md,7c1b2f3b12a858437f6986e650afa55814f2361e6d8c22180753c50fa2983f6d,上游元数据,"仅一行# NEU-Seg,无类别顺序/名称",METADATA_ABSENT
+数据获取记录,~/.bash_history 与全项目检索,无NEU-Seg下载/压缩包/LabelMe JSON,获取溯源,无法证明获取版本与上游语义,MISSING
+训练清单,new (copy)/dataset/train_neu.txt,498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64,数据划分,"3630行,与磁盘文件集合相等,无重复",VERIFIED
+测试清单,new (copy)/dataset/test_neu.txt,2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06,数据划分,"840行,与磁盘文件集合相等,无重复",VERIFIED
+训练加载器(正式240k副本),repro_runs/long240k_seed1337/base_b/code/datagenerator_neu.py,18f96bfce77ccb9f56822b8b148964fe676ceef45155282fe5511bed8b8058c1,标签转换链,"mask直读不重排;convert('L')为死代码;binarymask=(mask!=0)",VERIFIED
+训练加载器(历史原件),new (copy)/datagenerator_neu.py,18f96bfce77ccb9f56822b8b148964fe676ceef45155282fe5511bed8b8058c1,标签转换链,与正式240k副本同字节;历史与现行读取逻辑一致,VERIFIED
+统一评价器,tools/evaluate_class_iou.py,37a159b200040f7f08e69766acee0fa16ef99ba4a1672abcfbc8b95a024220eb,评价编码,"L182 convert('L')直读;L50内部类别名表",VERIFIED_ID_INTERNAL_NAMES
+内部类别名表(机制指标),repro_runs/mechanism_eval_240k/compute_mechanism_metrics.py,89a37289152d7ecc83cf551f62fee7f49fb0ee464470e023f78b24c3ae8b9178,内部命名,L14 {1:crazing,2:inclusion,3:patches};非上游认证,INTERNAL_ONLY
+内部类别名表(可视化),repro_runs/mechanism_eval_240k/visualize_cases_v6.py,47553eee5c4cd4f31eeab1ae8a34ac177c156e4f6b7b5dea6e222ef5f68c7d1b,内部命名,L16 CID映射;非上游认证,INTERNAL_ONLY
+第三方冲突命名,third_party/FDSNet/core/data/dataloader/sd_voc.py,90c11d5558d96f4571a68a2a257e7ce04695d57924a38b575b7d93e14c92f090,命名冲突证据,"L132 ('background','inclusion','patches','scratches');BASE_DIR=SD-900-voc非NEU-Seg;证明ID命名不可跨项目假定",CONFLICT_EXTERNAL_DATASET
+训练测试文件名重叠,NEUSeg annotations+images,300个同名ID(000201-000300/000501-000700),泄漏核查,"300对图像与300对标注全部不同字节;非泄漏",VERIFIED_NO_LEAK
+跨split内容重复,全部4470图像+4470标注内容哈希,0跨split重复,泄漏核查,无内容级跨split重复,VERIFIED_NO_LEAK
+split内重复图像,训练3对/测试1对(含test 000301/000305),图像字节相同但标注不同(各580像素差异),数据完整性,"上游同图不同标注重复;测试有轻微重复加权;非本协议造成",UPSTREAM_DUPLICATE_NOTE
+类别ID重排检查,训练/评价/缓存全链路,未发现任何重排代码或映射表,编码一致性,训练与评价使用相同整数编码,VERIFIED
+上游语义命名,官方类别顺序/原始LabelMe/命名元数据,服务器未找到,语义认证,"class_id1/2/3名称仍为项目内部假设;不得凭外形命名",MISSING

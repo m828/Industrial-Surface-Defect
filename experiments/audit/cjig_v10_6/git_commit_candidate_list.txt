@@ -1,0 +1,16 @@
+experiments/audit/cjig_v10_6/candidate_prediction_cache_inventory.csv
+experiments/audit/cjig_v10_6/class_data_integrity_checks.json
+experiments/audit/cjig_v10_6/class_mapping_source_inventory.csv
+experiments/audit/cjig_v10_6/e0_checkpoint_sha_crosscheck.json
+experiments/audit/cjig_v10_6/experiment_go_nogo_decision.md
+experiments/audit/cjig_v10_6/gpu_cost_evidence.md
+experiments/audit/cjig_v10_6/independent_weight_inventory.csv
+experiments/audit/cjig_v10_6/README.md
+experiments/audit/cjig_v10_6/scripts/emit_inventories.py
+experiments/audit/cjig_v10_6/scripts/verify_weight_assets.py
+experiments/audit/cjig_v10_6/server_class_semantics_trace.md
+experiments/audit/cjig_v10_6/validation_preregistration.md
+experiments/audit/cjig_v10_6/weight_asset_verification_details.json
+experiments/audit/cjig_v10_6/weight_provenance_gate.md
+experiments/audit/cjig_v10_6/SHA256SUMS.txt
+experiments/audit/cjig_v10_6/git_commit_candidate_list.txt

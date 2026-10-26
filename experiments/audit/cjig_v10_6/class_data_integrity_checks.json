@@ -1,0 +1,163 @@
+{
+  "split_closure": {
+    "training_list_n": 3630,
+    "training_missing_or_mismatch": [],
+    "training_list_equals_disk": true,
+    "training_list_duplicates": 0,
+    "training_img_set_equals_ann_set": true,
+    "training_list_sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64",
+    "training_label_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "training_shapes": [
+      [
+        200,
+        200
+      ]
+    ],
+    "training_id_minmax": [
+      "000201.png",
+      "004390.png"
+    ],
+    "test_list_n": 840,
+    "test_missing_or_mismatch": [],
+    "test_list_equals_disk": true,
+    "test_list_duplicates": 0,
+    "test_img_set_equals_ann_set": true,
+    "test_list_sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06",
+    "test_label_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "test_shapes": [
+      [
+        200,
+        200
+      ]
+    ],
+    "test_id_minmax": [
+      "000001.png",
+      "000840.png"
+    ],
+    "train_test_id_overlap_count": 300
+  },
+  "filename_overlap_content_check": {
+    "n_overlap_ids": 300,
+    "ann_identical": 0,
+    "ann_different": 300,
+    "img_identical": 0,
+    "img_different": 300
+  },
+  "cross_split_content_duplicates": {
+    "annotations": {
+      "train_unique": 3630,
+      "test_unique": 840,
+      "cross_split_content_duplicates": 0,
+      "examples": []
+    },
+    "images": {
+      "train_unique": 3627,
+      "test_unique": 839,
+      "cross_split_content_duplicates": 0,
+      "examples": []
+    }
+  },
+  "within_split_duplicate_image_pairs": {
+    "training": [
+      [
+        "001281.jpg",
+        "001285.jpg"
+      ],
+      [
+        "002151.jpg",
+        "002155.jpg"
+      ],
+      [
+        "003021.jpg",
+        "003025.jpg"
+      ]
+    ],
+    "test": [
+      [
+        "000301.jpg",
+        "000305.jpg"
+      ]
+    ]
+  },
+  "duplicate_pair_annotation_diffs": {
+    "training": [
+      {
+        "pair": [
+          "001281",
+          "001285"
+        ],
+        "ann_identical": false,
+        "diff_pixels": 580,
+        "unique_a": [
+          0,
+          2
+        ],
+        "unique_b": [
+          0,
+          2
+        ]
+      },
+      {
+        "pair": [
+          "002151",
+          "002155"
+        ],
+        "ann_identical": false,
+        "diff_pixels": 580,
+        "unique_a": [
+          0,
+          2
+        ],
+        "unique_b": [
+          0,
+          2
+        ]
+      },
+      {
+        "pair": [
+          "003021",
+          "003025"
+        ],
+        "ann_identical": false,
+        "diff_pixels": 580,
+        "unique_a": [
+          0,
+          2
+        ],
+        "unique_b": [
+          0,
+          2
+        ]
+      }
+    ],
+    "test": [
+      {
+        "pair": [
+          "000301",
+          "000305"
+        ],
+        "ann_identical": false,
+        "diff_pixels": 580,
+        "unique_a": [
+          0,
+          2
+        ],
+        "unique_b": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  "note": "Counts/filenames/hashes only. No GT pixels or images copied. Checks run read-only on NEUSeg source dirs."
+}

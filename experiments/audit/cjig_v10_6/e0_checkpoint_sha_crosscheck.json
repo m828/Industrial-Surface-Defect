@@ -1,0 +1,182 @@
+{
+  "E0_10k_seed2026_base_b": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_base_b_s2026_manifest.json",
+    "checkpoints": [
+      {
+        "file": "base_b_s2026_10k_codex1_iter010000_best_miou_0.847977.pkl",
+        "actual_sha256": "7abdb50d7eb49d3a2ab958b22d983f6f3940d546a82a4bb5804d6ac39d169550",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "base_b_s2026_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "e2e23b0d2c023ea585722b4f661bc3226a6e3a352804abb5a6a9d39edc603e8e",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed2026_a1": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a1_s2026_manifest.json",
+    "checkpoints": [
+      {
+        "file": "a1_s2026_10k_codex1_iter010000_best_miou_0.860649.pkl",
+        "actual_sha256": "78a6806cdfe9c6a8be4515fa3af6ed814284b12f98c724598e9012594837ed0e",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "a1_s2026_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "b896a21ef8c044777c1543715a95f81b3453fa17738ccf751aaf7f9804d11f6c",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed2026_a2": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a2_s2026_manifest.json",
+    "checkpoints": [
+      {
+        "file": "a2_s2026_10k_codex1_iter010000_best_miou_0.857568.pkl",
+        "actual_sha256": "715717800bb67d6c56d38d5cca36b79b78dd4cae0a57e82e8a45a487f0de7827",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "a2_s2026_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "4fa89d5010fb4f4b8ccd68b4ff1747afe4f99c3195032a028268da11d2a62ed2",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed2026_detail_only": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_detail_only_s2026_manifest.json",
+    "checkpoints": [
+      {
+        "file": "detail_only_s2026_10k_codex1_iter010000_best_miou_0.851998.pkl",
+        "actual_sha256": "d3234a25dd4e53b5ecc07866d27739906eaf411be86b6897cdd047b6b5e89756",
+        "matches_any_manifest_sha": null
+      },
+      {
+        "file": "detail_only_s2026_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "d731a168826ca639339d365edda4bae5ada2b81ff7d0a42b6e7e2e974fff7479",
+        "matches_any_manifest_sha": null
+      }
+    ]
+  },
+  "E0_10k_seed3407_base_b": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_base_b_s3407_manifest.json",
+    "checkpoints": [
+      {
+        "file": "base_b_s3407_10k_codex1_iter010000_best_miou_0.854363.pkl",
+        "actual_sha256": "c0fe92a0452a72691b135a46559dddc5c497ad0046c430b6908a1f61c7f03e19",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "base_b_s3407_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "7de43795c40e77bd4fa0ded6a77dbf4d2e94e347c663495a5e59ca1f8d215c8b",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed3407_a1": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a1_s3407_manifest.json",
+    "checkpoints": [
+      {
+        "file": "a1_s3407_10k_codex1_iter010000_best_miou_0.852110.pkl",
+        "actual_sha256": "0cca14cc54ccdd2be060962cf63e79d46e4ffda186128e68c14a27bba3e7b757",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "a1_s3407_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "3c868a9febccefe9dae7c9e7f997c1254b8160e122a1fe7f0a73c7b72917d53b",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed3407_a2": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a2_s3407_manifest.json",
+    "checkpoints": [
+      {
+        "file": "a2_s3407_10k_codex1_iter010000_best_miou_0.851640.pkl",
+        "actual_sha256": "71444d33cf421ff38d62e24ebcbf4a21980e00d4d5779ea3ee82a03abb8efc13",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "a2_s3407_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "82a50b93375dc0c201724561adf379d2b76cd65b598ad9b8c7ee5c13ec71537c",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed3407_detail_only": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_detail_only_s3407_manifest.json",
+    "checkpoints": [
+      {
+        "file": "detail_only_s3407_10k_codex1_iter010000_best_miou_0.856412.pkl",
+        "actual_sha256": "5be45aa8dbdeb0786e4f93199b210647e54a872c810219f148800d2c61e27015",
+        "matches_any_manifest_sha": null
+      },
+      {
+        "file": "detail_only_s3407_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "04373aa357d26e1e638a79df6076dbc84a571460475ba19651db0576c059465e",
+        "matches_any_manifest_sha": null
+      }
+    ]
+  },
+  "E0_10k_seed1337_detail_only": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/detail_only_seed1337_manifest.json",
+    "checkpoints": [
+      {
+        "file": "detail_only_s1337_10k_codex1_iter010000_best_miou_0.854903.pkl",
+        "actual_sha256": "622e14102b19a20f3377f5a82842ef29744e5643158138568c9b56f0fc902ce0",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "detail_only_s1337_10k_codex1_iter010000_last.pkl",
+        "actual_sha256": "4d7d1a9a2efa1bc5edbfbae7926dc0b9ea52471708f49bee75ca49bc2b800116",
+        "matches_any_manifest_sha": true
+      }
+    ]
+  },
+  "E0_10k_seed1337_base_anchor": {
+    "manifest": null,
+    "checkpoints": [
+      {
+        "file": "base_b_neu_originalsplit_10k_control_20260618_codex1_iter010000_best_miou_0.854517.pkl",
+        "actual_sha256": "32382567fca78968e5e38b5017f0408bef642a3b0ef1e73743f48f44744d2404",
+        "matches_any_manifest_sha": null
+      },
+      {
+        "file": "base_b_neu_originalsplit_10k_control_20260618_codex1_iter010000_last.pkl",
+        "actual_sha256": "a71015e67901e11fb2217a886bb54364e5702b67eb887d96b61aee28b4dee6f3",
+        "matches_any_manifest_sha": null
+      }
+    ]
+  },
+  "E0_10k_seed1337_a2ms_anchor": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/a2ms_b_fixed_a2_manifest.json",
+    "checkpoints": [
+      {
+        "file": "a2_fixed_aam_detail_10k_20260908_codex1_iter010000_best_miou_0.862492.pkl",
+        "actual_sha256": "eb97d7d204ce4da64d7a1ccf8ed931ab62c0a91c14756e1439c3d9d87761ea55",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "a2_fixed_aam_detail_10k_20260908_codex1_iter010000_last.pkl",
+        "actual_sha256": "1e500b0c3c927e7e3d12db4e5880e37ceb0aa1b66ec8e5eb20976741d85f1d5a",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  },
+  "E0_10k_seed1337_a1_anchor": {
+    "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/a2ms_b_fixed_a1_manifest.json",
+    "checkpoints": [
+      {
+        "file": "a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_best_miou_0.857491.pkl",
+        "actual_sha256": "65784a7b285f21baa5ccc2989faa997a0f91473d825eb6bd5b214af07aa6bcf8",
+        "matches_any_manifest_sha": true
+      },
+      {
+        "file": "a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_last.pkl",
+        "actual_sha256": "9a844b40d9ad2a6d109fe8ea03defcb2582f0ea9cd5e41e69277a395ce1aefae",
+        "matches_any_manifest_sha": false
+      }
+    ]
+  }
+}

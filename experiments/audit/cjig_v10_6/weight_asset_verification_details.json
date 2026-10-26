@@ -1,0 +1,1582 @@
+{
+  "objects": [
+    {
+      "id": "E0_10k_seed2026_base_b",
+      "tier": "E0_10k",
+      "seed": 2026,
+      "model": "base",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_base_b_s2026_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "base_b_s2026_10k_codex1_iter010000_best_miou_0.847977.pkl",
+        "base_b_s2026_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "7abdb50d7eb49d3a2ab958b22d983f6f3940d546a82a4bb5804d6ac39d169550",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b/checkpoints/base_b_s2026_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "e2e23b0d2c023ea585722b4f661bc3226a6e3a352804abb5a6a9d39edc603e8e",
+      "endpoint_bytes": 352812905,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50.py",
+      "model_file_actual_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+      "model_matches_formal": true,
+      "train_script": "train_base_b_10k.py",
+      "train_script_actual_sha256": "6fb632ebe434deedc5ba5b526815e987e1ade6f539f3da2a0cf2ac8e407629b3",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b/config/config.yml",
+      "config": {
+        "seed_top_level": 2026,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "triplet (3 runs) ran concurrently on one A100"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "724d4d65704750e1d05dd334cc7b54c5cae32a92eb9553398ea3128c0aa09f97",
+      "metrics": {
+        "train_summary": {
+          "run_id": "base_b_s2026_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "724d4d65704750e1d05dd334cc7b54c5cae32a92eb9553398ea3128c0aa09f97",
+            "miou": 0.8474726575362161
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b/logs/base_b_s2026_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b/logs/base_b_s2026_10k_codex1/run_2026_09_08_15_17_34.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed2026_a1",
+      "tier": "E0_10k",
+      "seed": 2026,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a1_s2026_manifest.json",
+      "required": false,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a1_s2026_10k_codex1_iter010000_best_miou_0.860649.pkl",
+        "a1_s2026_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "78a6806cdfe9c6a8be4515fa3af6ed814284b12f98c724598e9012594837ed0e",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1/checkpoints/a1_s2026_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "b896a21ef8c044777c1543715a95f81b3453fa17738ccf751aaf7f9804d11f6c",
+      "endpoint_bytes": 353895470,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_fixed_a2ms_b_10k.py",
+      "train_script_actual_sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1/config/config.yml",
+      "config": {
+        "seed_top_level": 2026,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          0
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "triplet (3 runs) ran concurrently on one A100"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "69bd89b93b26c0396250e25a20b9de55eee58c8ad5e6535560feedc26b265211",
+      "metrics": {
+        "train_summary": {
+          "run_id": "a1_s2026_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "69bd89b93b26c0396250e25a20b9de55eee58c8ad5e6535560feedc26b265211",
+            "miou": 0.8608698075765292
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1/logs/a1_s2026_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1/logs/a1_s2026_10k_codex1/run_2026_09_08_15_17_33.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed2026_a2",
+      "tier": "E0_10k",
+      "seed": 2026,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a2_s2026_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a2_s2026_10k_codex1_iter010000_best_miou_0.857568.pkl",
+        "a2_s2026_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "715717800bb67d6c56d38d5cca36b79b78dd4cae0a57e82e8a45a487f0de7827",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2/checkpoints/a2_s2026_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "4fa89d5010fb4f4b8ccd68b4ff1747afe4f99c3195032a028268da11d2a62ed2",
+      "endpoint_bytes": 353895406,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_fixed_a2ms_b_10k.py",
+      "train_script_actual_sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2/config/config.yml",
+      "config": {
+        "seed_top_level": 2026,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "triplet (3 runs) ran concurrently on one A100"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "f53c449fc0830c04117701f4a8bc7a6063c20bfd89e1fe5f3681a22acf95d9a0",
+      "metrics": {
+        "train_summary": {
+          "run_id": "a2_s2026_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "f53c449fc0830c04117701f4a8bc7a6063c20bfd89e1fe5f3681a22acf95d9a0",
+            "miou": 0.857755345260512
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2/logs/a2_s2026_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2/logs/a2_s2026_10k_codex1/run_2026_09_08_15_17_33.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed2026_detail_only",
+      "tier": "E0_10k",
+      "seed": 2026,
+      "model": "detail_only",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_detail_only_s2026_manifest.json",
+      "required": false,
+      "manifest_present": false,
+      "checkpoints_on_disk": [
+        "detail_only_s2026_10k_codex1_iter010000_best_miou_0.851998.pkl",
+        "detail_only_s2026_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": null,
+      "registered_best_sha_alt": "{}",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only/checkpoints/detail_only_s2026_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "d731a168826ca639339d365edda4bae5ada2b81ff7d0a42b6e7e2e974fff7479",
+      "endpoint_bytes": 353713561,
+      "model_file": "model_dsmo_rs50_detailloss_only.py",
+      "model_file_actual_sha256": "473518197a704af468b5dd388f007f0b46e9a73cdcece0f9cd65b642683fda42",
+      "model_matches_formal": false,
+      "train_script": "train_detail_only_10k.py",
+      "train_script_actual_sha256": "1294e8921d86a255c8773e4ad5b17f2e64c7dbb2d8acf9b8714136294542b5dd",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only/config/config.yml",
+      "config": {
+        "seed_top_level": 2026,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          3
+        ],
+        "resume": null
+      },
+      "metrics": {
+        "train_summary": {
+          "run_id": "detail_only_s2026_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "98be897c74ba0d1943155546cdfab035aa657e8ae32e0638f397503cf071f12e",
+            "miou": 0.8523104026145847
+          }
+        }
+      },
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only/logs/detail_only_s2026_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only/logs/detail_only_s2026_10k_codex1/run_2026_09_14_15_15_58.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed3407_base_b",
+      "tier": "E0_10k",
+      "seed": 3407,
+      "model": "base",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_base_b_s3407_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "base_b_s3407_10k_codex1_iter010000_best_miou_0.854363.pkl",
+        "base_b_s3407_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "c0fe92a0452a72691b135a46559dddc5c497ad0046c430b6908a1f61c7f03e19",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b/checkpoints/base_b_s3407_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "7de43795c40e77bd4fa0ded6a77dbf4d2e94e347c663495a5e59ca1f8d215c8b",
+      "endpoint_bytes": 352812905,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50.py",
+      "model_file_actual_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+      "model_matches_formal": true,
+      "train_script": "train_base_b_10k.py",
+      "train_script_actual_sha256": "6fb632ebe434deedc5ba5b526815e987e1ade6f539f3da2a0cf2ac8e407629b3",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b/config/config.yml",
+      "config": {
+        "seed_top_level": 3407,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "triplet (3 runs) ran concurrently on one A100"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "30179d092f0aa406e4443106be704b1be663da8885d64b7448f3eebbc69cf3d7",
+      "metrics": {
+        "train_summary": {
+          "run_id": "base_b_s3407_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "30179d092f0aa406e4443106be704b1be663da8885d64b7448f3eebbc69cf3d7",
+            "miou": 0.8544933640708361
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b/logs/base_b_s3407_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b/logs/base_b_s3407_10k_codex1/run_2026_09_08_16_00_44.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed3407_a1",
+      "tier": "E0_10k",
+      "seed": 3407,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a1_s3407_manifest.json",
+      "required": false,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a1_s3407_10k_codex1_iter010000_best_miou_0.852110.pkl",
+        "a1_s3407_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "0cca14cc54ccdd2be060962cf63e79d46e4ffda186128e68c14a27bba3e7b757",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1/checkpoints/a1_s3407_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "3c868a9febccefe9dae7c9e7f997c1254b8160e122a1fe7f0a73c7b72917d53b",
+      "endpoint_bytes": 353895406,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_fixed_a2ms_b_10k.py",
+      "train_script_actual_sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1/config/config.yml",
+      "config": {
+        "seed_top_level": 3407,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          0
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "triplet (3 runs) ran concurrently on one A100"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "af5eb1a8de4bda078463ee0d62d1df9665b0d0dcd3657c13007d879ab1a46cfe",
+      "metrics": {
+        "train_summary": {
+          "run_id": "a1_s3407_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "af5eb1a8de4bda078463ee0d62d1df9665b0d0dcd3657c13007d879ab1a46cfe",
+            "miou": 0.8522812838679086
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1/logs/a1_s3407_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1/logs/a1_s3407_10k_codex1/run_2026_09_08_16_00_42.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed3407_a2",
+      "tier": "E0_10k",
+      "seed": 3407,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_a2_s3407_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a2_s3407_10k_codex1_iter010000_best_miou_0.851640.pkl",
+        "a2_s3407_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "71444d33cf421ff38d62e24ebcbf4a21980e00d4d5779ea3ee82a03abb8efc13",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2/checkpoints/a2_s3407_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "82a50b93375dc0c201724561adf379d2b76cd65b598ad9b8c7ee5c13ec71537c",
+      "endpoint_bytes": 353895470,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_fixed_a2ms_b_10k.py",
+      "train_script_actual_sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2/config/config.yml",
+      "config": {
+        "seed_top_level": 3407,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "triplet (3 runs) ran concurrently on one A100"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "deea3f00891ebccb77403b2e4a8c116c9d688a34e7061d05b040d1f042b0f812",
+      "metrics": {
+        "train_summary": {
+          "run_id": "a2_s3407_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "deea3f00891ebccb77403b2e4a8c116c9d688a34e7061d05b040d1f042b0f812",
+            "miou": 0.8518702689212362
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2/logs/a2_s3407_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2/logs/a2_s3407_10k_codex1/run_2026_09_08_16_00_42.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed3407_detail_only",
+      "tier": "E0_10k",
+      "seed": 3407,
+      "model": "detail_only",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/multiseed_detail_only_s3407_manifest.json",
+      "required": false,
+      "manifest_present": false,
+      "checkpoints_on_disk": [
+        "detail_only_s3407_10k_codex1_iter010000_best_miou_0.856412.pkl",
+        "detail_only_s3407_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": null,
+      "registered_best_sha_alt": "{}",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only/checkpoints/detail_only_s3407_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "04373aa357d26e1e638a79df6076dbc84a571460475ba19651db0576c059465e",
+      "endpoint_bytes": 353713561,
+      "model_file": "model_dsmo_rs50_detailloss_only.py",
+      "model_file_actual_sha256": "473518197a704af468b5dd388f007f0b46e9a73cdcece0f9cd65b642683fda42",
+      "model_matches_formal": false,
+      "train_script": "train_detail_only_10k.py",
+      "train_script_actual_sha256": "1294e8921d86a255c8773e4ad5b17f2e64c7dbb2d8acf9b8714136294542b5dd",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only/config/config.yml",
+      "config": {
+        "seed_top_level": 3407,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          3
+        ],
+        "resume": null
+      },
+      "metrics": {
+        "train_summary": {
+          "run_id": "detail_only_s3407_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "b277b05d7a4093bc59cdb84d06fa52ecc8f18bbf8799721ba3a3857d30123663",
+            "miou": 0.8559680686433878
+          }
+        }
+      },
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only/logs/detail_only_s3407_10k_codex1/config.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only/logs/detail_only_s3407_10k_codex1/run_2026_09_14_15_15_59.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed1337_detail_only",
+      "tier": "E0_10k",
+      "seed": 1337,
+      "model": "detail_only",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/detail_only_seed1337_manifest.json",
+      "required": false,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "detail_only_s1337_10k_codex1_iter010000_best_miou_0.854903.pkl",
+        "detail_only_s1337_10k_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": "622e14102b19a20f3377f5a82842ef29744e5643158138568c9b56f0fc902ce0",
+      "registered_best_sha_alt": null,
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/checkpoints/detail_only_s1337_10k_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "4d7d1a9a2efa1bc5edbfbae7926dc0b9ea52471708f49bee75ca49bc2b800116",
+      "endpoint_bytes": 353713561,
+      "sha_matches_manifest": false,
+      "model_file": "model_dsmo_rs50_detailloss_only.py",
+      "model_file_actual_sha256": "473518197a704af468b5dd388f007f0b46e9a73cdcece0f9cd65b642683fda42",
+      "model_matches_formal": false,
+      "train_script": "train_detail_only_10k.py",
+      "train_script_actual_sha256": "1294e8921d86a255c8773e4ad5b17f2e64c7dbb2d8acf9b8714136294542b5dd",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/config/config.yml",
+      "config": {
+        "seed_top_level": 1337,
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "3 detail-only runs (seeds 1337/2026/3407) ran concurrently on one A100 (shared with an unrelated nnUNet job)"
+      },
+      "manifest_endpoint_rule": "val_interval=10000 -> single endpoint monitor eval; best==last by design; no test-based selection",
+      "registered_eval_json_sha": "21135ee8ef37e2ffdfdc1e3628de9e737bfcfe7f1e40b703f86ecac4c07b4f76",
+      "metrics": {
+        "train_summary": {
+          "run_id": "detail_only_s1337_10k_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840.json": {
+            "sha256": "21135ee8ef37e2ffdfdc1e3628de9e737bfcfe7f1e40b703f86ecac4c07b4f76",
+            "miou": 0.8550203909614161
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/logs/detail_only_s1337_10k_codex1/run_2026_09_14_15_16_00.log",
+        "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/logs/detail_only_s1337_10k_codex1/config.yml"
+      ]
+    },
+    {
+      "id": "E0_10k_seed1337_base_anchor",
+      "tier": "E0_10k",
+      "seed": 1337,
+      "model": "base",
+      "run_dir": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control",
+      "manifest": null,
+      "required": true,
+      "manifest_present": false,
+      "checkpoints_on_disk": [
+        "base_b_neu_originalsplit_10k_control_20260618_codex1_iter010000_best_miou_0.854517.pkl",
+        "base_b_neu_originalsplit_10k_control_20260618_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": null,
+      "registered_best_sha_alt": "{}",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control/checkpoints/base_b_neu_originalsplit_10k_control_20260618_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "a71015e67901e11fb2217a886bb54364e5702b67eb887d96b61aee28b4dee6f3",
+      "endpoint_bytes": 352874061,
+      "config_path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control/config_base_b_10k_control.yml",
+      "config": {
+        "seed_top_level": "ABSENT(default=1337)",
+        "train_iters": 10000,
+        "batch_size": 16,
+        "val_interval": 10000,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": {
+          "name": "cosine_annealing",
+          "T_max": 48000,
+          "eta_min": 1e-06
+        },
+        "loss_weights": [
+          10,
+          1,
+          3
+        ],
+        "resume": null
+      },
+      "metrics": {},
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control/logs/base_b_neu_originalsplit_10k_control_20260618_codex1/config_base_b_10k_control.yml",
+        "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control/logs/base_b_neu_originalsplit_10k_control_20260618_codex1/run_2026_06_18_15_42_57.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed1337_a2ms_anchor",
+      "tier": "E0_10k",
+      "seed": 1337,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_detail_10k_20260908_121000",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/a2ms_b_fixed_a2_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a2_fixed_aam_detail_10k_20260908_codex1_iter010000_best_miou_0.862492.pkl",
+        "a2_fixed_aam_detail_10k_20260908_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": null,
+      "registered_best_sha_alt": "{\"best\": {\"path\": \"checkpoints/a2_fixed_aam_detail_10k_20260908_codex1_iter010000_best_miou_0.862492.pkl\", \"iter\": 10000, \"sha256\": \"eb97d7d204ce4da64d7a1ccf8ed931ab62c0a91c14756e1439c3d9d87761ea55\"},",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_detail_10k_20260908_121000/checkpoints/a2_fixed_aam_detail_10k_20260908_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "1e500b0c3c927e7e3d12db4e5880e37ceb0aa1b66ec8e5eb20976741d85f1d5a",
+      "endpoint_bytes": 353921642,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_fixed_a2ms_b_10k.py",
+      "train_script_actual_sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+      "config_path": null,
+      "config": {
+        "seed_top_level": "ABSENT(default=1337)",
+        "train_iters": null,
+        "batch_size": null,
+        "val_interval": null,
+        "optimizer": null,
+        "lr": null,
+        "weight_decay": null,
+        "lr_schedule_raw": "ABSENT_KEY",
+        "loss_weights": null,
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "A1 and A2 ran concurrently on the same A100 (independent processes, fixed seeds)"
+      },
+      "manifest_endpoint_rule": null,
+      "registered_eval_json_sha": "6b8cccd35e7e1dda48e1c62a5088e747e36198048b77cd5b416e3425c142ce9c",
+      "metrics": {
+        "train_summary": {
+          "run_id": "a2_fixed_aam_detail_10k_20260908_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840_best.json": {
+            "sha256": "6b8cccd35e7e1dda48e1c62a5088e747e36198048b77cd5b416e3425c142ce9c",
+            "miou": 0.8627271601588227
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_detail_10k_20260908_121000/logs/a2_fixed_aam_detail_10k_20260908_codex1/config_neu_fixed_10k.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_detail_10k_20260908_121000/logs/a2_fixed_aam_detail_10k_20260908_codex1/run_2026_09_08_14_14_30.log"
+      ]
+    },
+    {
+      "id": "E0_10k_seed1337_a1_anchor",
+      "tier": "E0_10k",
+      "seed": 1337,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/a2ms_b_fixed_a1_manifest.json",
+      "required": false,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_best_miou_0.857491.pkl",
+        "a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_last.pkl"
+      ],
+      "registered_endpoint_sha": null,
+      "registered_best_sha_alt": "{\"best\": {\"path\": \"checkpoints/a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_best_miou_0.857491.pkl\", \"iter\": 10000, \"sha256\": \"65784a7b285f21baa5ccc2989faa997a0f91473d825eb6bd5b214af07aa6bcf8",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000/checkpoints/a1_fixed_aam_no_detail_10k_20260908_codex1_iter010000_last.pkl",
+      "actual_endpoint_sha256": "9a844b40d9ad2a6d109fe8ea03defcb2582f0ea9cd5e41e69277a395ce1aefae",
+      "endpoint_bytes": 353925491,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_fixed_a2ms_b_10k.py",
+      "train_script_actual_sha256": "647c20a407d4552fc90a6f3a167ede5703cb38ad8e6cdf0b9cf0808fad41e82a",
+      "config_path": null,
+      "config": {
+        "seed_top_level": "ABSENT(default=1337)",
+        "train_iters": null,
+        "batch_size": null,
+        "val_interval": null,
+        "optimizer": null,
+        "lr": null,
+        "weight_decay": null,
+        "lr_schedule_raw": "ABSENT_KEY",
+        "loss_weights": null,
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "monitor_test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "concurrency": "A1 and A2 ran concurrently on the same A100 (independent processes, fixed seeds)"
+      },
+      "manifest_endpoint_rule": null,
+      "registered_eval_json_sha": "ff4193aafbd07a7a80679f23063061e8ae229f79a7f9154356f26535278856d2",
+      "metrics": {
+        "train_summary": {
+          "run_id": "a1_fixed_aam_no_detail_10k_20260908_codex1",
+          "train_iters": 10000
+        },
+        "train_summary_keys": [
+          "best_iou",
+          "last_checkpoint_path",
+          "last_class_iou",
+          "last_monitor_score",
+          "monitor_list",
+          "monitor_samples",
+          "run_id",
+          "saved_best_paths",
+          "train_iters",
+          "train_list",
+          "train_samples"
+        ],
+        "unified_eval_files": {
+          "unified_eval_840_best.json": {
+            "sha256": "ff4193aafbd07a7a80679f23063061e8ae229f79a7f9154356f26535278856d2",
+            "miou": 0.8577030329146066
+          }
+        }
+      },
+      "eval_json_sha_matches": true,
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000/logs/a1_fixed_aam_no_detail_10k_20260908_codex1/config_neu_fixed_10k.yml",
+        "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000/logs/a1_fixed_aam_no_detail_10k_20260908_codex1/run_2026_09_08_14_14_30.log"
+      ]
+    },
+    {
+      "id": "E1_240k_seed1337_base",
+      "tier": "E1_240k",
+      "seed": 1337,
+      "model": "base",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/long240k_base_b_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "base_b_s1337_long240k_codex1_iter010000.pkl",
+        "base_b_s1337_long240k_codex1_iter030000.pkl",
+        "base_b_s1337_long240k_codex1_iter060000.pkl",
+        "base_b_s1337_long240k_codex1_iter120000.pkl",
+        "base_b_s1337_long240k_codex1_iter180000.pkl",
+        "base_b_s1337_long240k_codex1_iter240000.pkl",
+        "latest_recovery.pkl"
+      ],
+      "registered_endpoint_sha": "46c5b83c73130ade56bffacb52f16df79f3975a9c1b192925d767324c571013f",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/checkpoints/base_b_s1337_long240k_codex1_iter240000.pkl",
+      "actual_endpoint_sha256": "46c5b83c73130ade56bffacb52f16df79f3975a9c1b192925d767324c571013f",
+      "endpoint_bytes": 352825703,
+      "sha_matches_manifest": true,
+      "model_file": "model_dsmo_rs50.py",
+      "model_file_actual_sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+      "model_matches_formal": true,
+      "train_script": "train_long240k_base_b.py",
+      "train_script_actual_sha256": "7bd9040362b427dade3e5faeded2f0ec12dcb70eb8db18c02bf76d9820ca8a9b",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/config/config.yml",
+      "config": {
+        "seed_top_level": 1337,
+        "train_iters": 240000,
+        "batch_size": 16,
+        "val_interval": null,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": null,
+        "loss_weights": [
+          10,
+          1,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch_cuda": "2.7.1+cu126 12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB, 535.247.01, 7310 MiB, 40960 MiB, 95 %",
+        "gpu_sharing": "one unrelated nnUNet job present at launch (~7.3GB, ~87% util); memory ample (~33GB free); contention affects wall time only, not training dynamics; both models run sequentially under comparable conditions"
+      },
+      "manifest_endpoint_rule": null,
+      "registered_eval_json_sha": null,
+      "metrics": {
+        "train_summary": {
+          "run_id": "base_b_s1337_long240k_codex1",
+          "train_iters": 240000,
+          "wall_time_seconds": 75220.83849430084,
+          "resumed_from": null
+        },
+        "train_summary_keys": [
+          "final_checkpoint_path",
+          "resumed_from",
+          "run_id",
+          "saved_permanent_paths",
+          "test_during_training",
+          "train_iters",
+          "train_list",
+          "train_samples",
+          "wall_time_seconds"
+        ],
+        "train_metrics": {
+          "records": 2400,
+          "first_iter": 100,
+          "last_iter": 240000,
+          "max_iter": 240000,
+          "lr_unique_n": 1,
+          "lr_min": 0.0001,
+          "lr_max": 0.0001
+        },
+        "unified_eval_files": {
+          "unified840_iter240000.json": {
+            "sha256": "9b59f8fcacb535d9cccbddf761b30277e6f8197354e09431f15b2ca29d2c1f71",
+            "miou": 0.9124083744680408
+          }
+        }
+      },
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/logs/base_b_s1337_long240k_codex1/run_2026_09_22_14_42_16.log",
+        "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/logs/base_b_s1337_long240k_codex1/config.yml"
+      ]
+    },
+    {
+      "id": "E1_240k_seed1337_a2ms",
+      "tier": "E1_240k",
+      "seed": 1337,
+      "model": "a2ms",
+      "run_dir": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full",
+      "manifest": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/audit/long240k_a2_full_manifest.json",
+      "required": true,
+      "manifest_present": true,
+      "checkpoints_on_disk": [
+        "a2_full_s1337_long240k_codex1_iter010000.pkl",
+        "a2_full_s1337_long240k_codex1_iter030000.pkl",
+        "a2_full_s1337_long240k_codex1_iter060000.pkl",
+        "a2_full_s1337_long240k_codex1_iter120000.pkl",
+        "a2_full_s1337_long240k_codex1_iter180000.pkl",
+        "a2_full_s1337_long240k_codex1_iter240000.pkl",
+        "latest_recovery.pkl"
+      ],
+      "registered_endpoint_sha": "5beaaa1c0b42440336063c47eacbae38eb105112f980c7f05a35cbbf9639fb1b",
+      "endpoint_checkpoint": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/checkpoints/a2_full_s1337_long240k_codex1_iter240000.pkl",
+      "actual_endpoint_sha256": "5beaaa1c0b42440336063c47eacbae38eb105112f980c7f05a35cbbf9639fb1b",
+      "endpoint_bytes": 353915069,
+      "sha_matches_manifest": true,
+      "model_file": "model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+      "model_file_actual_sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "model_matches_formal": true,
+      "train_script": "train_long240k_a2_full.py",
+      "train_script_actual_sha256": "09f6e0b17ef57b921cd35ae1e2e8dfc2870de1879b9e0538e0874e1fbcb0dc34",
+      "config_path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/config/config.yml",
+      "config": {
+        "seed_top_level": 1337,
+        "train_iters": 240000,
+        "batch_size": 16,
+        "val_interval": null,
+        "optimizer": "adam",
+        "lr": 0.0001,
+        "weight_decay": 2e-06,
+        "lr_schedule_raw": null,
+        "loss_weights": [
+          10,
+          1,
+          3,
+          3
+        ],
+        "resume": null
+      },
+      "manifest_dataset_lists": {
+        "train_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/train_neu.txt",
+          "lines": 3630,
+          "sha256": "498b038f32cd68834894ab433f11468de54a8ef80ac3a6eb1f812d4afcfc1d64"
+        },
+        "test_list": {
+          "path": "/workspace/Industrial Surface Defect/new (copy)/dataset/test_neu.txt",
+          "lines": 840,
+          "sha256": "2c45b319e04d2307eb0977720de90b98a4867863bce8eca6f8b682295f928f06"
+        }
+      },
+      "manifest_environment": {
+        "python": "3.11.13",
+        "torch_cuda": "2.7.1+cu126 12.6",
+        "gpu": "NVIDIA A100-PCIE-40GB, 535.247.01, 7310 MiB, 40960 MiB, 95 %",
+        "gpu_sharing": "one unrelated nnUNet job present at launch (~7.3GB, ~87% util); memory ample (~33GB free); contention affects wall time only, not training dynamics; both models run sequentially under comparable conditions"
+      },
+      "manifest_endpoint_rule": null,
+      "registered_eval_json_sha": null,
+      "metrics": {
+        "train_summary": {
+          "run_id": "a2_full_s1337_long240k_codex1",
+          "train_iters": 240000,
+          "wall_time_seconds": 32418.1357049942,
+          "resumed_from": null
+        },
+        "train_summary_keys": [
+          "final_checkpoint_path",
+          "resumed_from",
+          "run_id",
+          "saved_permanent_paths",
+          "test_during_training",
+          "train_iters",
+          "train_list",
+          "train_samples",
+          "wall_time_seconds"
+        ],
+        "train_metrics": {
+          "records": 2400,
+          "first_iter": 100,
+          "last_iter": 240000,
+          "max_iter": 240000,
+          "lr_unique_n": 1,
+          "lr_min": 0.0001,
+          "lr_max": 0.0001
+        },
+        "unified_eval_files": {
+          "unified840_iter240000.json": {
+            "sha256": "0b93491bad77c36de1f50778e9950aaae74ba33b3b2453d346447ab9cdde815d",
+            "miou": 0.9145442177671137
+          }
+        }
+      },
+      "prediction_caches_in_run": [],
+      "train_logs": [
+        "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/logs/a2_full_s1337_long240k_codex1/run_2026_09_23_11_36_12.log",
+        "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/logs/a2_full_s1337_long240k_codex1/config.yml"
+      ]
+    },
+    {
+      "id": "E1_240k_seed2026_base",
+      "tier": "E1_240k",
+      "seed": 2026,
+      "model": "base",
+      "run_dir": null,
+      "manifest": null,
+      "required": true,
+      "status": "MISSING",
+      "note": "no run directory on server (searched repro_runs and experiments)"
+    },
+    {
+      "id": "E1_240k_seed2026_a2ms",
+      "tier": "E1_240k",
+      "seed": 2026,
+      "model": "a2ms",
+      "run_dir": null,
+      "manifest": null,
+      "required": true,
+      "status": "MISSING",
+      "note": "no run directory on server (searched repro_runs and experiments)"
+    },
+    {
+      "id": "E1_240k_seed3407_base",
+      "tier": "E1_240k",
+      "seed": 3407,
+      "model": "base",
+      "run_dir": null,
+      "manifest": null,
+      "required": true,
+      "status": "MISSING",
+      "note": "no run directory on server (searched repro_runs and experiments)"
+    },
+    {
+      "id": "E1_240k_seed3407_a2ms",
+      "tier": "E1_240k",
+      "seed": 3407,
+      "model": "a2ms",
+      "run_dir": null,
+      "manifest": null,
+      "required": true,
+      "status": "MISSING",
+      "note": "no run directory on server (searched repro_runs and experiments)"
+    }
+  ],
+  "caches": [
+    {
+      "cache": "E1_240k_seed1337_gt",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/gt",
+      "n_png": 840,
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": "v10.4 mask identity + mIoU recomputation (0.9124083744680408 / 0.9145442177671137)"
+    },
+    {
+      "cache": "E1_240k_seed1337_base_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/base_predictions",
+      "n_png": 840,
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": "v10.4 mask identity + mIoU recomputation (0.9124083744680408 / 0.9145442177671137)"
+    },
+    {
+      "cache": "E1_240k_seed1337_a2ms_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/mechanism_eval_240k/a2_predictions",
+      "n_png": 840,
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": "v10.4 mask identity + mIoU recomputation (0.9124083744680408 / 0.9145442177671137)"
+    },
+    {
+      "cache": "E0_10k_seed2026_base_b_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed2026_base_b_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/base_b/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "724d4d65704750e1d05dd334cc7b54c5cae32a92eb9553398ea3128c0aa09f97",
+          "miou": 0.8474726575362161
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed2026_a1_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed2026_a1_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a1/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "69bd89b93b26c0396250e25a20b9de55eee58c8ad5e6535560feedc26b265211",
+          "miou": 0.8608698075765292
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed2026_a2_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed2026_a2_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/a2/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "f53c449fc0830c04117701f4a8bc7a6063c20bfd89e1fe5f3681a22acf95d9a0",
+          "miou": 0.857755345260512
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed2026_detail_only_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed2026_detail_only_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_2026/detail_only/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "98be897c74ba0d1943155546cdfab035aa657e8ae32e0638f397503cf071f12e",
+          "miou": 0.8523104026145847
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed3407_base_b_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed3407_base_b_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/base_b/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "30179d092f0aa406e4443106be704b1be663da8885d64b7448f3eebbc69cf3d7",
+          "miou": 0.8544933640708361
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed3407_a1_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed3407_a1_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a1/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "af5eb1a8de4bda078463ee0d62d1df9665b0d0dcd3657c13007d879ab1a46cfe",
+          "miou": 0.8522812838679086
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed3407_a2_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed3407_a2_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/a2/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "deea3f00891ebccb77403b2e4a8c116c9d688a34e7061d05b040d1f042b0f812",
+          "miou": 0.8518702689212362
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed3407_detail_only_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed3407_detail_only_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_3407/detail_only/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "b277b05d7a4093bc59cdb84d06fa52ecc8f18bbf8799721ba3a3857d30123663",
+          "miou": 0.8559680686433878
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed1337_detail_only_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed1337_detail_only_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/multiseed_10k/seed_1337/detail_only/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840.json": {
+          "sha256": "21135ee8ef37e2ffdfdc1e3628de9e737bfcfe7f1e40b703f86ecac4c07b4f76",
+          "miou": 0.8550203909614161
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed1337_base_anchor_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed1337_base_anchor_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/Industrial-Surface-Defect/experiments/retrain_a2ms_b_neu/base_b_10k_control/analysis",
+      "status": "MISSING",
+      "verification": {}
+    },
+    {
+      "cache": "E0_10k_seed1337_a2ms_anchor_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_detail_10k_20260908_121000",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed1337_a2ms_anchor_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_detail_10k_20260908_121000/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840_best.json": {
+          "sha256": "6b8cccd35e7e1dda48e1c62a5088e747e36198048b77cd5b416e3425c142ce9c",
+          "miou": 0.8627271601588227
+        }
+      }
+    },
+    {
+      "cache": "E0_10k_seed1337_a1_anchor_per_image_predictions",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000",
+      "n_png": 0,
+      "status": "MISSING",
+      "verification": "no 840-image prediction cache inside run dir; only aggregate unified_eval_840.json"
+    },
+    {
+      "cache": "E0_10k_seed1337_a1_anchor_aggregate_eval_json",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/neu_a2ms_b_fixed_aam_nodetail_10k_20260908_121000/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified_eval_840_best.json": {
+          "sha256": "ff4193aafbd07a7a80679f23063061e8ae229f79a7f9154356f26535278856d2",
+          "miou": 0.8577030329146066
+        }
+      }
+    },
+    {
+      "cache": "E1_240k_seed1337_base_aggregate_eval_all_savepoints",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/base_b/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified840_iter240000.json": {
+          "sha256": "9b59f8fcacb535d9cccbddf761b30277e6f8197354e09431f15b2ca29d2c1f71",
+          "miou": 0.9124083744680408
+        }
+      }
+    },
+    {
+      "cache": "E1_240k_seed1337_a2ms_aggregate_eval_all_savepoints",
+      "path": "/workspace/Industrial Surface Defect/repro_runs/long240k_seed1337/a2_full/analysis",
+      "status": "AVAILABLE_AND_VERIFIED",
+      "verification": {
+        "unified840_iter240000.json": {
+          "sha256": "0b93491bad77c36de1f50778e9950aaae74ba33b3b2453d346447ab9cdde815d",
+          "miou": 0.9145442177671137
+        }
+      }
+    }
+  ]
+}
