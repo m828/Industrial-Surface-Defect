@@ -1,0 +1,4 @@
+# Use official CPU wheel index for torch; server CUDA environment is separate.
+torch==2.15.0+cpu
+numpy==2.2.6
+pillow==12.0.0

@@ -1,0 +1,18 @@
+[
+  {
+    "copy": "research/industrial_defect_english/vendor/model_dsmo_rs50.py",
+    "sha256": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf"
+  },
+  {
+    "copy": "research/industrial_defect_english/vendor/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py",
+    "sha256": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a"
+  },
+  {
+    "copy": "research/industrial_defect_english/vendor/model_resnet.py",
+    "sha256": "9a0b255a84894423a9849e65add26e30081e7c020b6f136a3a2e0572ae87690a"
+  },
+  {
+    "copy": "research/industrial_defect_english/vendor/loss.py",
+    "sha256": "64786a456b502d93e44f451879dfd70bf2a1695868c50cee68a29be22beadf69"
+  }
+]

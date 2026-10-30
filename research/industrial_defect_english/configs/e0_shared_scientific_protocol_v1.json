@@ -1,0 +1,133 @@
+{
+  "scientific_protocol_id": "e0_scientific_protocol_v1",
+  "approval_status": "AUTHOR_APPROVED_SCIENTIFIC_PROTOCOL_ONLY",
+  "decision_date": "2026-10-29",
+  "approval_source": "Author decision in this conversation: E0作者科学协议裁决",
+  "execution_protocol_id": "e0_fixed_endpoint_candidate_v2",
+  "conditions": [
+    "formal_a2ms",
+    "coupled_transport",
+    "capacity_control"
+  ],
+  "seed": 1337,
+  "planned_optimizer_updates": 10000,
+  "input_hw": [
+    200,
+    200
+  ],
+  "batch_size": 16,
+  "initialization": "from_scratch_common_seed",
+  "pretrained": false,
+  "old_checkpoint_loading": false,
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "lr_scheduler": "constant",
+  "rng_policy": "isolated_v1",
+  "common_initial_tensor_sha_required": true,
+  "cross_gpu_bitwise_determinism_claim": false,
+  "data_sampling": {
+    "shuffle": true,
+    "drop_last": true,
+    "num_workers": 0,
+    "sampling_generator_seed": 1337,
+    "augmentation_python_rng_seed": 1337,
+    "validation_generator_seed": 1338
+  },
+  "augmentation": "paired horizontal flip p=0.5; bilinear RGB, nearest labels; RGB/255",
+  "loss_protocol_id": "neu_a2ms_mask_aware_candidate_v1",
+  "loss_weights": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "mask_aware": {
+    "target": "b = (y != 0).long()",
+    "binary_logits": "q_j = torch.stack((z_j[:, 0], z_j[:, 1:].sum(dim=1)), dim=1)",
+    "foreground_reduction": "sum of foreground logits; not probabilities and not logsumexp",
+    "multiclass_and_binary_routes": [
+      "OHEM",
+      "one-hot BCE",
+      "OHEM"
+    ],
+    "heads": [
+      "shared SegHead(arm2)",
+      "shared SegHead(edge_fusion)",
+      "shared SegHead(pre-decomposition high_feat)"
+    ],
+    "binary_terms_use_same_weights": [
+      10,
+      1,
+      3
+    ]
+  },
+  "detail_target": {
+    "effective_scales": [
+      "full",
+      "x2",
+      "x4"
+    ],
+    "fusion_weights": [
+      0.6,
+      0.3,
+      0.1
+    ],
+    "threshold": "strict > 0.1",
+    "loss": "BCE-with-logits + per-sample flattened Dice, smooth=1"
+  },
+  "ohem_empty_selection": "Preserve historical NaN; stop and record without loss fallback or automatic restart",
+  "data_governance_policy_id": "neu_exact_d4_quarantine_candidate_v1",
+  "data_governance_scope": "Scheme approved for P3 preparation only; real P3 execution not authorized",
+  "official_source_counts": {
+    "train": 3630,
+    "test": 840
+  },
+  "class_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "class_semantics": "foreground integer IDs only",
+  "development_split": {
+    "eligible_pool": "original train minus complete train-connected quarantine groups",
+    "grouping": "exact decoded RGB D4 identity plus reliable supplied parent evidence",
+    "validation_target_fraction": 0.2,
+    "fixed_target_counts_required": false,
+    "unknown_or_conflicting_parent": "Report and BLOCK; no invented parent IDs or independence claim",
+    "official_test_usage": "source identity and exclusion only; no tuning, validation, threshold derivation or checkpoint selection"
+  },
+  "stopping_policy_id": "fixed_endpoint_safety_only_candidate_v1",
+  "performance_early_stop": false,
+  "response_early_stop": false,
+  "validation_every_updates": 1000,
+  "checkpoint_selection": "fixed final optimizer update 10000",
+  "nonfinite_or_protocol_or_resource_exception": "stop, retain evidence; no automatic configuration change",
+  "incomplete_rule": "Any run not completing 10000 successful optimizer updates is INCOMPLETE; only a complete fixed endpoint is comparable",
+  "metric_contract": {
+    "overall_miou": "pixel confusion aggregate, includes background across IDs 0..3",
+    "foreground_miou": "mean pixel aggregate IoU over IDs 1..3",
+    "case_metrics": "equal-weight cases reported separately; both empty is null; one empty is zero",
+    "validation_class_coverage": "all four declared classes required",
+    "boundary_definition": "existing symmetric band IoU and BF1 at 1/2/3 px; not silently replaced"
+  },
+  "provisional_resource_caps": {
+    "max_wall_seconds_per_run": 3600,
+    "max_run_bytes": 3000000000,
+    "serial_single_gpu": true,
+    "max_batch_allocated_gpu_hours": 3.0,
+    "min_free_bytes": 10000000000,
+    "status": "PROVISIONAL_CAPS_NOT_RUNTIME_APPROVAL"
+  },
+  "approvals_not_granted": {
+    "real_P3_data_freeze": false,
+    "source_publication": false,
+    "GPU_training": false,
+    "runtime_resource_approval": false,
+    "GT_or_vendor_redistribution_permission": false
+  },
+  "historical_240k_same_protocol_claim": false
+}

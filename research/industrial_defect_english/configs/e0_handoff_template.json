@@ -1,0 +1,73 @@
+{
+  "experiment": "E0_NEU_development_only",
+  "scientific_gate": "PENDING_AUTHOR_AND_SPECIFIC_EVIDENCE",
+  "seed": 1337,
+  "num_classes": 4,
+  "input_hw": [
+    200,
+    200
+  ],
+  "train_manifest": null,
+  "train_manifest_sha256": null,
+  "validation_manifest": null,
+  "validation_manifest_sha256": null,
+  "allowed_source": "NEU original training IDs only; official test forbidden",
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "scheduler": "constant",
+  "batch_size": 16,
+  "optimizer_updates": 10000,
+  "validation_every": 1000,
+  "loss_weights": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "loss_protocol_id": "PENDING_AUTHOR_DECISION",
+  "proposed_loss_protocol_id": "neu_a2ms_mask_aware_candidate_v1",
+  "p3_data_freeze_approved": false,
+  "checkpoint_selection": "fixed final optimizer update 10000",
+  "augmentation": "paired horizontal flip p=0.5; bilinear RGB, nearest labels; RGB/255",
+  "runs_root": null,
+  "matrix": [
+    "formal_a2ms",
+    "coupled_transport",
+    "capacity_control"
+  ],
+  "condition_file": null,
+  "condition_sha256": null,
+  "expected_source_sha256": "dafcbc117e20e9c5100fb5731f7eca858679e3260711e22d4b727e6428ac638f",
+  "batch_id": "e0_request_001",
+  "initialization": "from_scratch_common_seed",
+  "scientific_evidence_class": "DISTINGUISHABLE_BUT_NOT_NOVELTY_PROVEN",
+  "split_audit": null,
+  "split_audit_sha256": null,
+  "budget": {
+    "author_approved": false,
+    "max_wall_seconds_per_run": 3600,
+    "max_batch_gpu_hours": 3.0,
+    "max_run_bytes": 3000000000,
+    "min_free_bytes": 10000000000
+  },
+  "stopping": {
+    "policy_id": "fixed_endpoint_safety_only_candidate_v1",
+    "author_approved": false,
+    "performance_early_stop": false,
+    "response_early_stop": false,
+    "scope": "Fixed 10000 true updates; only nonfinite values, resource limits and protocol/runtime failures stop. Validation performance and beta/T are diagnostics only."
+  },
+  "data_root": null,
+  "rng_policy": "PENDING_AUTHOR_ISOLATED_V1",
+  "scope": "P2.7 proposed template. Loss, isolated RNG, quarantine, resource budget and safety-only termination require author approval. No real data freeze or training authorized.",
+  "e0_protocol_id": "e0_fixed_endpoint_candidate_v2",
+  "protocol_status": "PROPOSED_PENDING_AUTHOR_APPROVAL",
+  "data_governance_policy_id": "disabled",
+  "proposed_data_governance_policy_id": "neu_exact_d4_quarantine_candidate_v1",
+  "quarantine_manifest": null,
+  "quarantine_manifest_sha256": null,
+  "proposed_rng_policy": "isolated_v1"
+}

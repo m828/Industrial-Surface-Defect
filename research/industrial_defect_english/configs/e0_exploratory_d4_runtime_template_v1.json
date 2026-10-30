@@ -1,0 +1,78 @@
+{
+  "experiment": "E0_NEU_development_only",
+  "scientific_gate": "AUTHOR_APPROVED_SCIENTIFIC_PROTOCOL_ONLY",
+  "seed": 1337,
+  "num_classes": 4,
+  "input_hw": [
+    200,
+    200
+  ],
+  "train_manifest": null,
+  "train_manifest_sha256": null,
+  "validation_manifest": null,
+  "validation_manifest_sha256": null,
+  "allowed_source": "NEU original training IDs only; official test forbidden",
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "scheduler": "constant",
+  "batch_size": 16,
+  "optimizer_updates": 10000,
+  "validation_every": 1000,
+  "loss_weights": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "loss_protocol_id": "neu_a2ms_mask_aware_candidate_v1",
+  "p3_data_freeze_approved": false,
+  "checkpoint_selection": "fixed final optimizer update 10000",
+  "augmentation": "paired horizontal flip p=0.5; bilinear RGB, nearest labels; RGB/255",
+  "runs_root": null,
+  "matrix": [
+    "formal_a2ms",
+    "coupled_transport",
+    "capacity_control"
+  ],
+  "condition_file": null,
+  "condition_sha256": null,
+  "expected_source_sha256": "adbfee9a28ca674aff64d6899bace22108c4a13724dcb6c109600034a511d219",
+  "batch_id": "e0_request_001",
+  "initialization": "from_scratch_common_seed",
+  "scientific_evidence_class": "DISTINGUISHABLE_BUT_NOT_NOVELTY_PROVEN",
+  "split_audit": null,
+  "split_audit_sha256": null,
+  "budget": {
+    "author_approved": false,
+    "max_wall_seconds_per_run": 3600,
+    "max_batch_gpu_hours": 3.0,
+    "max_run_bytes": 3000000000,
+    "min_free_bytes": 10000000000,
+    "cap_status": "PROVISIONAL_CAPS_PENDING_SERVER_COST_AND_RUN_APPROVAL"
+  },
+  "stopping": {
+    "policy_id": "fixed_endpoint_safety_only_candidate_v1",
+    "author_approved": true,
+    "performance_early_stop": false,
+    "response_early_stop": false,
+    "scope": "Fixed 10000 true updates; only nonfinite values, resource limits and protocol/runtime failures stop. Validation performance and beta/T are diagnostics only."
+  },
+  "data_root": null,
+  "rng_policy": "isolated_v1",
+  "scope": "Exploratory D4 only; parent origin unknown. Explicit author approval and real P3/source/GPU gates required. Do not use test set for selection.",
+  "e0_protocol_id": "e0_fixed_endpoint_candidate_v2",
+  "protocol_status": "SCIENCE_FROZEN_OPERATIONS_PENDING",
+  "data_governance_policy_id": "neu_exact_d4_quarantine_candidate_v1",
+  "quarantine_manifest": null,
+  "quarantine_manifest_sha256": null,
+  "scientific_protocol_id": "e0_scientific_protocol_v1",
+  "shared_protocol_file": "e0_shared_scientific_protocol_v1.json",
+  "shared_protocol_sha256": "e3e567b9ce75377906a475d0a53e8e94d700f846c28b64765a4f5b4ba8c90fac",
+  "source_publication_approved": false,
+  "gpu_training_approved": false,
+  "study_scope": "EXPLORATORY_D4_ONLY_V1",
+  "exploratory_unknown_parent_authorized": false
+}
