@@ -89,7 +89,7 @@ class HandoffTests(unittest.TestCase):
             result=preflight(head,cfg,False)
         self.assertEqual(result['status'],'BLOCKED')
         self.assertEqual(result['optimizer_steps'],0)
-        self.assertIn('E0_source_not_tracked_in_commit',result['blockers'])
+        self.assertIn('CPU_ONLY_NOT_SERVER_READY',result['blockers'])
 
     def test_common_tensors_and_sampler_rng(self):
         from ..scripts.initialization_audit import audit

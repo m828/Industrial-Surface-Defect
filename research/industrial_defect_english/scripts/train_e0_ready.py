@@ -138,6 +138,7 @@ def main():
     if conditions['train_manifest_sha256']!=cfg['train_manifest_sha256']: p.error('Condition file from different train split')
     if not cfg.get('split_audit') or digest(cfg['split_audit'])!=cfg.get('split_audit_sha256'): p.error('Frozen split audit/SHA required')
     audit=json.loads(Path(cfg['split_audit']).read_text())
+    if cfg.get('experiment_stage')=='E1-A' and audit.get('seed')!=1337:p.error('E1 must reuse split seed 1337')
     exploratory=(cfg.get('exploratory_unknown_parent_authorized') is True and cfg.get('study_scope')=='EXPLORATORY_D4_ONLY_V1'
                  and cfg.get('data_governance_policy_id')=='neu_exact_d4_quarantine_candidate_v1'
                  and audit.get('status')=='FROZEN_EXPLORATORY_D4_ONLY'

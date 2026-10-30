@@ -110,6 +110,7 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         # P2 does not create a split. Existing frozen manifests can be read/checked.
         if all(report['checks'].get(k,{}).get('matches') for k in required_assets):
             audit=json.loads(Path(cfg['split_audit']).read_text())
+            if cfg.get('experiment_stage')=='E1-A' and audit.get('seed')!=1337:raise ValueError('E1 must reuse split seed 1337')
             policy=cfg.get('data_governance_policy_id')
             if audit.get('data_governance_policy_id')!=policy:raise ValueError('Governance policy mismatch')
             allowed_status=['PASS_NO_CROSS_SPLIT_EXACT_D4']
@@ -184,7 +185,7 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         report['checks']['complexity_ledger']={'sha256':sha256(ledger),'scope':'Existing CPU conv counters, excludes elementwise and latency'} if ledger.exists() else 'MISSING_OPTIONAL_NO_SPEED_CLAIM'
         report['checks']['old_checkpoint']='OPTIONAL_FOR_FROM_SCRATCH_NOT_ACCESSED'
         from .initialization_audit import audit as initial_audit
-        report['checks']['initialization_fairness']=initial_audit()
+        report['checks']['initialization_fairness']=initial_audit(cfg['seed'])
         report['source_integrity']=verify_loaded_sources(ident['repo_root'])
         if report['checks']['initialization_fairness']['status']!='PASS':report['blockers'].append('common_initialization_mismatch')
         if cfg.get('rng_policy')!='isolated_v1':report['blockers'].append('isolated_rng_policy_requires_author_confirmation')

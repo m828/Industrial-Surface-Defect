@@ -22,10 +22,15 @@ def resolve_config(config,path):
 
 
 def protocol_errors(cfg):
-    want={'matrix':MATRIX,'seed':1337,'optimizer_updates':10000,'input_hw':[200,200],
+    want={'matrix':MATRIX,'optimizer_updates':10000,'input_hw':[200,200],
           'batch_size':16,'scheduler':'constant','loss_weights':[10,1,3,3],
           'initialization':'from_scratch_common_seed','num_classes':4}
     errors=[f'protocol:{k}' for k,v in want.items() if cfg.get(k)!=v]
+    if cfg.get('experiment_stage')=='E1-A':
+        if type(cfg.get('seed')) is not int or cfg['seed'] not in (2027,3407):errors.append('protocol:seed')
+        if cfg.get('split_seed')!=1337:errors.append('protocol:split_seed')
+    elif cfg.get('experiment_stage') not in (None,'E0') or cfg.get('seed')!=1337:
+        errors.append('protocol:seed')
     if cfg.get('optimizer')!={'name':'Adam','lr':1e-4,'weight_decay':2e-6}:errors.append('protocol:optimizer')
     if cfg.get('augmentation')!='paired horizontal flip p=0.5; bilinear RGB, nearest labels; RGB/255':errors.append('protocol:augmentation')
     if cfg.get('checkpoint_selection')!='fixed final optimizer update 10000':errors.append('protocol:checkpoint_selection')
