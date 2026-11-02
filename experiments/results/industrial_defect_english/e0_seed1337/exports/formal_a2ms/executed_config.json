@@ -1,0 +1,78 @@
+{
+  "experiment": "E0_NEU_development_only",
+  "scientific_gate": "AUTHOR_APPROVED_E0",
+  "seed": 1337,
+  "num_classes": 4,
+  "input_hw": [
+    200,
+    200
+  ],
+  "train_manifest": "/workspace/e0_neu_development_seed1337_GGzIEeTB/freeze/dev_train.jsonl",
+  "train_manifest_sha256": "d02f651e2808579d59a179e43c32e37b40ba7a72db6535864a504900dc4746dd",
+  "validation_manifest": "/workspace/e0_neu_development_seed1337_GGzIEeTB/freeze/dev_validation.jsonl",
+  "validation_manifest_sha256": "436cd120bf524a985f5546aa3f5db5d208de06a31e4d2e418493bcbda1889298",
+  "allowed_source": "NEU original training IDs only; official test forbidden",
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "scheduler": "constant",
+  "batch_size": 16,
+  "optimizer_updates": 10000,
+  "validation_every": 1000,
+  "loss_weights": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "loss_protocol_id": "neu_a2ms_mask_aware_candidate_v1",
+  "p3_data_freeze_approved": true,
+  "checkpoint_selection": "fixed final optimizer update 10000",
+  "augmentation": "paired horizontal flip p=0.5; bilinear RGB, nearest labels; RGB/255",
+  "runs_root": "/workspace/e0_neu_development_seed1337_GGzIEeTB/runs",
+  "matrix": [
+    "formal_a2ms",
+    "coupled_transport",
+    "capacity_control"
+  ],
+  "condition_file": "/workspace/e0_neu_development_seed1337_GGzIEeTB/freeze/conditions.json",
+  "condition_sha256": "df89e01e904e4fe028b0bf775d9a846cb2ce78ef5b6c300aceeddb355d2726ca",
+  "expected_source_sha256": "adbfee9a28ca674aff64d6899bace22108c4a13724dcb6c109600034a511d219",
+  "batch_id": "e0_request_001",
+  "initialization": "from_scratch_common_seed",
+  "scientific_evidence_class": "DISTINGUISHABLE_BUT_NOT_NOVELTY_PROVEN",
+  "split_audit": "/workspace/e0_neu_development_seed1337_GGzIEeTB/freeze/split_audit.json",
+  "split_audit_sha256": "6733f512a682295a39c8157708e9b713d79b49642d491f8d6df540b10f93ef69",
+  "budget": {
+    "author_approved": true,
+    "max_wall_seconds_per_run": 18000,
+    "max_batch_gpu_hours": 15.0,
+    "max_run_bytes": 3000000000,
+    "min_free_bytes": 10000000000,
+    "cap_status": "AUTHOR_APPROVED_5H_PER_RUN_15_GPU_H_BATCH"
+  },
+  "stopping": {
+    "policy_id": "fixed_endpoint_safety_only_candidate_v1",
+    "author_approved": true,
+    "performance_early_stop": false,
+    "response_early_stop": false,
+    "scope": "Fixed 10000 true updates; only nonfinite values, resource limits and protocol/runtime failures stop. Validation performance and beta/T are diagnostics only."
+  },
+  "data_root": "/workspace/Industrial Surface Defect/new (copy)/dataset",
+  "rng_policy": "isolated_v1",
+  "scope": "Exploratory D4 only; parent origin unknown. Explicit author approval and real P3/source/GPU gates required. Do not use test set for selection.",
+  "e0_protocol_id": "e0_fixed_endpoint_candidate_v2",
+  "protocol_status": "SCIENCE_FROZEN_OPERATIONS_PENDING",
+  "data_governance_policy_id": "neu_exact_d4_quarantine_candidate_v1",
+  "quarantine_manifest": "/workspace/e0_neu_development_seed1337_GGzIEeTB/freeze/quarantine.jsonl",
+  "quarantine_manifest_sha256": "3e68bd4a7f20f38111bdf2efd7b4c1444852db59f28dd81b9685b0a79003b4cd",
+  "scientific_protocol_id": "e0_scientific_protocol_v1",
+  "shared_protocol_file": "/workspace/e0_coupled_transport_135d7cc_wSE6XjaC/research/industrial_defect_english/configs/e0_shared_scientific_protocol_v1.json",
+  "shared_protocol_sha256": "e3e567b9ce75377906a475d0a53e8e94d700f846c28b64765a4f5b4ba8c90fac",
+  "source_publication_approved": false,
+  "gpu_training_approved": true,
+  "study_scope": "EXPLORATORY_D4_ONLY_V1",
+  "exploratory_unknown_parent_authorized": true
+}

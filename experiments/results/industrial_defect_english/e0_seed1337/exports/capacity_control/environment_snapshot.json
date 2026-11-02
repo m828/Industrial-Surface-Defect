@@ -1,0 +1,9 @@
+{
+  "python_executable": "/opt/conda/bin/python",
+  "python_version": "3.11.13",
+  "torch": "2.7.1+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA A100-PCIE-40GB",
+  "git_head": "135d7ccfba6f112b60598dad38f5da19ac1bbc99",
+  "source_commit_sha": "135d7ccfba6f112b60598dad38f5da19ac1bbc99"
+}

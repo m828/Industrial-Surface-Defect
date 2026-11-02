@@ -1,0 +1,19 @@
+{
+  "variant": "coupled_transport",
+  "seed": 1337,
+  "source_commit_sha": "135d7ccfba6f112b60598dad38f5da19ac1bbc99",
+  "config_sha256": "ff8281a9d9c6ccaa327ad23c4a4d4d62ca67b6f4095fadc362ceb2b27d226536",
+  "executed_config_sha256": "05f7bc853eb2790bae5aa42342a62edf0671cca3bdd1313254c9a385697ead48",
+  "planned_updates": 10000,
+  "completed_updates": 10000,
+  "reason": null,
+  "checkpoint_sha256": "1cfcb53e57298c8b9852ee3f795840c202ef1625755fc2f3dfba63c91e0abc2d",
+  "metrics_sha256": "56f56790438069a0fcf126509f798cba12adf91727f7ac305e47cbc787413610",
+  "updates_sha256": "e142c87898dc30b4579d724d5cd35fb4babef0e99db25d03bc7f6b1ef529d4ec",
+  "common_initial_tensor_sha256": "2324d732909968e340e62ec7529a492671ad30c258d98f0d3b200b8aa748ed7a",
+  "parameter_count": 29461109,
+  "result_status": "COMPLETE",
+  "fixed_endpoint_comparable": true,
+  "provenance_gaps": [],
+  "updates_identity": "METADATA"
+}
