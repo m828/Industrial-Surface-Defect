@@ -5,14 +5,14 @@ This tool does not commit/push and must be followed by author/content review.
 """
 import argparse,csv,hashlib,json,re
 from pathlib import Path
-from .handoff_common import MATRIX,completion,sha256
+from .handoff_common import MATRIX,E1B_MATRIX,completion,sha256
 from .e0_contract import summarize_validation
 
 ALLOWED={'run_manifest.json','preflight_report.json','config_snapshot.json','executed_config.json',
  'environment_snapshot.json','metrics_summary.json','per_class_metrics.csv','confusion_matrix.csv',
  'error_decomposition.json','response_statistics.json','runtime_summary.json','case_metrics.csv',
  'condition_metrics.json','split_identity.json','dev_train_ids.jsonl','dev_validation_ids.jsonl',
- 'artifact_checksums.sha256'}
+ 'artifact_checksums.sha256','mechanism_response.json'}
 SECRET_KEYS={'password','passwd','token','api_key','access_token','private_key','secret'}
 
 
@@ -59,7 +59,9 @@ def export(run_dir,output,preflight_report=None):
     if target.exists():raise FileExistsError('Refuse existing export directory')
     meta=json.loads((source/'run.json').read_text())
     check_content(meta)
-    if meta.get('variant') not in MATRIX:raise ValueError('Unknown E0 condition')
+    cfg=meta.get('executed_config',meta.get('config',{}))
+    modes=E1B_MATRIX if cfg.get('experiment_stage')=='E1-B' else MATRIX
+    if meta.get('variant') not in modes:raise ValueError('Unknown experiment condition')
     rows=[json.loads(x) for x in (source/'metrics.jsonl').read_text().splitlines()] if (source/'metrics.jsonl').exists() else []
     planned=meta.get('planned_updates',meta.get('config',{}).get('optimizer_updates'))
     actual=meta.get('completed_updates')
@@ -97,6 +99,8 @@ def export(run_dir,output,preflight_report=None):
                'planned_updates','completed_updates','reason','checkpoint_sha256','metrics_sha256','updates_sha256','common_initial_tensor_sha256','parameter_count')}
     selected.update(result_status=status,fixed_endpoint_comparable=endpoint,provenance_gaps=provenance,
                     updates_identity='METADATA' if actual is not None else 'MISSING_NOT_INFERRED_FROM_PLAN')
+    if cfg.get('experiment_stage')=='E1-B':
+        selected.update(experiment_stage='E1-B',transport_initial_tensor_sha256=meta.get('transport_initial_tensor_sha256'))
     j('run_manifest.json',selected)
     for name in ('config_snapshot.json','executed_config.json'):
         p=source/name
@@ -135,6 +139,12 @@ def export(run_dir,output,preflight_report=None):
         csvfile('confusion_matrix.csv',['gt_id','pred_id','pixels'],[{'gt_id':i,'pred_id':k,'pixels':x} for i,row in enumerate(v['confusion']) for k,x in enumerate(row)])
         j('error_decomposition.json',{k:value for k,value in summary.items() if k not in ('groups','transport')})
         j('condition_metrics.json',summary['groups']);j('response_statistics.json',v.get('transport_response',[]))
+        if cfg.get('experiment_stage')=='E1-B':
+            j('mechanism_response.json',{'scope':'FEATURE_DIAGNOSTICS_NOT_CAUSAL_EVIDENCE',
+              'inference_transport_applicable':meta.get('variant')!='head_shift_only',
+              'training_last_batch':last.get('training_transport_response',[]),
+              'training_response_status':'RECORDED' if last.get('training_transport_response') else 'MISSING',
+              'validation_response_file':'response_statistics.json'})
         cases=v.get('cases',[]);fields=sorted({key for row in cases for key in row}) or ['sample_id','class_id']
         csvfile('case_metrics.csv',fields,cases)
     else:

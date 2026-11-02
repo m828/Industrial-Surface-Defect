@@ -7,7 +7,7 @@ import argparse, hashlib, json, os, random, subprocess, time, shutil, copy, sys,
 from pathlib import Path
 import torch
 from torch.utils.data import DataLoader, Dataset
-from .handoff_common import git_identity,protocol_errors,resolve_config,completion,bind_preflight,execution_protocol_errors,verify_partition_identity
+from .handoff_common import git_identity,protocol_errors,resolve_config,completion,bind_preflight,execution_protocol_errors,verify_partition_identity,mode_errors
 from ..models import build_model
 from ..models.losses import joint_loss_with_protocol,loss_component_names
 from ..models.metrics import case_metrics
@@ -109,6 +109,7 @@ def main():
     args=p.parse_args(); planned_cfg=json.loads(Path(args.config).read_text()); cfg=resolve_config(planned_cfg,args.config)
     if protocol_errors(cfg): p.error('Fixed E0 protocol mismatch: '+str(protocol_errors(cfg)))
     if args.variant not in cfg['matrix']: p.error('variant not in predeclared matrix')
+    if mode_errors(cfg,args.variant):p.error('Run mode mismatch: '+str(mode_errors(cfg,args.variant)))
     if source_digest()!=cfg.get('expected_source_sha256'): p.error('Approved code snapshot SHA mismatch')
     if cfg['optimizer']['name']!='Adam' or cfg['scheduler']!='constant': p.error('Only declared Adam/constant supported')
     if len(cfg['loss_weights'])!=4: p.error('Four loss weights required')
@@ -126,6 +127,7 @@ def main():
                  'condition_sha256':cfg.get('condition_sha256'),'split_audit_sha256':cfg.get('split_audit_sha256'),
                  'quarantine_manifest_sha256':cfg.get('quarantine_manifest_sha256'),
                  'data_governance_policy_id':cfg.get('data_governance_policy_id'),'e0_protocol_id':cfg.get('e0_protocol_id')}
+        if cfg.get('experiment_stage')=='E1-B':binding['experiment_stage']='E1-B'
         try:bind_preflight(args.preflight_report,args.preflight_sha256,fresh,binding)
         except (ValueError,OSError,KeyError) as exc:p.error('Preflight gate: '+str(exc))
     train=records(cfg['train_manifest'],cfg['train_manifest_sha256']); val=records(cfg['validation_manifest'],cfg['validation_manifest_sha256'])
@@ -138,7 +140,7 @@ def main():
     if conditions['train_manifest_sha256']!=cfg['train_manifest_sha256']: p.error('Condition file from different train split')
     if not cfg.get('split_audit') or digest(cfg['split_audit'])!=cfg.get('split_audit_sha256'): p.error('Frozen split audit/SHA required')
     audit=json.loads(Path(cfg['split_audit']).read_text())
-    if cfg.get('experiment_stage')=='E1-A' and audit.get('seed')!=1337:p.error('E1 must reuse split seed 1337')
+    if cfg.get('experiment_stage') in ('E1-A','E1-B') and audit.get('seed')!=1337:p.error('E1 must reuse split seed 1337')
     exploratory=(cfg.get('exploratory_unknown_parent_authorized') is True and cfg.get('study_scope')=='EXPLORATORY_D4_ONLY_V1'
                  and cfg.get('data_governance_policy_id')=='neu_exact_d4_quarantine_candidate_v1'
                  and audit.get('status')=='FROZEN_EXPLORATORY_D4_ONLY'
@@ -198,7 +200,7 @@ def main():
     if remaining<=0: p.error('Batch GPU allocation exhausted')
     runtime_budget=dict(cfg['budget'],max_wall_seconds_per_run=min(cfg['budget']['max_wall_seconds_per_run'],remaining))
     reference_meta=None
-    if args.variant!='formal_a2ms':
+    if cfg.get('experiment_stage')!='E1-B' and args.variant!='formal_a2ms':
         reference_dir=batch/f'formal_a2ms_s{seed}'
         reference_meta=json.loads((reference_dir/'run.json').read_text())
         if reference_meta.get('source_commit_sha')!=args.source_commit or reference_meta.get('config_sha256')!=digest(args.config): p.error('Reference release/config identity mismatch')
@@ -214,6 +216,7 @@ def main():
               'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
               'git_status':subprocess.check_output(['git','status','--short'],text=True),
               'source_files':{str(f):digest(f) for f in Path(__file__).resolve().parents[1].rglob('*.py')}}
+    if cfg.get('experiment_stage')=='E1-B':metadata['experiment_stage']='E1-B'
     (run/'config_snapshot.json').write_bytes(Path(args.config).read_bytes())
     (run/'executed_config.json').write_text(json.dumps(cfg,indent=2))
     metadata['executed_config_sha256']=digest(run/'executed_config.json')
@@ -224,6 +227,10 @@ def main():
         from .initialization_audit import tensor_sha
         common={k:tensor_sha(v) for k,v in model.state_dict().items() if not k.startswith('transport.')}
         metadata['common_initial_tensor_sha256']=hashlib.sha256(str(sorted(common.items())).encode()).hexdigest()
+        if cfg.get('experiment_stage')=='E1-B':
+            transport={k:tensor_sha(v) for k,v in model.state_dict().items() if k.startswith('transport.')}
+            metadata['transport_initial_tensor_sha256']=hashlib.sha256(str(sorted(transport.items())).encode()).hexdigest()
+            if metadata['common_initial_tensor_sha256']!=cfg.get('reference_common_initial_tensor_sha256'):raise RuntimeError('E1B common initialization differs from same-seed full-model reference')
         metadata['parameter_count']=sum(p.numel() for p in model.parameters())
         if reference_meta is not None and reference_meta.get('common_initial_tensor_sha256')!=metadata['common_initial_tensor_sha256']:
             raise RuntimeError('Common initial parameter tensors differ from baseline')
@@ -238,6 +245,12 @@ def main():
         train_loader=DataLoader(SegmentationData(train,cfg['input_hw'],True,rng=augmentation_rng),batch_size=cfg['batch_size'],shuffle=True,drop_last=True,num_workers=0,generator=sample_rng)
         val_loader=DataLoader(SegmentationData(val,cfg['input_hw']),batch_size=1,shuffle=False,num_workers=0,generator=val_rng)
         it=iter(train_loader)
+        training_response=[];response_hook=None;capture_training_response=False
+        if cfg.get('experiment_stage')=='E1-B':
+            def training_diagnostic(module,inputs,outputs):
+                if capture_training_response and module.training:
+                    with torch.no_grad():training_response.append(response_stats(inputs[0],inputs[1],outputs[0],outputs[1]))
+            response_hook=model.transport.register_forward_hook(training_diagnostic)
         with (run/'metrics.jsonl').open('x') as log, (run/'updates.jsonl').open('x') as updates:
             for step in range(1,cfg['optimizer_updates']+1):
                 check_budget(started,run,runtime_budget,check_disk=step%100==1)
@@ -245,6 +258,8 @@ def main():
                 try: x,y=next(it)
                 except StopIteration: it=iter(train_loader); x,y=next(it)
                 model.train(); optimizer.zero_grad(set_to_none=True)
+                capture_training_response=(step%cfg['validation_every']==0 or step==cfg['optimizer_updates'])
+                training_response.clear()
                 total,parts=joint_loss_with_protocol(model(x.cuda()),y.cuda(),cfg['loss_weights'],cfg['loss_protocol_id'])
                 require_finite_loss(total,parts,loss_component_names(cfg['loss_protocol_id']),run,step,metadata['completed_updates'],cfg['loss_protocol_id'])
                 total.backward()
@@ -256,6 +271,9 @@ def main():
                 torch.cuda.synchronize()
                 step_seconds=time.perf_counter()-step_started
                 row={'optimizer_updates':step,'step_seconds':step_seconds,'elapsed_wall_seconds':time.perf_counter()-started,'loss':float(total.detach()),'components':[float(v.detach()) for v in parts],'lr':optimizer.param_groups[0]['lr']}
+                if cfg.get('experiment_stage')=='E1-B' and capture_training_response:
+                    row['training_transport_response']=list(training_response)
+                    row['mechanism_response_scope']='TRAIN_LAST_BATCH_FEATURE_DIAGNOSTIC; head_shift_only has no inference transport'
                 if step%cfg['validation_every']==0 or step==cfg['optimizer_updates']:
                     row['validation']=validate(model,val_loader,cfg['num_classes'],conditions,lambda:check_budget(started,run,runtime_budget,False))
                     row['validation_summary']=summarize_validation(row['validation'])
@@ -272,6 +290,7 @@ def main():
                 log.write(json.dumps(row)+'\n'); log.flush()
             torch.save({'model':model.state_dict(),'optimizer':optimizer.state_dict(),'optimizer_updates':step,'config':cfg},run/'endpoint.pt')
         check_budget(started,run,runtime_budget)
+        if response_hook is not None:response_hook.remove()
         metadata.update(status='complete',checkpoint_sha256=digest(run/'endpoint.pt'),
                         elapsed_wall_seconds=time.perf_counter()-started,peak_cuda_bytes=torch.cuda.max_memory_allocated())
     except Exception as exc:

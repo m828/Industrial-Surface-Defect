@@ -6,7 +6,7 @@ queried in the current Python/container, never installed or upgraded.
 """
 import argparse,json,os,platform,shutil,subprocess,sys
 from pathlib import Path
-from .handoff_common import git_identity,protocol_errors,resolve_config,sha256,write_new_json,verify_loaded_sources,execution_protocol_errors,verify_partition_identity
+from .handoff_common import git_identity,protocol_errors,resolve_config,sha256,write_new_json,verify_loaded_sources,execution_protocol_errors,verify_partition_identity,mode_errors,E1B_MATRIX
 
 
 def environment():
@@ -68,7 +68,7 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         ident=git_identity(expected);report['git']=ident;report['blockers']+=ident['errors']
         raw=json.loads(Path(config).read_text());cfg=resolve_config(raw,config)
         report.update(config_sha256=sha256(config),source_commit_sha=expected,variant=variant,run_id=run_id,
-                      loss_protocol_id=raw.get('loss_protocol_id'),e0_protocol_id=raw.get('e0_protocol_id'),
+                      loss_protocol_id=raw.get('loss_protocol_id'),e0_protocol_id=raw.get('e0_protocol_id'),experiment_stage=raw.get('experiment_stage','E0'),
                       data_governance_policy_id=raw.get('data_governance_policy_id'),quarantine_manifest_sha256=raw.get('quarantine_manifest_sha256'),
                       train_manifest_sha256=raw.get('train_manifest_sha256'),
                       validation_manifest_sha256=raw.get('validation_manifest_sha256'),
@@ -77,6 +77,7 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         report['checks']['execution_protocol_errors']=execution_protocol_errors(cfg)
         report['blockers']+=execution_protocol_errors(cfg)
         if variant not in cfg.get('matrix',[]):report['blockers'].append('variant_missing_or_invalid')
+        report['blockers']+=mode_errors(cfg,variant)
         expected_id=f"{cfg.get('batch_id')}:{variant}:s{cfg.get('seed')}"
         if run_id!=expected_id:report['blockers'].append('run_id_missing_or_mismatched')
         if raw.get('loss_protocol_id') not in ('e0_multiclass_detail_v1','neu_a2ms_mask_aware_candidate_v1'):
@@ -85,6 +86,13 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         if not require_gpu:report['blockers'].append('CPU_ONLY_NOT_SERVER_READY')
         # Source hashing imports no model; training modules must not be imported here.
         root=Path(__file__).resolve().parents[1]
+        if cfg.get('experiment_stage')=='E1-B':
+            shared=root/'configs/e1b_protocol_v1.json'
+            if Path(cfg.get('shared_protocol_file','')).resolve()!=shared.resolve() or sha256(shared)!=cfg.get('shared_protocol_sha256'):
+                raise ValueError('E1-B shared protocol path/SHA mismatch')
+            declared=json.loads(shared.read_text())
+            if any(cfg.get(k)!=v for k,v in declared['frozen_asset_sha256'].items()):
+                raise ValueError('E1-B must reuse the declared E1-A frozen asset SHAs')
         source=sorted(list(root.rglob('*.py'))+[root/'vendor/provenance.json'])
         import hashlib
         payload='\n'.join(str(f.relative_to(root))+':'+sha256(f) for f in source)
@@ -110,7 +118,7 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         # P2 does not create a split. Existing frozen manifests can be read/checked.
         if all(report['checks'].get(k,{}).get('matches') for k in required_assets):
             audit=json.loads(Path(cfg['split_audit']).read_text())
-            if cfg.get('experiment_stage')=='E1-A' and audit.get('seed')!=1337:raise ValueError('E1 must reuse split seed 1337')
+            if cfg.get('experiment_stage') in ('E1-A','E1-B') and audit.get('seed')!=1337:raise ValueError('E1 must reuse split seed 1337')
             policy=cfg.get('data_governance_policy_id')
             if audit.get('data_governance_policy_id')!=policy:raise ValueError('Governance policy mismatch')
             allowed_status=['PASS_NO_CROSS_SPLIT_EXACT_D4']
@@ -185,7 +193,10 @@ def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
         report['checks']['complexity_ledger']={'sha256':sha256(ledger),'scope':'Existing CPU conv counters, excludes elementwise and latency'} if ledger.exists() else 'MISSING_OPTIONAL_NO_SPEED_CLAIM'
         report['checks']['old_checkpoint']='OPTIONAL_FOR_FROM_SCRATCH_NOT_ACCESSED'
         from .initialization_audit import audit as initial_audit
-        report['checks']['initialization_fairness']=initial_audit(cfg['seed'])
+        report['checks']['initialization_fairness']=initial_audit(cfg['seed'],['coupled_transport',*E1B_MATRIX]) if cfg.get('experiment_stage')=='E1-B' else initial_audit(cfg['seed'])
+        if cfg.get('experiment_stage')=='E1-B':
+            reference=cfg.get('reference_common_initial_tensor_sha256')
+            if not reference or any(v['common_tensor_collection_sha256']!=reference for v in report['checks']['initialization_fairness']['checks'].values()):report['blockers'].append('E1B_reference_initialization_mismatch')
         report['source_integrity']=verify_loaded_sources(ident['repo_root'])
         if report['checks']['initialization_fairness']['status']!='PASS':report['blockers'].append('common_initialization_mismatch')
         if cfg.get('rng_policy')!='isolated_v1':report['blockers'].append('isolated_rng_policy_requires_author_confirmation')
