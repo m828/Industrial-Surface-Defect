@@ -1,0 +1,19 @@
+{
+  "variant": "capacity_control",
+  "seed": 3407,
+  "source_commit_sha": "e946787b58f4584268fe66478b2f4d2ccad8d344",
+  "config_sha256": "8c8a0553281f0821fe63ae5c7547eef60ad8f4e1dfb873842ec13c29c9cc4e6e",
+  "executed_config_sha256": "bb00298339f1b7490b49c127e093f18558000ffc9d2ceaecfc381a9535331ade",
+  "planned_updates": 10000,
+  "completed_updates": 10000,
+  "reason": null,
+  "checkpoint_sha256": "d5ff93dcbd9bff16b0ba669831074d112b5984854b95d99de22dc0b502a464c2",
+  "metrics_sha256": "821bd77bdf5c53d349dc1e9dcee548eeffc45a5cc3c02b610b806a9c49ec480a",
+  "updates_sha256": "e142c87898dc30b4579d724d5cd35fb4babef0e99db25d03bc7f6b1ef529d4ec",
+  "common_initial_tensor_sha256": "7138f1ff5d7fac0bb1d8e774da944ab38ae81020107639efcee6858e0a989eb9",
+  "parameter_count": 29461109,
+  "result_status": "COMPLETE",
+  "fixed_endpoint_comparable": true,
+  "provenance_gaps": [],
+  "updates_identity": "METADATA"
+}

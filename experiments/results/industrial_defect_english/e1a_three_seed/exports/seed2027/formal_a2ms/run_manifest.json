@@ -1,0 +1,19 @@
+{
+  "variant": "formal_a2ms",
+  "seed": 2027,
+  "source_commit_sha": "e946787b58f4584268fe66478b2f4d2ccad8d344",
+  "config_sha256": "8d82dcc11128db588e3687f4cac106a03f2aa0b99994e3e2da3cdf76b8e78599",
+  "executed_config_sha256": "926f7a1267b53dfe02bdf10a1ba812cdfd367cef41d22fa7d9e7731aaf56683a",
+  "planned_updates": 10000,
+  "completed_updates": 10000,
+  "reason": null,
+  "checkpoint_sha256": "3fd07e808928e93c018ab9dd4f251cf913db97dca08a33130cdc08240e7f13bd",
+  "metrics_sha256": "0818fd3f1d76e2fe893ace568ef8ad8c2fade7bcba93fb7f735effd49d82ae01",
+  "updates_sha256": "e142c87898dc30b4579d724d5cd35fb4babef0e99db25d03bc7f6b1ef529d4ec",
+  "common_initial_tensor_sha256": "325410dc3ee69064fa736f1c0baaf20bd85d788e677da240d631a99c476c3cae",
+  "parameter_count": 29460804,
+  "result_status": "COMPLETE",
+  "fixed_endpoint_comparable": true,
+  "provenance_gaps": [],
+  "updates_identity": "METADATA"
+}

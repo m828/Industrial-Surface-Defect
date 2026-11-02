@@ -1,0 +1,9 @@
+{
+  "train_manifest_sha256": "d02f651e2808579d59a179e43c32e37b40ba7a72db6535864a504900dc4746dd",
+  "validation_manifest_sha256": "436cd120bf524a985f5546aa3f5db5d208de06a31e4d2e418493bcbda1889298",
+  "condition_sha256": "df89e01e904e4fe028b0bf775d9a846cb2ce78ef5b6c300aceeddb355d2726ca",
+  "split_audit_sha256": "6733f512a682295a39c8157708e9b713d79b49642d491f8d6df540b10f93ef69",
+  "train_view_sha256": "66b2c53f03c1cfe27fda8915d9e8f948f77266a68cd2f2fe16457f52caa73d63",
+  "validation_view_sha256": "3d2709c5fd4ab5e90496379024b8a798f43a04a272b4b42c469fd2ce84758193",
+  "scope": "ID/hash views, not byte-identical execution manifests; original SHAs remain separate"
+}
