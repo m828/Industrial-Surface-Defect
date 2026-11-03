@@ -1,0 +1,7 @@
+{
+  "result_status": "COMPLETE",
+  "fixed_endpoint_comparable": true,
+  "scope": "FIXED_ENDPOINT",
+  "miou_including_background": 0.7808375358581543,
+  "foreground_miou": 0.7206413745880127
+}

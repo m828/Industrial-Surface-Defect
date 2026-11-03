@@ -1,0 +1,13 @@
+{
+  "background_fp_pixels": 560017,
+  "background_fp_rate": 0.02209480482475919,
+  "foreground_cross_class_pixels": 17043,
+  "foreground_cross_class_rate": 0.004613815294704305,
+  "foreground_to_background_pixels": 425328,
+  "foreground_to_background_rate": 0.115143157405738,
+  "class_fn_pixels": {
+    "1": 227714,
+    "2": 110187,
+    "3": 104470
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "FEATURE_DIAGNOSTICS_NOT_CAUSAL_EVIDENCE",
+  "inference_transport_applicable": true,
+  "training_last_batch": [
+    {
+      "beta_mean": 0.00017673092952463776,
+      "beta_spatial_std": 0.00048574336688034236,
+      "beta_abs_q50": 0.00027914647944271564,
+      "beta_abs_q95": 0.0011231679236516356,
+      "detail_rms": 18.1322021484375,
+      "difference_rms": 18.109582901000977,
+      "transport_rms": 0.016097592189908028,
+      "rho_difference": 0.0008888991131943336,
+      "rho_detail": 0.0008877902446293484
+    }
+  ],
+  "training_response_status": "RECORDED",
+  "validation_response_file": "response_statistics.json"
+}

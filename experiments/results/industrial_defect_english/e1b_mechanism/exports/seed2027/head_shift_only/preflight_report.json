@@ -1,0 +1,220 @@
+{
+  "stage": "P2_PREFLIGHT_ONLY",
+  "training_authorized": false,
+  "optimizer_steps": 0,
+  "status": "GO_READY",
+  "checks": {
+    "protocol_errors": [],
+    "execution_protocol_errors": [],
+    "train_manifest": {
+      "sha256": "d02f651e2808579d59a179e43c32e37b40ba7a72db6535864a504900dc4746dd",
+      "matches": true
+    },
+    "validation_manifest": {
+      "sha256": "436cd120bf524a985f5546aa3f5db5d208de06a31e4d2e418493bcbda1889298",
+      "matches": true
+    },
+    "condition_file": {
+      "sha256": "df89e01e904e4fe028b0bf775d9a846cb2ce78ef5b6c300aceeddb355d2726ca",
+      "matches": true
+    },
+    "split_audit": {
+      "sha256": "6733f512a682295a39c8157708e9b713d79b49642d491f8d6df540b10f93ef69",
+      "matches": true
+    },
+    "quarantine_manifest": {
+      "sha256": "3e68bd4a7f20f38111bdf2efd7b4c1444852db59f28dd81b9685b0a79003b4cd",
+      "matches": true
+    },
+    "d4_matches_sha256": "03fb1053b2a51398aeef56425cda8faceef9a075f709960f57eccc17fc3dd56d",
+    "lineage": {
+      "recorded_evidence": "UNKNOWN",
+      "status": "UNKNOWN",
+      "independent_origin_verification": "NOT_ESTABLISHED_BY_THIS_SCRIPT"
+    },
+    "exploratory_scope": "D4_ONLY_PARENT_UNKNOWN",
+    "cohort": {
+      "train_n": 2903,
+      "validation_n": 726,
+      "lineage_status": "FROZEN_EXPLORATORY_D4_ONLY"
+    },
+    "partition_counts": {
+      "original_train_count": 3630,
+      "eligible_train_count": 3629,
+      "quarantined_train_count": 1,
+      "actual_train": 2903,
+      "actual_validation": 726
+    },
+    "d4_source_recomputed": {
+      "train_images": 3630,
+      "test_images": 840,
+      "cross_split_pairs": 1,
+      "quarantined_train_n": 1,
+      "scope": "exact RGB D4 and supplied parent metadata only; unknown broader lineage remains UNKNOWN"
+    },
+    "class_denominators": {
+      "train": {
+        "0": {
+          "positive_images": 2903,
+          "gt_pixels": 102304552
+        },
+        "1": {
+          "positive_images": 1066,
+          "gt_pixels": 2348579
+        },
+        "2": {
+          "positive_images": 1058,
+          "gt_pixels": 8622472
+        },
+        "3": {
+          "positive_images": 1045,
+          "gt_pixels": 2844397
+        }
+      },
+      "validation": {
+        "0": {
+          "positive_images": 726,
+          "gt_pixels": 25346094
+        },
+        "1": {
+          "positive_images": 393,
+          "gt_pixels": 758490
+        },
+        "2": {
+          "positive_images": 390,
+          "gt_pixels": 2059670
+        },
+        "3": {
+          "positive_images": 383,
+          "gt_pixels": 875746
+        }
+      }
+    },
+    "official_test_usage": "EXCLUSION_ONLY_NOT_EVALUATED",
+    "complexity_ledger": "MISSING_OPTIONAL_NO_SPEED_CLAIM",
+    "old_checkpoint": "OPTIONAL_FOR_FROM_SCRATCH_NOT_ACCESSED",
+    "initialization_fairness": {
+      "status": "PASS",
+      "seed": 2027,
+      "checks": {
+        "coupled_transport": {
+          "total_parameters": 29461109,
+          "common_tensor_count": 512,
+          "common_tensor_collection_sha256": "325410dc3ee69064fa736f1c0baaf20bd85d788e677da240d631a99c476c3cae",
+          "new_parameters": 305,
+          "transport_initial_tensor_sha256": "5e8dee1d467cd88d69cb7bf2740f435397f9ff4935ab7d7eb15464ed334507e1"
+        },
+        "stage1_only": {
+          "total_parameters": 29461109,
+          "common_tensor_count": 512,
+          "common_tensor_collection_sha256": "325410dc3ee69064fa736f1c0baaf20bd85d788e677da240d631a99c476c3cae",
+          "new_parameters": 305,
+          "transport_initial_tensor_sha256": "5e8dee1d467cd88d69cb7bf2740f435397f9ff4935ab7d7eb15464ed334507e1"
+        },
+        "head_shift_only": {
+          "total_parameters": 29461109,
+          "common_tensor_count": 512,
+          "common_tensor_collection_sha256": "325410dc3ee69064fa736f1c0baaf20bd85d788e677da240d631a99c476c3cae",
+          "new_parameters": 305,
+          "transport_initial_tensor_sha256": "5e8dee1d467cd88d69cb7bf2740f435397f9ff4935ab7d7eb15464ed334507e1"
+        },
+        "no_head_shift": {
+          "total_parameters": 29461109,
+          "common_tensor_count": 512,
+          "common_tensor_collection_sha256": "325410dc3ee69064fa736f1c0baaf20bd85d788e677da240d631a99c476c3cae",
+          "new_parameters": 305,
+          "transport_initial_tensor_sha256": "5e8dee1d467cd88d69cb7bf2740f435397f9ff4935ab7d7eb15464ed334507e1"
+        }
+      },
+      "errors": [],
+      "scope": "CPU construction only; no forward/optimizer; same common tensors, not performance",
+      "cuda_rng_contract": "Reset seed after construction in approved runner; no stochastic GPU fairness claimed by CPU hashes"
+    },
+    "budget_and_stopping": {
+      "policy": "fixed_endpoint_safety_only_candidate_v1",
+      "performance_early_stop": false,
+      "response_early_stop": false,
+      "author_approved": true
+    },
+    "author_approval": "STILL_REQUIRED_EVEN_IF_GO_READY"
+  },
+  "blockers": [],
+  "git": {
+    "repo_root": "/workspace/e1_b_training_faed703",
+    "source_commit_sha": "faed7033e78e5a7a9e6dc5a2f798545aa31e52e7",
+    "expected_commit": "faed7033e78e5a7a9e6dc5a2f798545aa31e52e7",
+    "worktree_clean": true,
+    "source_tracked": true,
+    "errors": []
+  },
+  "config_sha256": "5809e00a08d100de2b94484f8768c483cc39cab59998aee8f88dced8994bbec1",
+  "source_commit_sha": "faed7033e78e5a7a9e6dc5a2f798545aa31e52e7",
+  "variant": "head_shift_only",
+  "run_id": "e1b_retry_20261103:head_shift_only:s2027",
+  "loss_protocol_id": "neu_a2ms_mask_aware_candidate_v1",
+  "e0_protocol_id": "e0_fixed_endpoint_candidate_v2",
+  "experiment_stage": "E1-B",
+  "data_governance_policy_id": "neu_exact_d4_quarantine_candidate_v1",
+  "quarantine_manifest_sha256": "3e68bd4a7f20f38111bdf2efd7b4c1444852db59f28dd81b9685b0a79003b4cd",
+  "train_manifest_sha256": "d02f651e2808579d59a179e43c32e37b40ba7a72db6535864a504900dc4746dd",
+  "validation_manifest_sha256": "436cd120bf524a985f5546aa3f5db5d208de06a31e4d2e418493bcbda1889298",
+  "condition_sha256": "df89e01e904e4fe028b0bf775d9a846cb2ce78ef5b6c300aceeddb355d2726ca",
+  "split_audit_sha256": "6733f512a682295a39c8157708e9b713d79b49642d491f8d6df540b10f93ef69",
+  "source_snapshot_sha256": "eaf4d0cb6a73e4398ee226d2494c0353a1f767e09188802a83d9ac8182abcf27",
+  "environment": {
+    "hostname": "961248b8a2c0",
+    "python_executable": "/opt/conda/bin/python",
+    "python": "3.11.13",
+    "container_marker_dockerenv": true,
+    "cgroup_identity_sha256": "e57fd7b21104f091de366ace1464596378a498b0a5e63f1b21147a8998c20107",
+    "cuda_visible_devices": null,
+    "torch": "2.7.1+cu126",
+    "cuda_build": "12.6",
+    "cuda_available": true,
+    "gpus": [
+      {
+        "name": "NVIDIA A100-PCIE-40GB",
+        "total_bytes": 42298834944
+      }
+    ],
+    "gpu_usage_query": {
+      "returncode": 0,
+      "output": "0, NVIDIA A100-PCIE-40GB, 40960 MiB, 3 MiB, 0 %"
+    },
+    "scheduler_tools": {
+      "sbatch": null,
+      "squeue": null
+    }
+  },
+  "run_root_free_bytes": 805104287744,
+  "source_integrity": {
+    "module_paths": {
+      "research.industrial_defect_english": "/workspace/e1_b_training_faed703/research/industrial_defect_english/__init__.py",
+      "research.industrial_defect_english.models": "/workspace/e1_b_training_faed703/research/industrial_defect_english/models/__init__.py",
+      "research.industrial_defect_english.models.factory": "/workspace/e1_b_training_faed703/research/industrial_defect_english/models/factory.py",
+      "research.industrial_defect_english.models.transport": "/workspace/e1_b_training_faed703/research/industrial_defect_english/models/transport.py",
+      "research.industrial_defect_english.scripts.freeze_neu_development": "/workspace/e1_b_training_faed703/research/industrial_defect_english/scripts/freeze_neu_development.py",
+      "research.industrial_defect_english.scripts.handoff_common": "/workspace/e1_b_training_faed703/research/industrial_defect_english/scripts/handoff_common.py",
+      "research.industrial_defect_english.scripts.initialization_audit": "/workspace/e1_b_training_faed703/research/industrial_defect_english/scripts/initialization_audit.py"
+    },
+    "committed_file_sha256": {
+      "research/industrial_defect_english/__init__.py": "a6e90a60430bd6ed18195a6b4f4c545ac1c4b71bc7e1b04f040be7b7c0dd6997",
+      "research/industrial_defect_english/models/__init__.py": "53475c2199e9a7651d53932fed7985cf93341215995380eeb89c75d50b8a0449",
+      "research/industrial_defect_english/models/factory.py": "30b4e8e1e984acc0442327f050bf7f385ebad27bbaffbc942007229096b123f1",
+      "research/industrial_defect_english/models/losses.py": "9858dd9dfa7cfad05f8688473f557f131c88148f499baff1c8e3b5170bfb27ee",
+      "research/industrial_defect_english/models/metrics.py": "784b648bde9bd1d7d08d78692e28aacd09289dfe456f9e4384f912f2d5d54502",
+      "research/industrial_defect_english/models/transport.py": "69b5789edd27db8f44693282ec8446767a34131ca37cd772fc7641da4f57a0d4",
+      "research/industrial_defect_english/scripts/freeze_neu_development.py": "9fcfb1004aa49e7a8833a44257d268289b0cfd6fe2c8f3c7831da6b788cc9a4e",
+      "research/industrial_defect_english/scripts/handoff_common.py": "9822990ca550c95145dd9e1c394f1e31b8a53fdb98b35bcb31ffbbdb39d07674",
+      "research/industrial_defect_english/scripts/initialization_audit.py": "94c53309f612505b0ae9dec26b582111a2d1605e9251286e3eab3c88a0723122",
+      "research/industrial_defect_english/scripts/server_preflight.py": "b0b1ad83e4dace8dd0aba41343a529d834874c1149fc6372d5b04c90a3aac77d",
+      "research/industrial_defect_english/scripts/train_e0_ready.py": "59e7f36bd1610c5b2150b893d8fdfefeb703ccc209462385bb983b5d830de776",
+      "research/industrial_defect_english/vendor/loss.py": "64786a456b502d93e44f451879dfd70bf2a1695868c50cee68a29be22beadf69",
+      "research/industrial_defect_english/vendor/model_dsmo_rs50.py": "fab316c57518e8273ba676199ccff16500ad60ae89a77c2843585f3ce0c184cf",
+      "research/industrial_defect_english/vendor/model_dsmo_rs50_eSE_adapt_detailloss_fixed.py": "a0e6fd52b00162ebd16805c473a59983cbd34c2308da115cd170ba1710bb376a",
+      "research/industrial_defect_english/vendor/model_resnet.py": "9a0b255a84894423a9849e65add26e30081e7c020b6f136a3a2e0572ae87690a",
+      "research/industrial_defect_english/vendor/provenance.json": "98a98b00a3885825c95f887121ca31b680489b6b4a3124eb3859a38800c7b3bd"
+    }
+  },
+  "execution_scope": "CURRENT_SERVER_PYTHON_PREFLIGHT"
+}

@@ -1,0 +1,21 @@
+{
+  "variant": "stage1_only",
+  "seed": 2027,
+  "source_commit_sha": "faed7033e78e5a7a9e6dc5a2f798545aa31e52e7",
+  "config_sha256": "e4ecf2662f4b99116327c0af6c86260b2cc87182b982a6e2692f8fa638feb9a1",
+  "executed_config_sha256": "862c1cc961f7ccedf93a3deb537f1d74ec75dc7502075144f2931e494015f4b6",
+  "planned_updates": 10000,
+  "completed_updates": 10000,
+  "reason": null,
+  "checkpoint_sha256": "4e08ac3eaf7c1070a25de90d3334765702917c90d38f7c2d0d0438c8cf9a920c",
+  "metrics_sha256": "66d7b32c5aad23ad99560427887a24e37f3f114a88a8d9bebcb7bec19d1aa73a",
+  "updates_sha256": "e142c87898dc30b4579d724d5cd35fb4babef0e99db25d03bc7f6b1ef529d4ec",
+  "common_initial_tensor_sha256": "325410dc3ee69064fa736f1c0baaf20bd85d788e677da240d631a99c476c3cae",
+  "parameter_count": 29461109,
+  "result_status": "COMPLETE",
+  "fixed_endpoint_comparable": true,
+  "provenance_gaps": [],
+  "updates_identity": "METADATA",
+  "experiment_stage": "E1-B",
+  "transport_initial_tensor_sha256": "5e8dee1d467cd88d69cb7bf2740f435397f9ff4935ab7d7eb15464ed334507e1"
+}

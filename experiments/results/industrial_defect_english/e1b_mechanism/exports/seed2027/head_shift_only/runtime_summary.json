@@ -1,0 +1,8 @@
+{
+  "result_status": "COMPLETE",
+  "completed_updates": 10000,
+  "planned_updates": 10000,
+  "elapsed_wall_seconds": 3030.398649558425,
+  "peak_cuda_bytes": 2355897856,
+  "validation_row_update": 10000
+}
