@@ -5,7 +5,7 @@ This tool does not commit/push and must be followed by author/content review.
 """
 import argparse,csv,hashlib,json,re
 from pathlib import Path
-from .handoff_common import MATRIX,E1B_MATRIX,completion,sha256
+from .handoff_common import MATRIX,E1B_MATRIX,experiment_matrix,completion,sha256
 from .e0_contract import summarize_validation
 
 ALLOWED={'run_manifest.json','preflight_report.json','config_snapshot.json','executed_config.json',
@@ -60,7 +60,7 @@ def export(run_dir,output,preflight_report=None):
     meta=json.loads((source/'run.json').read_text())
     check_content(meta)
     cfg=meta.get('executed_config',meta.get('config',{}))
-    modes=E1B_MATRIX if cfg.get('experiment_stage')=='E1-B' else MATRIX
+    modes=experiment_matrix(cfg)
     if meta.get('variant') not in modes:raise ValueError('Unknown experiment condition')
     rows=[json.loads(x) for x in (source/'metrics.jsonl').read_text().splitlines()] if (source/'metrics.jsonl').exists() else []
     planned=meta.get('planned_updates',meta.get('config',{}).get('optimizer_updates'))
@@ -99,8 +99,8 @@ def export(run_dir,output,preflight_report=None):
                'planned_updates','completed_updates','reason','checkpoint_sha256','metrics_sha256','updates_sha256','common_initial_tensor_sha256','parameter_count')}
     selected.update(result_status=status,fixed_endpoint_comparable=endpoint,provenance_gaps=provenance,
                     updates_identity='METADATA' if actual is not None else 'MISSING_NOT_INFERRED_FROM_PLAN')
-    if cfg.get('experiment_stage')=='E1-B':
-        selected.update(experiment_stage='E1-B',transport_initial_tensor_sha256=meta.get('transport_initial_tensor_sha256'))
+    if cfg.get('experiment_stage') in ('E1-B','E1-C'):
+        selected.update(experiment_stage=cfg['experiment_stage'],transport_initial_tensor_sha256=meta.get('transport_initial_tensor_sha256'))
     j('run_manifest.json',selected)
     for name in ('config_snapshot.json','executed_config.json'):
         p=source/name
@@ -145,6 +145,17 @@ def export(run_dir,output,preflight_report=None):
               'training_last_batch':last.get('training_transport_response',[]),
               'training_response_status':'RECORDED' if last.get('training_transport_response') else 'MISSING',
               'validation_response_file':'response_statistics.json'})
+        if cfg.get('experiment_stage')=='E1-C':
+            validation=v.get('transport_response',[]);training=last.get('training_transport_response',[])
+            if len(validation)%2 or len(training)%2:raise ValueError('E1-C transport response must have two ordered calls per forward')
+            if endpoint and (len(validation)!=2*len({r['sample_id'] for r in v.get('cases',[])}) or len(training)!=2):
+                raise ValueError('E1-C complete endpoint lacks per-image/last-training-batch stage responses')
+            j('mechanism_response.json',{'scope':'FEATURE_DIAGNOSTICS_NOT_CAUSAL_EVIDENCE',
+              'shared_predictor':True,'call_order':['stage1','final'],
+              'validation_by_stage':{'stage1':validation[::2],'final':validation[1::2]},
+              'training_last_batch_by_stage':{'stage1':training[::2],'final':training[1::2]},
+              'training_response_status':'RECORDED' if training else 'MISSING',
+              'raw_validation_response_file':'response_statistics.json'})
         cases=v.get('cases',[]);fields=sorted({key for row in cases for key in row}) or ['sample_id','class_id']
         csvfile('case_metrics.csv',fields,cases)
     else:

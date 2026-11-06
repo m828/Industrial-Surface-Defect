@@ -1,6 +1,6 @@
 """CPU construction/tensor hashing only. No forward, optimizer, checkpoint or data."""
 import argparse,hashlib
-from .handoff_common import MATRIX,E1B_MATRIX,write_new_json
+from .handoff_common import MATRIX,E1B_MATRIX,E1C_MATRIX,write_new_json
 
 
 def tensor_sha(tensor):
@@ -32,7 +32,8 @@ def audit(seed=1337,variants=None):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',required=True);p.add_argument('--seed',type=int,default=1337);p.add_argument('--stage',choices=['E0','E1-A','E1-B'],default='E0');a=p.parse_args()
-    result=audit(a.seed,['coupled_transport',*E1B_MATRIX] if a.stage=='E1-B' else None);write_new_json(a.output,result);return 0 if result['status']=='PASS' else 2
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',required=True);p.add_argument('--seed',type=int,default=1337);p.add_argument('--stage',choices=['E0','E1-A','E1-B','E1-C'],default='E0');a=p.parse_args()
+    variants=['coupled_transport',*E1C_MATRIX] if a.stage=='E1-C' else (['coupled_transport',*E1B_MATRIX] if a.stage=='E1-B' else None)
+    result=audit(a.seed,variants);write_new_json(a.output,result);return 0 if result['status']=='PASS' else 2
 
 if __name__=='__main__':raise SystemExit(main())

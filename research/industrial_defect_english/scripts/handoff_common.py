@@ -4,15 +4,17 @@ from pathlib import Path
 
 MATRIX=['formal_a2ms','coupled_transport','capacity_control']
 E1B_MATRIX=['stage1_only','head_shift_only','no_head_shift']
+E1C_MATRIX=['recomputed_final_transport']
 
 
 def experiment_matrix(cfg):
+    if cfg.get('experiment_stage')=='E1-C':return E1C_MATRIX
     return E1B_MATRIX if cfg.get('experiment_stage')=='E1-B' else MATRIX
 
 
 def mode_errors(cfg,variant):
     if variant not in experiment_matrix(cfg):return ['protocol:variant']
-    if cfg.get('experiment_stage')=='E1-B' and cfg.get('variant')!=variant:return ['protocol:locked_variant']
+    if cfg.get('experiment_stage') in ('E1-B','E1-C') and cfg.get('variant')!=variant:return ['protocol:locked_variant']
     return []
 
 PATH_KEYS=['train_manifest','validation_manifest','condition_file','split_audit','runs_root','data_root','quarantine_manifest']
@@ -38,11 +40,11 @@ def protocol_errors(cfg):
           'batch_size':16,'scheduler':'constant','loss_weights':[10,1,3,3],
           'initialization':'from_scratch_common_seed','num_classes':4}
     errors=[f'protocol:{k}' for k,v in want.items() if cfg.get(k)!=v]
-    if cfg.get('experiment_stage') in ('E1-A','E1-B'):
-        seeds=(1337,2027,3407) if cfg['experiment_stage']=='E1-B' else (2027,3407)
+    if cfg.get('experiment_stage') in ('E1-A','E1-B','E1-C'):
+        seeds=(2027,3407) if cfg['experiment_stage']=='E1-A' else (1337,2027,3407)
         if type(cfg.get('seed')) is not int or cfg['seed'] not in seeds:errors.append('protocol:seed')
         if cfg.get('split_seed')!=1337:errors.append('protocol:split_seed')
-        if cfg['experiment_stage']=='E1-B' and mode_errors(cfg,cfg.get('variant')):errors.append('protocol:locked_variant')
+        if cfg['experiment_stage'] in ('E1-B','E1-C') and mode_errors(cfg,cfg.get('variant')):errors.append('protocol:locked_variant')
     elif cfg.get('experiment_stage') not in (None,'E0') or cfg.get('seed')!=1337:
         errors.append('protocol:seed')
     if cfg.get('optimizer')!={'name':'Adam','lr':1e-4,'weight_decay':2e-6}:errors.append('protocol:optimizer')

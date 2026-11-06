@@ -1,0 +1,76 @@
+{
+  "scientific_protocol_id": "e1c_shared_vs_recomputed_v1",
+  "experiment_stage": "E1-C",
+  "approval_status": "PENDING_SERVER_PREFLIGHT_AND_THREE_RUN_AUTHORIZATION",
+  "training_seeds": [
+    1337,
+    2027,
+    3407
+  ],
+  "split_seed": 1337,
+  "matrix": [
+    "recomputed_final_transport"
+  ],
+  "new_runs": 3,
+  "reused_full_model_runs": 3,
+  "e1a_source_commit_sha": "e946787b58f4584268fe66478b2f4d2ccad8d344",
+  "e0_seed1337_source_commit_sha": "135d7ccfba6f112b60598dad38f5da19ac1bbc99",
+  "reference_results_commit_sha": "0d95303507017568109be95afeaf9c32a7d588c3",
+  "reference_results_branch": "results/e1a-neu-three-seed",
+  "future_results_branch": "results/e1c-neu-shared-vs-recomputed",
+  "frozen_counts": {
+    "train": 2903,
+    "validation": 726,
+    "quarantine": 1
+  },
+  "input_hw": [
+    200,
+    200
+  ],
+  "batch_size": 16,
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "scheduler": "constant",
+  "optimizer_updates": 10000,
+  "loss_protocol_id": "neu_a2ms_mask_aware_candidate_v1",
+  "loss_weights": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "rng_policy": "isolated_v1",
+  "initialization": "from_scratch_common_seed",
+  "checkpoint_selection": "fixed final optimizer update 10000",
+  "performance_early_stop": false,
+  "definitions": {
+    "coupled_transport": {
+      "stage1": "T=transport(L,R); D=edge_fusion(E,L+T,R-T)",
+      "final": "arm2(D,M-T)",
+      "detail_head": "L+T",
+      "predictor_calls_per_forward": 1
+    },
+    "recomputed_final_transport": {
+      "stage1": "identical to coupled_transport",
+      "final": "T_final=transport(D,M); arm2(D,M-T_final)",
+      "detail_head": "L+T",
+      "predictor_calls_per_forward": 2,
+      "same_predictor_parameters": true,
+      "additional_parameters": 0
+    }
+  },
+  "frozen_asset_sha256": {
+    "train_manifest_sha256": "d02f651e2808579d59a179e43c32e37b40ba7a72db6535864a504900dc4746dd",
+    "validation_manifest_sha256": "436cd120bf524a985f5546aa3f5db5d208de06a31e4d2e418493bcbda1889298",
+    "condition_sha256": "df89e01e904e4fe028b0bf775d9a846cb2ce78ef5b6c300aceeddb355d2726ca",
+    "split_audit_sha256": "6733f512a682295a39c8157708e9b713d79b49642d491f8d6df540b10f93ef69",
+    "quarantine_manifest_sha256": "3e68bd4a7f20f38111bdf2efd7b4c1444852db59f28dd81b9685b0a79003b4cd"
+  },
+  "asset_sha_source": "E1-A coupled seed2027 executed_config.json at specified results commit; real files checked by prepare/preflight",
+  "no_training_or_data_freeze_executed_locally": true,
+  "source_base_commit": "faed7033e78e5a7a9e6dc5a2f798545aa31e52e7",
+  "comparison_direction": "coupled_transport minus recomputed_final_transport"
+}
