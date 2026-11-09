@@ -8,11 +8,11 @@ def tensor_sha(tensor):
     return hashlib.sha256(str(value.dtype).encode()+str(tuple(value.shape)).encode()+value.numpy().tobytes()).hexdigest()
 
 
-def audit(seed=1337,variants=None):
+def audit(seed=1337,variants=None,num_classes=4):
     from ..models import build_model
     first=None;first_transport=None;details={};errors=[]
     for variant in (MATRIX if variants is None else variants):
-        model=build_model(variant,4,seed)
+        model=build_model(variant,num_classes,seed)
         common={k:tensor_sha(v) for k,v in model.state_dict().items() if not k.startswith('transport.')}
         if first is None:first=common
         if common!=first:errors.append(variant+':common_initial_tensor_mismatch')

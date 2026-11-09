@@ -18,10 +18,8 @@ def digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
 def source_digest():
-    root=Path(__file__).resolve().parents[1]
-    files=sorted(list(root.rglob('*.py'))+[root/'vendor/provenance.json'])
-    payload='\n'.join(str(f.relative_to(root))+':'+digest(f) for f in files)
-    return hashlib.sha256(payload.encode()).hexdigest()
+    from .handoff_common import source_snapshot_sha256
+    return source_snapshot_sha256()
 
 
 def records(path, sha):
@@ -107,6 +105,10 @@ def main():
     p.add_argument('--preflight-sha256',help='SHA-256 of exact prior report bytes')
     p.add_argument('--authorize-gpu',action='store_true'); p.add_argument('--preflight-only',action='store_true')
     args=p.parse_args(); planned_cfg=json.loads(Path(args.config).read_text()); cfg=resolve_config(planned_cfg,args.config)
+    if planned_cfg.get('dataset_id')=='ksdd2':
+        from .ksdd2_task import run
+        return run(args)
+    if planned_cfg.get('dataset_id') not in (None,'neu'):p.error('Unknown explicit dataset_id')
     if protocol_errors(cfg): p.error('Fixed E0 protocol mismatch: '+str(protocol_errors(cfg)))
     if args.variant not in cfg['matrix']: p.error('variant not in predeclared matrix')
     if mode_errors(cfg,args.variant):p.error('Run mode mismatch: '+str(mode_errors(cfg,args.variant)))
@@ -246,52 +248,9 @@ def main():
         train_loader=DataLoader(SegmentationData(train,cfg['input_hw'],True,rng=augmentation_rng),batch_size=cfg['batch_size'],shuffle=True,drop_last=True,num_workers=0,generator=sample_rng)
         val_loader=DataLoader(SegmentationData(val,cfg['input_hw']),batch_size=1,shuffle=False,num_workers=0,generator=val_rng)
         it=iter(train_loader)
-        training_response=[];response_hook=None;capture_training_response=False
-        if cfg.get('experiment_stage') in ('E1-B','E1-C'):
-            def training_diagnostic(module,inputs,outputs):
-                if capture_training_response and module.training:
-                    with torch.no_grad():training_response.append(response_stats(inputs[0],inputs[1],outputs[0],outputs[1]))
-            response_hook=model.transport.register_forward_hook(training_diagnostic)
-        with (run/'metrics.jsonl').open('x') as log, (run/'updates.jsonl').open('x') as updates:
-            for step in range(1,cfg['optimizer_updates']+1):
-                check_budget(started,run,runtime_budget,check_disk=step%100==1)
-                step_started=time.perf_counter()
-                try: x,y=next(it)
-                except StopIteration: it=iter(train_loader); x,y=next(it)
-                model.train(); optimizer.zero_grad(set_to_none=True)
-                capture_training_response=(step%cfg['validation_every']==0 or step==cfg['optimizer_updates'])
-                training_response.clear()
-                total,parts=joint_loss_with_protocol(model(x.cuda()),y.cuda(),cfg['loss_weights'],cfg['loss_protocol_id'])
-                require_finite_loss(total,parts,loss_component_names(cfg['loss_protocol_id']),run,step,metadata['completed_updates'],cfg['loss_protocol_id'])
-                total.backward()
-                require_finite(((n,p.grad) for n,p in model.named_parameters()),'gradient')
-                optimizer.step()
-                metadata['completed_updates']=step
-                updates.write(json.dumps({'completed_updates':step})+'\n'); updates.flush()
-                require_finite(model.named_parameters(),'parameter')
-                torch.cuda.synchronize()
-                step_seconds=time.perf_counter()-step_started
-                row={'optimizer_updates':step,'step_seconds':step_seconds,'elapsed_wall_seconds':time.perf_counter()-started,'loss':float(total.detach()),'components':[float(v.detach()) for v in parts],'lr':optimizer.param_groups[0]['lr']}
-                if cfg.get('experiment_stage') in ('E1-B','E1-C') and capture_training_response:
-                    row['training_transport_response']=list(training_response)
-                    row['mechanism_response_scope']=('TRAIN_LAST_BATCH_FEATURE_DIAGNOSTIC; two ordered calls: stage1, final' if cfg['experiment_stage']=='E1-C' else 'TRAIN_LAST_BATCH_FEATURE_DIAGNOSTIC; head_shift_only has no inference transport')
-                if step%cfg['validation_every']==0 or step==cfg['optimizer_updates']:
-                    row['validation']=validate(model,val_loader,cfg['num_classes'],conditions,lambda:check_budget(started,run,runtime_budget,False))
-                    row['validation_summary']=summarize_validation(row['validation'])
-                    row['stop_flags']=[]  # Safety-only: performance and response remain diagnostics.
-                    check_budget(started,run,runtime_budget)
-                    if hasattr(model,'transport'):
-                        row['transport_last_weight_norm']=float(model.transport.predict[-1].weight.detach().norm())
-                    recovery={'model':model.state_dict(),'optimizer':optimizer.state_dict(),'optimizer_updates':step,'config':cfg,
-                              'python_rng':random.getstate(),'numpy_rng':np.random.get_state(),'torch_rng':torch.get_rng_state(),
-                              'cuda_rng':torch.cuda.get_rng_state_all(),'sampler_rng':sample_rng.get_state(),
-                              'validation_rng':val_rng.get_state(),'augmentation_rng':augmentation_rng.getstate()}
-                    torch.save(recovery,run/'recovery.tmp')
-                    os.replace(run/'recovery.tmp',run/'recovery.pt')
-                log.write(json.dumps(row)+'\n'); log.flush()
-            torch.save({'model':model.state_dict(),'optimizer':optimizer.state_dict(),'optimizer_updates':step,'config':cfg},run/'endpoint.pt')
-        check_budget(started,run,runtime_budget)
-        if response_hook is not None:response_hook.remove()
+        from .training_loop import execute_updates
+        execute_updates(model,optimizer,train_loader,val_loader,cfg,run,metadata,started,runtime_budget,
+                        sample_rng,val_rng,augmentation_rng,it,legacy_validate=validate,conditions=conditions)
         metadata.update(status='complete',checkpoint_sha256=digest(run/'endpoint.pt'),
                         elapsed_wall_seconds=time.perf_counter()-started,peak_cuda_bytes=torch.cuda.max_memory_allocated())
     except Exception as exc:
@@ -303,4 +262,4 @@ def main():
         metadata['result_status']=completion(metadata['status'],metadata['completed_updates'],metadata['planned_updates'])
         (run/'run.json').write_text(json.dumps(metadata,indent=2))
 
-if __name__=='__main__': main()
+if __name__=='__main__': raise SystemExit(main())

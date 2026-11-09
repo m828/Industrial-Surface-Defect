@@ -7,6 +7,12 @@ E1B_MATRIX=['stage1_only','head_shift_only','no_head_shift']
 E1C_MATRIX=['recomputed_final_transport']
 
 
+def source_snapshot_sha256():
+    root=Path(__file__).resolve().parents[1]
+    files=sorted(list(root.rglob('*.py'))+[root/'vendor/provenance.json'])
+    return hashlib.sha256('\n'.join(str(f.relative_to(root))+':'+sha256(f) for f in files).encode()).hexdigest()
+
+
 def experiment_matrix(cfg):
     if cfg.get('experiment_stage')=='E1-C':return E1C_MATRIX
     return E1B_MATRIX if cfg.get('experiment_stage')=='E1-B' else MATRIX

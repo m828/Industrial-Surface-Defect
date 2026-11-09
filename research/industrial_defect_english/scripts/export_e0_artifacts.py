@@ -58,6 +58,9 @@ def export(run_dir,output,preflight_report=None):
     source=Path(run_dir);target=Path(output)
     if target.exists():raise FileExistsError('Refuse existing export directory')
     meta=json.loads((source/'run.json').read_text())
+    if meta.get('dataset_id')=='ksdd2':
+        from .ksdd2_artifacts import export as export_task
+        return export_task(source,output,preflight_report)
     check_content(meta)
     cfg=meta.get('executed_config',meta.get('config',{}))
     modes=experiment_matrix(cfg)

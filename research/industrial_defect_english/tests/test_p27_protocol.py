@@ -70,11 +70,12 @@ class P27ProtocolTests(unittest.TestCase):
 
     def test_no_performance_or_response_stop_calls_in_runner(self):
         text=Path('research/industrial_defect_english/scripts/train_e0_ready.py').read_text()
-        calls=[n for n in ast.walk(ast.parse(text)) if isinstance(n,ast.Call)]
+        loop=Path('research/industrial_defect_english/scripts/training_loop.py').read_text()
+        calls=[n for n in ast.walk(ast.parse(text+loop)) if isinstance(n,ast.Call)]
         self.assertFalse(any(isinstance(n.func,ast.Name) and n.func.id=='relative_stop_flags' for n in calls))
-        self.assertNotIn('collapse_count',text);self.assertNotIn('harm_count',text)
-        self.assertLess(text.index('require_finite_loss(total'),text.index('optimizer.step()'))
-        self.assertLess(text.index('bind_preflight(args.preflight_report'),text.index('optimizer.step()'))
+        self.assertNotIn('collapse_count',text+loop);self.assertNotIn('harm_count',text+loop)
+        self.assertLess(loop.index('require_finite_loss(total'),loop.index('optimizer.step()'))
+        self.assertLess(text.index('bind_preflight(args.preflight_report'),text.index('execute_updates(model,'))
 
     def test_quarantine_partition_and_server_recheck(self):
         with tempfile.TemporaryDirectory() as td:

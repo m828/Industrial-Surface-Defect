@@ -112,7 +112,11 @@ class P26GateTests(unittest.TestCase):
 
     def test_training_guards_precede_optimizer_step(self):
         text=Path('research/industrial_defect_english/scripts/train_e0_ready.py').read_text()
-        self.assertLess(text.index('bind_preflight(args.preflight_report'),text.index('optimizer.step()'))
+        self.assertLess(text.index('bind_preflight(args.preflight_report'),text.index('execute_updates(model,'))
+        loop=Path('research/industrial_defect_english/scripts/training_loop.py').read_text()
+        self.assertLess(loop.index('require_finite_loss(total'),loop.index('optimizer.step()'))
+        task=Path('research/industrial_defect_english/scripts/ksdd2_task.py').read_text()
+        self.assertLess(task.index('bind_preflight(args.preflight_report'),task.index('execute_updates(model,'))
         legacy=Path('research/industrial_defect_english/scripts/train_e0.py').read_text()
         self.assertLess(legacy.index('Legacy runner is diagnostic-only'),legacy.index('optimizer.step()'))
 

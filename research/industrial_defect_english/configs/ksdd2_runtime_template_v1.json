@@ -1,0 +1,74 @@
+{
+  "dataset_id": "ksdd2",
+  "task_protocol_id": "ksdd2_binary_fixed_endpoint_candidate_v1",
+  "data_freeze_id": "KSDD2_DATA_FROZEN_V1",
+  "num_classes": 2,
+  "matrix": [
+    "formal_a2ms",
+    "capacity_control",
+    "coupled_transport",
+    "recomputed_final_transport"
+  ],
+  "seed": 1337,
+  "batch_id": null,
+  "input_hw": [
+    672,
+    256
+  ],
+  "mask_encoding": "zero_255",
+  "image_normalization": "RGB/255",
+  "resize": false,
+  "crop": false,
+  "padding": "right_bottom_replicate",
+  "prediction": "two_logits_argmax_no_postprocess",
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "scheduler": "constant",
+  "batch_size": 16,
+  "optimizer_updates": 10000,
+  "validation_every": 1000,
+  "checkpoint_selection": "fixed final optimizer update 10000",
+  "initialization": "from_scratch_common_seed",
+  "rng_policy": "isolated_v1",
+  "augmentation": "paired_horizontal_flip_before_padding_p05_v1",
+  "loss_protocol_id": "ksdd2_binary_masked_ohem_detail_candidate_v1",
+  "loss_weights": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "class_weights": null,
+  "ohem": {
+    "threshold": 0.7,
+    "min_kept": 100000,
+    "empty_policy": "mean_ce_on_valid"
+  },
+  "detail_valid_radius": 4,
+  "evaluation_split": "development_validation",
+  "performance_early_stop": false,
+  "response_early_stop": false,
+  "data_root": null,
+  "runs_root": null,
+  "assets": {},
+  "asset_sha256": {},
+  "schema": {},
+  "expected_source_sha256": null,
+  "scientific_protocol_approved": false,
+  "gpu_training_approved": false,
+  "budget": {
+    "author_approved": false,
+    "max_wall_seconds_per_run": null,
+    "max_batch_gpu_hours": null,
+    "max_run_bytes": null,
+    "min_free_bytes": null
+  },
+  "stopping": {
+    "author_approved": false,
+    "policy": "safety_and_resource_only"
+  },
+  "scope": "candidate training protocol; DATA_FROZEN_V1 is independent of training/GPU approval"
+}

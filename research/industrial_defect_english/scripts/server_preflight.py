@@ -62,6 +62,19 @@ def verify_d4_against_source(train_list,test_list,data_root,train,val,evidence,q
 
 
 def preflight(expected,config,require_gpu=True,variant=None,run_id=None):
+    try:
+        raw_task=json.loads(Path(config).read_text())
+        if not isinstance(raw_task,dict):raise ValueError('Config must be a JSON object')
+    except (OSError,ValueError) as exc:
+        return {'status':'BLOCKED','blockers':[str(exc)],'optimizer_steps':0,'training_authorized':False}
+    if raw_task.get('dataset_id')=='ksdd2':
+        try:
+            from .ksdd2_task import preflight as task_preflight
+            return task_preflight(expected,config,require_gpu,variant,run_id)
+        except Exception as exc:
+            return {'dataset_id':'ksdd2','status':'BLOCKED','blockers':[type(exc).__name__+': '+str(exc)],'optimizer_steps':0,'training_authorized':False}
+    if raw_task.get('dataset_id') not in (None,'neu'):
+        return {'status':'BLOCKED','blockers':['Unknown explicit dataset_id'],'optimizer_steps':0,'training_authorized':False}
     report={'stage':'P2_PREFLIGHT_ONLY','training_authorized':False,'optimizer_steps':0,
             'status':'BLOCKED','checks':{},'blockers':[]}
     try:

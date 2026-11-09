@@ -1,0 +1,32 @@
+{
+  "manifest": {
+    "sample_id": "/sample_id",
+    "image_relative": "/image_relative",
+    "mask_relative": "/mask_relative",
+    "image_sha256": "/image_sha256",
+    "mask_sha256": "/mask_sha256",
+    "native_hw": "/native_hw",
+    "gt_positive": "/gt_positive",
+    "original_split": "/original_split",
+    "group_id": "/group_id"
+  },
+  "preprocessing": {
+    "input_hw": "/input_hw",
+    "num_classes": "/num_classes",
+    "mask_values": "/mask_values"
+  },
+  "area": {
+    "p33": "/p33",
+    "source_positive_n": "/source_positive_n"
+  },
+  "split_report": {
+    "freeze_id": "/freeze_id",
+    "train_n": "/train_n",
+    "validation_n": "/validation_n",
+    "train_positive_n": "/train_positive_n",
+    "validation_positive_n": "/validation_positive_n"
+  },
+  "fingerprint": {
+    "dataset_id": "/dataset_id"
+  }
+}

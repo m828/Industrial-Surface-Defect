@@ -1,0 +1,77 @@
+{
+  "status": "HISTORICAL_PRE_FREEZE_DRAFT_DO_NOT_EXECUTE",
+  "dataset": "KSDD2",
+  "task": "binary_exclusive",
+  "num_classes": 2,
+  "matrix": [
+    "formal_a2ms",
+    "capacity_control",
+    "coupled_transport",
+    "recomputed_final_transport"
+  ],
+  "training_seeds": [
+    1337,
+    2027,
+    3407
+  ],
+  "expected_official_counts": {
+    "train": 2331,
+    "train_positive": 246,
+    "train_normal": 2085,
+    "test": 1004,
+    "test_positive": 110,
+    "test_normal": 894
+  },
+  "split_seed_proposal": 1337,
+  "validation_fraction_proposal": 0.2,
+  "split_policy": "grouped_by_available_parent_and_exact_content; UNKNOWN parent remains declared",
+  "class_mapping": {
+    "0": "background",
+    "1": "defect"
+  },
+  "mask_encoding": null,
+  "input_hw": null,
+  "native_pad_hw_candidate": [
+    640,
+    256
+  ],
+  "input_policy": "native RGB/255; no resize or crop; replicate right/bottom padding; separate valid mask; actual H/W checked before approval",
+  "training_augmentation_proposal": "paired horizontal flip p=0.5 BEFORE padding; isolated_v1",
+  "loss_protocol_id_candidate": "ksdd2_binary_masked_ohem_detail_candidate_v1",
+  "loss_route_weights_proposal": [
+    10,
+    1,
+    3,
+    3
+  ],
+  "class_weights": null,
+  "mask_aware_duplicate_binary_routes": false,
+  "detail_validity": "valid region eroded by radius4; all native pixels retained for segmentation",
+  "empty_hard_pixel_policy_candidate": "mean CE on valid pixels; record event; not historical NEU behavior",
+  "optimizer_proposal": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 2e-06
+  },
+  "batch_size_proposal": 16,
+  "updates_proposal": 10000,
+  "scheduler_proposal": "constant",
+  "validation_every_proposal": 1000,
+  "checkpoint_selection_proposal": "fixed final actual optimizer update",
+  "initialization_proposal": "from_scratch_common_seed; all four models on KSDD2 with two logits",
+  "sampling_proposal": "uniform no replacement per epoch; drop_last true; identical isolated sampler/augmentation RNG",
+  "performance_early_stop": false,
+  "primary_metrics": [
+    "global_foreground_iou",
+    "global_foreground_dice"
+  ],
+  "small_threshold": "development train GT-positive native area fraction P33, numpy linear",
+  "official_test_model_selection": false,
+  "source_base_commit": "8abd026bb6b0fce051196379604f9c0ccabd6aac",
+  "source_ready": false,
+  "server_data_verified": false,
+  "split_frozen": false,
+  "gpu_training_approved": false,
+  "budget_approved": false,
+  "superseded_by": "ksdd2_runtime_template_v1.json"
+}
