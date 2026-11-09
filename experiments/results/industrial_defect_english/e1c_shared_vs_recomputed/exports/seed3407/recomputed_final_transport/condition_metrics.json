@@ -1,0 +1,122 @@
+{
+  "class1_complexity_all": {
+    "n": 393,
+    "case_macro_iou": 0.5714538777294467,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_complexity_small": {
+    "n": 66,
+    "case_macro_iou": 0.5247096178883855,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_complexity_medium": {
+    "n": 94,
+    "case_macro_iou": 0.6138166831211841,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_complexity_large": {
+    "n": 233,
+    "case_macro_iou": 0.5676041671830377,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_area_all": {
+    "n": 393,
+    "case_macro_iou": 0.5714538777294467,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_area_small": {
+    "n": 144,
+    "case_macro_iou": 0.48945935619606945,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_area_medium": {
+    "n": 146,
+    "case_macro_iou": 0.6157365668922254,
+    "information_level": "EXPLORATORY"
+  },
+  "class1_area_large": {
+    "n": 103,
+    "case_macro_iou": 0.6233173581473168,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_complexity_all": {
+    "n": 390,
+    "case_macro_iou": 0.8253844634080545,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_complexity_small": {
+    "n": 218,
+    "case_macro_iou": 0.8331310904900963,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_complexity_medium": {
+    "n": 112,
+    "case_macro_iou": 0.8187994648303304,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_complexity_large": {
+    "n": 60,
+    "case_macro_iou": 0.8095303823550543,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_area_all": {
+    "n": 390,
+    "case_macro_iou": 0.8253844634080545,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_area_small": {
+    "n": 234,
+    "case_macro_iou": 0.8123859758051033,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_area_medium": {
+    "n": 110,
+    "case_macro_iou": 0.834740138053894,
+    "information_level": "EXPLORATORY"
+  },
+  "class2_area_large": {
+    "n": 46,
+    "case_macro_iou": 0.8691349392351897,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_complexity_all": {
+    "n": 383,
+    "case_macro_iou": 0.7016738232944949,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_complexity_small": {
+    "n": 90,
+    "case_macro_iou": 0.810998989144961,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_complexity_medium": {
+    "n": 133,
+    "case_macro_iou": 0.7010460238119489,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_complexity_large": {
+    "n": 160,
+    "case_macro_iou": 0.6407002758234739,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_area_all": {
+    "n": 383,
+    "case_macro_iou": 0.7016738232944949,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_area_small": {
+    "n": 156,
+    "case_macro_iou": 0.6081698636094538,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_area_medium": {
+    "n": 145,
+    "case_macro_iou": 0.7297588031867455,
+    "information_level": "EXPLORATORY"
+  },
+  "class3_area_large": {
+    "n": 82,
+    "case_macro_iou": 0.8298969406907152,
+    "information_level": "EXPLORATORY"
+  }
+}
